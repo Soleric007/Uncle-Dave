@@ -1043,7 +1043,7 @@
     </section>
 
     <!-- App Section start -->
-    <section class="app-section position-relative py-lg-0 py-5 fix bg-cover"
+    {{-- <section class="app-section position-relative py-lg-0 py-5 fix bg-cover"
         style="background-image: url(/template/assets/img/apps-bg.jpg);">
         <div class="container position-relative py-lg-5">
             <div class="row g-4 align-items-center justify-content-between py-5">
@@ -1067,7 +1067,7 @@
             </div>
         </div>
         <img src="/template/assets/img/fresh-beef.png" alt="img" class="app-buger position-absolute bounce-x">
-    </section>
+    </section> --}}
 
     <div class="client-section z-1 position-relative pb-100 pt-80 fix">
         <div class="container">
@@ -1204,154 +1204,75 @@
         </div>
     </div>
 
-    <!-- Blog section start -->
-    <section class="blog-section section-bg2 pt-100 pb-100">
-        <div class="container">
-            <div class="section-title-style1 mx-auto mb-40 max-w-450 text-center">
-                <h3 class="wow fadeInUp mb-sm-3 fw-bold mb-2 white-clr text-black fs-30 lh-1 fw-semibold text-capitalize"
-                    data-wow-delay=".3s">
-                    Latest blog posts
-                </h3>
-                <p class="fs-16 wow fadeInUp" data-wow-delay="0.5s">dolor sit amet consectetur. Massa a of est sit
-                    commodo
-                    convallis auctor aliquet ready works</p>
-            </div>
-            <div class="row g-md-4 g-4">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-single-item card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
-                        data-wow-delay=".4s">
-                        <div class="thumb d-block w-100 overflow-hidden">
-                            <img src="/template/assets/img/home-1/blog1.png" alt="img" class="w-100 overflow-hidden">
-                        </div>
-                        <div class="content position-absolute bottom-0 z-1 bg-white rounded-12 p-lg-4 p-3 mb-3"
-                            style="width: 90%; left: 50%; transform: translateX(-50%);">
-                            <div class="p-xxl-2">
-                                <ul class="blog-admin mb-1 d-flex align-items-center gap-2">
-                                    <li class="d-flex align-items-center gap-2 text-clr">
-                                        <i class="fa-regular fa-calendar text-clr"></i> 25 May, 2025 / Food
-                                    </li>
-                                </ul>
-                                <h4>
-                                    <a href="blog-details.html" class="fw-semibold lh-base">
-                                        Chef’s specialty Food for
-                                        personal and all staff
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-single-item card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
-                        data-wow-delay=".6s">
-                        <div class="thumb d-block w-100 overflow-hidden">
-                            <img src="/template/assets/img/home-1/blog2.jpg" alt="img" class="w-100 overflow-hidden">
-                        </div>
-                        <div class="content position-absolute bottom-0 z-1 bg-white rounded-12 p-lg-4 p-3 mb-3"
-                            style="width: 90%; left: 50%; transform: translateX(-50%);">
-                            <div class="p-xxl-2">
-                                <ul class="blog-admin mb-1 d-flex align-items-center gap-2">
-                                    <li class="d-flex align-items-center gap-2 text-clr">
-                                        <i class="fa-regular fa-calendar text-clr"></i> 25 May, 2025 / Food
-                                    </li>
-                                </ul>
-                                <h4>
-                                    <a href="blog-details.html" class="fw-semibold lh-base">
-                                        Marinate chicken Mango
-                                        achiote, a Yucatecan
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-single-item card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
-                        data-wow-delay=".8s">
-                        <div class="thumb d-block w-100 overflow-hidden">
-                            <img src="/template/assets/img/home-1/blog3.jpg" alt="img" class="w-100 overflow-hidden">
-                        </div>
-                        <div class="content position-absolute bottom-0 z-1 bg-white rounded-12 p-lg-4 p-3 mb-3"
-                            style="width: 90%; left: 50%; transform: translateX(-50%);">
-                            <div class="p-xxl-2">
-                                <ul class="blog-admin mb-1 d-flex align-items-center gap-2">
-                                    <li class="d-flex align-items-center gap-2 text-clr">
-                                        <i class="fa-regular fa-calendar text-clr"></i> 25 May, 2025 / Food
-                                    </li>
-                                </ul>
-                                <h4>
-                                    <a href="blog-details.html" class="fw-semibold lh-base">
-                                        Preparation the best of
-                                        vegetables, and starches
-                                    </a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- team partner section start -->
-    <section class="team-partner-section position-relative z-1 section-bg2 pb-100">
-        <div class="container">
-            <div class="row g-md-4 g-4">
-                <div class="col-md-6 col-lg-6">
-                    <div class="partner-single-item p-lg-4 p-3 bg7 card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
-                        data-wow-delay=".3s">
-                        <div
-                            class="d-flex flex-sm-nowrap flex-wrap align-items-xl-center align-items-start gap-xxl-4 gap-xl-3 gap-3 py-xxl-2 px-xxl-3">
-                            <div class="thumb min-w-110 d-block max-w-150 overflow-hidden rounded-12">
-                                <img src="/template/assets/img/home-1/partner-thum1.png" alt="img"
-                                    class="w-100 overflow-hidden rounded-12">
-                            </div>
-                            <div class="content max-w-350">
-                                <div class="p-xxl-2">
-                                    <h4 class="mb-1">
-                                        <a href="{{ route('order.tracking') }}" class="fw-semibold lh-base">
-                                            List Your Restaurant
-                                        </a>
-                                    </h4>
-                                    <p class="fs-16 mb-xxl-3 mb-2">dolor sitmet consecte Massa areestery
-                                        sit commodo convallis auctor.</p>
-                                    <a href="{{ route('order.tracking') }}" class="theme-btn py-2 heading-font">
-                                        Become a Partner <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+<section class="team-partner-section position-relative z-1 section-bg2 pb-100">
+    <div class="container">
+        <div class="row g-md-4 g-4">
+
+            <!-- Order a Meal -->
+            <div class="col-md-6 col-lg-6">
+                <div class="partner-single-item p-lg-4 p-3 bg7 card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
+                    data-wow-delay=".3s">
+                    <div
+                        class="d-flex flex-sm-nowrap flex-wrap align-items-xl-center align-items-start gap-xxl-4 gap-xl-3 gap-3 py-xxl-2 px-xxl-3">
+                        <div class="thumb min-w-110 d-block max-w-150 overflow-hidden rounded-12">
+                            <img src="/template/assets/img/home-1/partner-thum1.png" alt="img"
+                                class="w-100 overflow-hidden rounded-12">
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="partner-single-item p-lg-4 p-3 bg7 card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
-                        data-wow-delay=".5s">
-                        <div
-                            class="d-flex flex-sm-nowrap flex-wrap align-items-xl-center align-items-start gap-xxl-4 gap-xl-3 gap-3 py-xxl-2 px-xxl-3">
-                            <div class="thumb min-w-110 d-block max-w-150 overflow-hidden rounded-12">
-                                <img src="/template/assets/img/home-1/partner-thum2.png" alt="img"
-                                    class="w-100 overflow-hidden rounded-12">
-                            </div>
-                            <div class="content max-w-350">
-                                <div class="p-xxl-2">
-                                    <h4 class="mb-1">
-                                        <a href="{{ route('order.tracking') }}" class="fw-semibold lh-base">
-                                            Become a food Hero!
-                                        </a>
-                                    </h4>
-                                    <p class="fs-16 mb-xxl-3 mb-2">dolor sitmet consecte Massa areestery
-                                        sit commodo convallis auctor.</p>
-                                    <a href="{{ route('order.tracking') }}" class="theme-btn py-2 heading-font">
-                                        Become a Hero <i class="fa-solid fa-arrow-right"></i>
+                        <div class="content max-w-350">
+                            <div class="p-xxl-2">
+                                <h4 class="mb-1">
+                                    <a href="{{ route('shop') }}" class="fw-semibold lh-base">
+                                        Order Your Favorite Meal
                                     </a>
-                                </div>
+                                </h4>
+                                <p class="fs-16 mb-xxl-3 mb-2">
+                                    Explore our delicious menu, pick your favorite dishes, add them to your cart,
+                                    and place your order in just a few clicks.
+                                </p>
+                                <a href="{{ route('shop') }}" class="theme-btn py-2 heading-font">
+                                    Order Now <i class="fa-solid fa-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Track Your Order -->
+            <div class="col-md-6 col-lg-6">
+                <div class="partner-single-item p-lg-4 p-3 bg7 card-effect position-relative rounded-16 overflow-hidden wow fadeInUp"
+                    data-wow-delay=".5s">
+                    <div
+                        class="d-flex flex-sm-nowrap flex-wrap align-items-xl-center align-items-start gap-xxl-4 gap-xl-3 gap-3 py-xxl-2 px-xxl-3">
+                        <div class="thumb min-w-110 d-block max-w-150 overflow-hidden rounded-12">
+                            <img src="/template/assets/img/home-1/partner-thum2.png" alt="img"
+                                class="w-100 overflow-hidden rounded-12">
+                        </div>
+                        <div class="content max-w-350">
+                            <div class="p-xxl-2">
+                                <h4 class="mb-1">
+                                    <a href="{{ route('order.tracking') }}" class="fw-semibold lh-base">
+                                        Track Your Food
+                                    </a>
+                                </h4>
+                                <p class="fs-16 mb-xxl-3 mb-2">
+                                    Already placed an order? Stay updated and track your food in real time — from our kitchen to your doorstep.
+                                </p>
+                                <a href="{{ route('order.tracking') }}" class="theme-btn py-2 heading-font">
+                                    Track Now <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1459,7 +1380,7 @@
                         <div class="single-footer-widget pt-0 pb-0">
                             <div class="widget-head">
                                 <a href="{{ route('index') }}">
-                                    <img style="width: 200px" src="/template/assets/img/logo/logo-theme.png" alt="logo-img">
+                                    <img style="width: 200px" src="/template/assets/img/logo/logowhite.png" alt="logo-img">
                                 </a>
                             </div>
                             <div class="footer-content">
@@ -1478,7 +1399,7 @@
                                 Quick Links
                             </h5>
                             <ul class="important-link d-grid gap-sm-2 gap-1">
-                                
+
                                 <li>
                                     <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Get to know
                                         us</a>
