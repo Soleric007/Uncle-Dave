@@ -12,7 +12,7 @@
     <!-- ======== Page title ============ -->
     <title>Uncle Dave</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="/template/assets/img/logo/favicon.png">
+    <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -61,7 +61,7 @@
                 <span data-text-preloader="E" class="letters-loading">
                     E
                 </span>
-                
+
                 <span data-text-preloader="D" class="letters-loading">
                     D
                 </span>
@@ -71,11 +71,14 @@
                 <span data-text-preloader="V" class="letters-loading">
                     V
                 </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
+                <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
+                <span data-text-preloader="D" class="letters-loading">
+                    D
                 </span>
             </div>
-            <p class="text-center">Loading</p>
+            <p class="text-center">CUISINE</p>
         </div>
         <div class="loader">
             <div class="row">
@@ -99,7 +102,7 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu_btn" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header border-bottom">
             <div class="offcanvas-title" id="offcanvasExampleLabel">
-                <img src="/template/assets/img/logo/log-black.png" alt="img">
+                <img style="width: 200px" src="/template/assets/img/logo/logo-black.png" alt="img">
             </div>
             <button type="button" class="w-32px h-32px rounded d-center theme-bg text-white" data-bs-dismiss="offcanvas"
                 aria-label="Close">
@@ -142,7 +145,6 @@
                         <a href="{{ route('faqs') }}"
                             class="clickAble border-bottom rounded-1 py-2 pe-3 w-100 d-flex align-items-center justify-content-between">
                             Faqs
-
                         </a>
 
                     </li>
@@ -156,7 +158,7 @@
                                 <i class="fal fa-map-marker-alt"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a target="_blank" href="#">Strits Es/154 Maces Road 1/8 United State</a>
+                                <a target="_blank" href="#">No 17 ojife street Nnebisi road Asaba Delta State</a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -164,10 +166,9 @@
                                 <i class="fal fa-envelope"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a href="mailto:info@example.com"><span
-                                        class="mailto:info@example.com">info@example.com</span></a>
-                                <a href="mailto:info@example.com"><span
-                                        class="mailto:info@example.com">ex@example.com</span></a>
+                                <a href="mailto:uncledavidscuisine@gmail.com"><span
+                                        class="mailto:uncledavidscuisine@gmail.com">uncledavidscuisine@gmail.com</span></a>
+
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -175,7 +176,7 @@
                                 <i class="fal fa-clock"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a target="_blank" href="#">Sat-friday, 02am -09pm</a>
+                                <a target="_blank" href="#">Monday - Saturday</a>
                             </div>
                         </li>
                         <li class="d-flex align-items-center">
@@ -183,8 +184,8 @@
                                 <i class="far fa-phone"></i>
                             </div>
                             <div class="offcanvas__contact-text">
-                                <a href="tel:+11002345909" class="d-block">365 5552-0127</a>
-                                <a href="tel:+11002345909">5421 5545 5422</a>
+                                <a href="tel:+2347063764926" class="d-block">07063764926</a>
+
                             </div>
                         </li>
                     </ul>
@@ -196,10 +197,10 @@
                         </a>
                     </div>
                     <div class="social-icon d-flex align-items-center">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"  target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
                     </div>
                 </div>
             </div>
@@ -218,11 +219,11 @@
                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu_btn">
                             <i class="fa-solid fa-bars"></i>
                         </button>
-                        <a href="{{ route('contact') }}" class="d-sm-flex d-none align-items-center gap-lg-2 gap-1 text-white">
+                        <a href="tel:+2347063764926" class="d-sm-flex d-none align-items-center gap-lg-2 gap-1 text-white">
                             <i class="fa-solid fa-phone"></i>
                             <span class="">
                                 <span class="fs-10 body-font lh-1 fw-semibold text-white d-block">Hotline Number:</span>
-                                <span class="fs-15 body-font fw-semibold text-white d-block">+123 9888 0066</span>
+                                <span class="fs-15 body-font fw-semibold text-white d-block">07063764926</span>
                             </span>
                         </a>
                     </div>
@@ -234,7 +235,7 @@
                         </a>
                         <div class="logo">
                             <a href="{{ route('index') }}" class="header-logo">
-                                <img src="/template/assets/img/logo/logo-white.png" alt="logo-img">
+                                <img src="/template/assets/img/logo/logowhite.png" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -244,11 +245,7 @@
                             <img width="20" src="/template/assets/img/icons/tolly.png" alt="tolly-icon">
                             <span class="count-quan d-center">02</span>
                         </button>
-                        <a href="{{ route('contact') }}"
-                            class="border-white tolly-icon-hover rounded-pill d-center gap-2 fw-bold text-white fs-14 h-40px px-4">
-                            <i class="fa-regular fa-user"></i>
-                            Log In
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -260,9 +257,7 @@
         style="background-image: url(/template/assets/img/home-1/element/hero-bg1.jpg);">
         <div class="container">
             <div class="hero-content1 z-1 pt-100 text-center">
-                <p class="fs-20 mb-lg-3 mb-2 text-white heading-font-bhalo wow fadeInUp" data-wow-delay="0.5s">Explore
-                    top-rated attractions, activities
-                    and more</p>
+                <p class="fs-20 mb-lg-3 mb-2 text-white heading-font-bhalo wow fadeInUp" data-wow-delay="0.5s">Explore delicious meals, local favorites, and more</p>
                 <h2 class="mb-sm-4 mb-3 text-white heading-font-bhalo wow fadeInUp" data-wow-delay="0.7s">Fast Delivery.
                     Zero Hassle.</h2>
                 <div class="search-adjust1 bg-white rounded-pill d-flex align-items-center justify-content-between gap-2 max-w-750 mx-auto p-2 mb-md-5 mb-4 wow fadeInUp"
@@ -292,7 +287,7 @@
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l1.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Burger</a></h6>
+                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Soups</a></h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.6s">
@@ -307,10 +302,11 @@
                         data-wow-delay="0.7s">
                         <a href="restaurant-list.html"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
-                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l3.png" alt="icon"
+                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l6.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Salad</a></h6>
+                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Rice</a>
+                        </h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.8s">
@@ -319,25 +315,26 @@
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l4.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Pizza</a></h6>
+                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Platters</a></h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.9s">
-                        <a href="restaurant-list.html"
+                    <a href="restaurant-list.html"
+                            class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
+                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l3.png" alt="icon"
+                                class="rounded-3 icon">
+                        </a>
+                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Porridges</a></h6>
+
+                    </div>
+                    <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown" data-wow-delay="1s">
+                         <a href="restaurant-list.html"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l5.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Sandwich</a></h6>
-                    </div>
-                    <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown" data-wow-delay="1s">
-                        <a href="restaurant-list.html"
-                            class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
-                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l6.png" alt="icon"
-                                class="rounded-3 icon">
-                        </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Fried Rice</a>
-                        </h6>
+                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Extras</a></h6>
+
                     </div>
                 </div>
             </div>
@@ -403,7 +400,7 @@
         </div>
     </section>
 
-    <!-- restaurant Section start -->
+    {{-- <!-- restaurant Section start -->
     <section class="restaurant-section position-relative pb-80 fix">
         <div class="container">
             <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-0 pb-2">
@@ -585,7 +582,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- restaurant Section start -->
     <section class="restaurant-section position-relative pb-80 fix">
@@ -790,8 +787,9 @@
                     data-wow-delay=".3s">
                     How to order?
                 </h3>
-                <p class="fs-16">dolor sit amet consectetur. Massa a of est sit commodo
-                    convallis auctor aliquet ready works</p>
+                <p class="fs-16">
+  Choose your meal, add to cart, checkout, and we’ll prepare it right away!
+</p>
             </div>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-4">
@@ -799,11 +797,14 @@
                         <div class="icons smooth rounded-circle w-80px h-80px d-center theme-bg mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/order-icon1.png" alt="img" class="icon">
                         </div>
-                        <h4 class="mb-xl-2 mb-2"><a href="restaurant-list.html" class="link-effect">Choose your
-                                Product</a></h4>
-                        <p class="fs-16">dolor sit amet consecte Massa areestery
-                            sit commodo convallis auctor aliquet
-                            ready moderns areaworks</p>
+                        <h4 class="mb-xl-2 mb-2">
+  <a href="restaurant-list.html" class="link-effect">Choose your meal</a>
+</h4>
+<p class="fs-16">
+  Discover freshly made dishes crafted with premium ingredients — from rich soups
+  to sizzling rice bowls and signature platters that satisfy every craving.
+</p>
+
                         <div
                             class="py-2 px-3 step-badge smooth fs-16 fw-semibold theme-clr rounded-start-pill position-absolute end-0 top-0 mt-lg-5 mt-md-4 mt-3">
                             Step-01
@@ -815,11 +816,13 @@
                         <div class="icons smooth rounded-circle w-80px h-80px d-center theme-bg mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/order-icon2.png" alt="img" class="icon">
                         </div>
-                        <h4 class="mb-xl-2 mb-2"><a href="restaurant-list.html" class="link-effect">Make your Order</a>
-                        </h4>
-                        <p class="fs-16">dolor sit amet consecte Massa areestery
-                            sit commodo convallis auctor aliquet
-                            ready moderns areaworks</p>
+                        <h4 class="mb-xl-2 mb-2">
+  <a href="restaurant-list.html" class="link-effect">Make your Order</a>
+</h4>
+<p class="fs-16">
+  Browse our menu, add your favorite meals to the cart, and proceed to checkout.
+  Enjoy a smooth and secure payment process — your delicious meal is just a few clicks away!
+</p>
                         <div
                             class="py-2 px-3 step-badge smooth fs-16 fw-semibold theme-clr rounded-start-pill position-absolute end-0 top-0 mt-lg-5 mt-md-4 mt-3">
                             Step-02
@@ -831,11 +834,13 @@
                         <div class="icons smooth rounded-circle w-80px h-80px d-center theme-bg mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/order-icon3.png" alt="img" class="icon">
                         </div>
-                        <h4 class="mb-xl-2 mb-2"><a href="restaurant-list.html" class="link-effect">Food is on the
-                                way</a></h4>
-                        <p class="fs-16">dolor sit amet consecte Massa areestery
-                            sit commodo convallis auctor aliquet
-                            ready moderns areaworks</p>
+                        <<h4 class="mb-xl-2 mb-2">
+  <a href="restaurant-list.html" class="link-effect">Food is on the way</a>
+</h4>
+<p class="fs-16">
+  Sit back and relax while we prepare your meal fresh and deliver it right to your doorstep.
+  Track your order in real time and get ready to enjoy every bite!
+</p>
                         <div
                             class="py-2 px-3 step-badge smooth fs-16 fw-semibold theme-clr rounded-start-pill position-absolute end-0 top-0 mt-lg-5 mt-md-4 mt-3">
                             Step-03
@@ -848,122 +853,7 @@
             style="bottom: -20px; right: -50px;">
     </div>
 
-    <!-- restaurant Near Section start -->
-    <section class="restaurant-near-section position-relative pt-80 pb-80 fix">
-        <div class="container">
-            <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-0 pb-2">
-                <div class="section-title-style1">
-                    <div class="d-flex flex-column gap-2">
-                        <h3 class="wow fadeInUp white-clr text-black fs-30 lh-1 fw-semibold" data-wow-delay=".3s">
-                            Restaurant Near at you
-                        </h3>
-                        <span class="w-32px section-badge1"></span>
-                    </div>
-                </div>
-                <a href="restaurant-list.html" class="theme-btn btn-outline-blak heading-font">
-                    See all Menu <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3 col-xl-3">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="0.3s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near1.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">California</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 col-xl-3">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="0.5s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near2.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">Indonesia</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 col-xl-3">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="0.7s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near3.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">Thailand</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 col-xl-3">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="0.9s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near4.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">Bangkok</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="1s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near5.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">Chiang Mai</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="restaurant-card fix position-relative card-scale rounded-12 wow fadeInUp"
-                        data-wow-delay="0.7s">
-                        <div class="thumb thumb-overlay d-block position-relative">
-                            <img src="/template/assets/img/home-1/near6.jpg" alt="img" class="w-100">
-                            <div class="con z-2 position-absolute bottom-0 start-0 mb-30 ms-30">
-                                <h5 class="mb-3">
-                                    <a href="restaurant-details.html" class="text-white link-effect">Phuket</a>
-                                </h5>
-                                <div class="theme-bg rounded py-1 px-3 fs-14 text-white">
-                                    25 Restaurants
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Big Burger Section start -->
     <section class="big-burger-section position-relative section-padding fix bg-cover"
@@ -1569,16 +1459,15 @@
                         <div class="single-footer-widget pt-0 pb-0">
                             <div class="widget-head">
                                 <a href="{{ route('index') }}">
-                                    <img src="/template/assets/img/logo/logo-theme.png" alt="logo-img">
+                                    <img style="width: 200px" src="/template/assets/img/logo/logo-theme.png" alt="logo-img">
                                 </a>
                             </div>
                             <div class="footer-content">
                                 <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
-                                    1487 Rocky Horse Carre 1487Rocky
-                                    Arlington, TX 16819 United
+                                    No 17 ojife street Nnebisi road Asaba Delta State
                                 </p>
-                                <h5 class="text-white mb-lg-3 mb-2">1800 6565 222</h5>
-                                <p class="fs-16 white-clr opacity-75">info@gmail.com</p>
+                                <h5 class="text-white mb-lg-3 mb-2"><a href="tel:+2347063764926" class="d-block" style="color: #fff">07063764926</a></h5>
+                                <p class="fs-16 white-clr opacity-75"><a href="mailto:uncledavidscuisine@gmail.com" style="color: #fff">uncledavidscuisine@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -1589,17 +1478,14 @@
                                 Quick Links
                             </h5>
                             <ul class="important-link d-grid gap-sm-2 gap-1">
-                                <li>
-                                    <a href="{{ route('contact') }}" class="text-white opacity-75 fw-light link-effect">How It
-                                        Works</a>
-                                </li>
+                                
                                 <li>
                                     <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Get to know
                                         us</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('order.tracking') }}"
-                                        class="text-white opacity-75 fw-light link-effect">Pricing Packages</a>
+                                    <a href="{{ route('shop') }}"
+                                        class="text-white opacity-75 fw-light link-effect">Get a meal</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('contact') }}" class="text-white opacity-75 fw-light link-effect">Contact
@@ -1616,61 +1502,35 @@
                             </div>
                             <ul class="important-link d-grid gap-sm-2 gap-1">
                                 <li>
-                                    <a href="{{ route('contact') }}" class="text-white opacity-75 fw-light link-effect">Help
+                                    <a href="{{ route('faqs') }}" class="text-white opacity-75 fw-light link-effect">Help
                                         Center</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Refund
-                                        Condition</a>
-                                </li>
+
                                 <li>
                                     <a href="{{ route('order.tracking') }}"
-                                        class="text-white opacity-75 fw-light link-effect">Become an Affiliate</a>
+                                        class="text-white opacity-75 fw-light link-effect">Track your Order</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('contact') }}" class="text-white opacity-75 fw-light link-effect">Cash Back
-                                        Policy</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-sm-center col-xl-4 col-lg-4 col-md-5 col-sm-6 wow fadeInUp"
-                        data-wow-delay=".5s">
-                        <div class="single-footer-widget pt-0 pb-0">
-                            <div class="widget-head text-white text-uppercase fs-20 white-clr fw-semibold">
-                                Subscribe
-                            </div>
-                            <p class="mb-4 fs-16 white-clr opacity-75">
-                                When an unknown printer took a galley of
-                                type and scrambled it to make
-                            </p>
-                            <form action="#" class="adjust-form style1 d-flex flex-column gap-2 align-items-center">
-                                <input type="text" placeholder="Type e-mail"
-                                    class="w-100 fs-14 text-white bg-1F1F1F border-0 rounded-2 py-3 px-3">
-                                <button type="submit" class="theme-btn w-100 theme-border d-center">
-                                    Subscribe Now
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div
                 class="footer-bottom d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap gap-2 fs-16 text-center">
-                <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('contact') }}" class="theme-clr">Uncle Davea</a></p>
+                <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('contact') }}" class="theme-clr">Uncle Dave</a></p>
                 <div class="d-flex align-items-center gap-4">
-                    <a href="javascript:void(0)">
+                    <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank">
                         <i class="fa-brands fa-facebook-f fs-18 text-white"></i>
                     </a>
-                    <a href="javascript:void(0)">
-                        <i class="fa-brands fa-twitter fs-18 text-white"></i>
-                    </a>
-                    <a href="javascript:void(0)">
+                    <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0" target="_blank">
                         <i class="fa-brands fa-instagram fs-18 text-white"></i>
                     </a>
-                    <a href="javascript:void(0)">
-                        <i class="fa-brands fa-pinterest-p fs-18 text-white"></i>
+                    <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank">
+                        <i class="fa-brands fa-whatsapp fs-18 text-white"></i>
                     </a>
+
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
     <!-- ======== Page title ============ -->
     <title>Uncle Dave</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="/template/assets/img/logo/favicon.png">
+    <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -61,7 +61,7 @@
                 <span data-text-preloader="E" class="letters-loading">
                     E
                 </span>
-                
+
                 <span data-text-preloader="D" class="letters-loading">
                     D
                 </span>
@@ -71,11 +71,14 @@
                 <span data-text-preloader="V" class="letters-loading">
                     V
                 </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
+               <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
+                <span data-text-preloader="D" class="letters-loading">
+                    D
                 </span>
             </div>
-            <p class="text-center">Loading</p>
+            <p class="text-center">CUISINE</p>
         </div>
         <div class="loader">
             <div class="row">
@@ -96,7 +99,6 @@
     </div>
 
     <!-- Offcanvas Area Start -->
-    <!-- Offcanvas Area Start -->
     <div class="fix-area">
         <div class="offcanvas__info">
             <div class="offcanvas__wrapper">
@@ -104,7 +106,7 @@
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
                             <a href="{{ route('index') }}">
-                                <img src="/template/assets/img/logo/logo-white.png" alt="logo-img">
+                                <img style="width: 200px" src="/template/assets/img/logo/logo-black.png" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -123,7 +125,7 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Strits Es/154 Maces Road 1/8 United State</a>
+                                    <a target="_blank" href="#">No 17 ojife street Nnebisi road Asaba Delta State</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -131,10 +133,9 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@example.com"><span
-                                            class="mailto:info@example.com">info@example.com</span></a>
-                                    <a href="mailto:info@example.com"><span
-                                            class="mailto:info@example.com">ex@example.com</span></a>
+                                    <a href="mailto:uncledavidscuisine@gmail.com"><span
+                                            class="mailto:uncledavidscuisine@gmail.com">uncledavidscuisine@gmail.com</span></a>
+
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -142,7 +143,7 @@
                                     <i class="fal fa-clock"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Sat-friday, 02am -09pm</a>
+                                    <a target="_blank" href="#">Monday - Saturday</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -150,8 +151,8 @@
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="tel:+11002345909" class="d-block">365 5552-0127</a>
-                                    <a href="tel:+11002345909">5421 5545 5422</a>
+                                    <a href="tel:+2347063764926" class="d-block">07063764926</a>
+
                                 </div>
                             </li>
                         </ul>
@@ -163,10 +164,10 @@
                             </a>
                         </div>
                         <div class="social-icon d-flex align-items-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"  target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
                         </div>
                     </div>
                 </div>
@@ -183,7 +184,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('index') }}" class="header-logo">
-                                <img src="/template/assets/img/logo/logo-white.png" alt="logo-img">
+                                <img src="/template/assets/img/logo/logowhite.png" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -272,7 +273,7 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <h2 class="white-clr fw-semibold text-center heading-font mb-2">
-                    Shop Details
+                    Cart Page
                 </h2>
                 <ul class="breadcrumb align-items-center justify-content-center flex-wrap gap-3">
                     <li>
@@ -292,7 +293,7 @@
                         <i class="fa-solid fa-angle-right"></i>
                     </li>
                     <li>
-                        Shop Details
+                        Cart Page
                     </li>
                 </ul>
             </div>
@@ -303,224 +304,251 @@
     </section>
 
     <!--- SHop Section -->
-    <section class="shop-section position-relative z-1 fix section-padding pb-0">
+    <section class="shop-section position-relative z-1 fix section-padding">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="shop-big-details me-lg-5 wow fadeInDown" data-wow-delay="0.3s">
-                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                            class="swiper mySwiper2 mb-3">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide1.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide2.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide4.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
+                <div class="col-lg-9">
+                    <div class="table-cart-inner p-xxl-4 p-xl-4 p-3">
+                        <div class="table-responsive">
+                            <table class="table m-0 align-middle table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th class="pb-lg-4 pb-3">
+                                            <div class="fs-18 fw-semibold text-black m-0">Item</div>
+                                        </th>
+                                        <th class="pb-lg-4 pb-3">
+                                            <div class="fs-18 fw-semibold text-black m-0">Price</div>
+                                        </th>
+                                        <th class="pb-lg-4 pb-3">
+                                            <div class="fs-18 fw-semibold text-black m-0">Quantity</div>
+                                        </th>
+                                        <th class="pb-lg-4 pb-3">
+                                            <div class="fs-18 fw-semibold text-black m-0">Subtotal</div>
+                                        </th>
+                                        <th class="pb-lg-4 pb-3">
+                                            <div class="fs-18 fw-semibold text-black m-0">Remove</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border overflow-hidden rounded">
+                                        <td class="p-3">
+                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
+                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
+                                                    class="border rounded-2">
+                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
+                                            </a>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="theme-clr fw-500">$12.00</h5>
+                                        </td>
+                                        <td class="p-3">
+                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                                <div class="quantity-wrapper d-inline-flex align-items-center">
+                                                    <button type="button" class="quantityDecrement">-</button>
+                                                    <input type="text" value="1" readonly>
+                                                    <button type="button" class="quantityIncrement">+</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="p-3 theme-clr fw-500">$24.00 </h5>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="text-center btn p-0 border-0"><i
+                                                    class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border overflow-hidden rounded">
+                                        <td class="p-3">
+                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
+                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
+                                                    class="border rounded-2">
+                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
+                                            </a>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="theme-clr fw-500">$44.00</h5>
+                                        </td>
+                                        <td class="p-3">
+                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                                <div class="quantity-wrapper d-inline-flex align-items-center">
+                                                    <button type="button" class="quantityDecrement">-</button>
+                                                    <input type="text" value="1" readonly>
+                                                    <button type="button" class="quantityIncrement">+</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="p-3 theme-clr fw-500">$24.00 </h5>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="text-center btn p-0 border-0"><i
+                                                    class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border overflow-hidden rounded">
+                                        <td class="p-3">
+                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
+                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
+                                                    class="border rounded-2">
+                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
+                                            </a>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="theme-clr fw-500">$09.00</h5>
+                                        </td>
+                                        <td class="p-3">
+                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                                <div class="quantity-wrapper d-inline-flex align-items-center">
+                                                    <button type="button" class="quantityDecrement">-</button>
+                                                    <input type="text" value="1" readonly>
+                                                    <button type="button" class="quantityIncrement">+</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="p-3 theme-clr fw-500">$09.00</h5>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="text-center btn p-0 border-0"><i
+                                                    class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border overflow-hidden rounded">
+                                        <td class="p-3">
+                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
+                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
+                                                    class="border rounded-2">
+                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
+                                            </a>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="theme-clr fw-500">$22.00</h5>
+                                        </td>
+                                        <td class="p-3">
+                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                                <div class="quantity-wrapper d-inline-flex align-items-center">
+                                                    <button type="button" class="quantityDecrement">-</button>
+                                                    <input type="text" value="1" readonly>
+                                                    <button type="button" class="quantityIncrement">+</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="p-3 theme-clr fw-500">$44.00</h5>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="text-center btn p-0 border-0"><i
+                                                    class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border overflow-hidden rounded">
+                                        <td class="p-3">
+                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
+                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
+                                                    class="border rounded-2">
+                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
+                                            </a>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="theme-clr fw-500">$44.00</h5>
+                                        </td>
+                                        <td class="p-3">
+                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                                <div class="quantity-wrapper d-inline-flex align-items-center">
+                                                    <button type="button" class="quantityDecrement">-</button>
+                                                    <input type="text" value="1" readonly>
+                                                    <button type="button" class="quantityIncrement">+</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3">
+                                            <h5 class="p-3 theme-clr fw-500">$44.00</h5>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="text-center btn p-0 border-0"><i
+                                                    class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide1.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide2.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide4.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="d-flex align-items-center gap-4 mt-4">
+                            <h6 class="text-black">Back</h6>
+                            <button type="button" class="theme-btn rounded-2">
+                                Cancel Order
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="shop-details-right">
-                        <h4 class="text-black mb-1 wow fadeInUp" data-wow-delay="0.1s">Spicy Mushroom Pasta</h4>
-                        <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-3 wow fadeInUp"
-                            data-wow-delay="0.2s">
-                            <div class="d-flex gap-1">
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 text3-clr"></i>
-                            </div>
-                            <span class="fs-14 wow fadeInUp" data-wow-delay="0.3s">(4.8 Reviews)</span>
-                            <span class="fs-14 wow fadeInUp" data-wow-delay="0.4s">I Write a Review</span>
-                        </div>
-                        <h5 class="theme3-clr mb-2 wow fadeInUp" data-wow-delay="0.1s">13.50</h5>
-                        <div class="d-flex align-items-center gap-1 mb-xl-3 mb-2 fs-18 wow fadeInUp"
-                            data-wow-delay="0.5s">
-                            Availability: <span class="theme3-clr">In Stock</span>
-                        </div>
-                        <p class="text-clr mb-30 fs-16 wow fadeInUp" data-wow-delay="0.6s">
-                            Aromatic mushrooms cooked in a creamy, spicy sauce with
-                            garlic and herbs. Perfectly tossed with pasta for a
-                            bold, flavorful bite!
-                        </p>
-                        <!-- Quantity Wrapper -->
-                        <div class="mb-30 wow fadeInUp" data-wow-delay="0.7s">
-                            <h6 class="text-black mb-2">Quantity</h6>
-                            <div class="quantity-wrapper d-inline-flex align-items-center">
-                                <button type="button" class="quantityDecrement">-</button>
-                                <input type="text" value="1" readonly>
-                                <button type="button" class="quantityIncrement">+</button>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-40 wow fadeInUp"
-                            data-wow-delay="0.8s">
-                            <button type="button" class="theme-btn h-44px">
-                                <img src="/template/assets/img/icons/cart.png" alt="img"> Add To Cart
+                <div class="col-lg-3">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
+                            data-wow-delay="4.s">
+                            <h5 class="border-bottom pb-2 mb-3">Coupon Code</h5>
+                            <input type="text" placeholder="Enter your Coupon Code" class="mb-3">
+                            <button type="button" class="theme-btn justify-content-center w-100 btn-outline-theme">
+                                Apply Your Coupon
                             </button>
-                            <a href="{{ route('about') }}"
-                                class="theme-btn rounded-1 h-44px fw-semibold theme-opacity-10 text-capitalize fs-14 ">
-                                <img src="/template/assets/img/icons/hart.png" alt="img">
-                                <span class="theme-clr">Add To Wishlist</span>
-                            </a>
                         </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap wow fadeInUp" data-wow-delay="0.9s">
-                            <h6 class="text-black mb-2">Social Share:</h6>
-                            <div class="soical-gray d-flex align-items-center gap-2">
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-facebook-f fs-18"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-twitter fs-18"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-instagram fs-18"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-pinterest-p fs-18"></i>
-                                </a>
+                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
+                            data-wow-delay="6.s">
+                            <h5 class="border-bottom pb-2 mb-3">Order Summary</h5>
+                            <div class="d-flex flex-column gap-2">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="fs-16 text-color">Discount</span>
+                                    <span class="fs-16 text-black fw-medium">$20.00</span>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="fs-16 text-color">Delivery</span>
+                                    <span class="fs-16 text-black fw-medium">$2.00</span>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="fs-16 text-color">Tax</span>
+                                    <span class="fs-16 text-black fw-medium">$2.98</span>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="fs-16 text-color">Total</span>
+                                    <span class="fs-16 text-black fw-medium">$349.00</span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
+                            data-wow-delay="8.s">
+                            <h5 class="border-bottom pb-2 mb-3">Payment Method</h5>
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
+                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
+                                </button>
+                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
+                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
+                                </button>
+                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
+                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
+                                </button>
+                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
+                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
+                                </button>
+                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
+                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
+                                </button>
+                            </div>
+                            <button type="button" class="theme-btn text-center justify-content-center w-100">
+                                Apply Your Coupon
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <img src="/template/assets/img/inner-global-pasta.png" alt="img"
-            class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
+            class="position-absolute bottom-0 pb-100 end-0 float-bob-y mt-4 z-n1 d-sm-block d-none">
     </section>
 
-    <!--- Shop Description Section -->
-    <section class="shop-description-section fix section-padding pt-0">
-        <div class="container pt-100">
-            <div class="shop-description_inner">
-                <ul class="nav d-flex flex-wrap align-items-center nav-tabs border-0 mb-4" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                            type="button" role="tab" aria-controls="home" aria-selected="true">
-                            Product Description
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">
-                            Specification
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0" id="profile-tab01" data-bs-toggle="tab" data-bs-target="#profile01"
-                            type="button" role="tab" aria-controls="profile01" aria-selected="false">
-                            (4) Reviews
-                        </button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                        <h4 class="mb-1 text-black">Key Features</h4>
-                        <ul class="d-flex flex-column before-list">
-                            <li class="position-relative fs-16 text-black d-flex align-items-center"> Loaded with fresh,
-                                sautéed mushrooms</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Infused with chili
-                                flakes for a spicy kick</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Flavored with
-                                garlic and aromatic herbs</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Rich and creamy
-                                sauce perfectly coats the pasta</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Vegetarian-friendly
-                                and full of bold taste</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Ideal for lunch or
-                                dinner with a spicy twist</li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                    </div>
-                    <div class="tab-pane fade" id="profile01" role="tabpanel" aria-labelledby="profile-tab01">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer section start -->
-    <footer class="footer-section position-relative fix black-bg z-1">
+        <footer class="footer-section position-relative fix black-bg z-1">
         <img src="/template/assets/img/inner/footer-shape-filter.png" alt="img"
             class="position-absolute start-0 top-0 mt-5 pt-5 float-bob-y z-n1 d-lg-block d-none opacity-25">
         <img src="/template/assets/img/home-4/footer4-right.png" alt="img"
@@ -530,7 +558,7 @@
                 <div class="d-flex align-items-center justify-content-between gap-3 pb-100">
                     <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
                     <a href="{{ route('index') }}">
-                        <img src="/template/assets/img/logo/logo-white.png" alt="img">
+                        <img style="width: 300px" src="/template/assets/img/logo/logowhite.png" alt="img">
                     </a>
                     <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
                 </div>
@@ -552,11 +580,7 @@
                                     <a href="{{ route('contact') }}"
                                         class="text-white opacity-75 fw-light link-effect">Contact</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('order.tracking') }}"
-                                        class="text-white opacity-75 fw-light link-effect">Store
-                                        Locator</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -578,10 +602,7 @@
                                     <a href="{{ route('contact') }}"
                                         class="text-white opacity-75 fw-light link-effect">Contact</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Store
-                                        Locator</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -592,11 +613,10 @@
                             </h5>
                             <div class="footer-content">
                                 <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
-                                    1487 Rocky Horse Carre 1487Rocky
-                                    Arlington, TX 16819 United
+                                    No 17 ojife street Nnebisi road Asaba Delta State
                                 </p>
-                                <h5 class="text-white mb-lg-3 mb-2">1800 6565 222</h5>
-                                <p class="fs-16 white-clr opacity-75">info@gmail.com</p>
+                                <h5 class="text-white mb-lg-3 mb-2"><a href="tel:+2347063764926" class="d-block" style="color: #fff">07063764926</a></h5>
+                                <p class="fs-16 white-clr opacity-75"><a href="mailto:uncledavidscuisine@gmail.com" style="color: #fff">uncledavidscuisine@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -608,16 +628,13 @@
                             <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
                                 Absolutely loved the cozy vibe and Rich aroma! The coffee was perfectly brewed
                             </p>
-                            <form action="#0" class="d-flex form-outline">
-                                <input type="text" placeholder="Email Address">
-                                <button type="button" class="btn p-0 border-0"><img
-                                        src="/template/assets/img/icons/arrow-right-long.png" alt="icon"></button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="footer-bottom">
             <div class="container">
                 <div
@@ -625,12 +642,18 @@
                     <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('index') }}" class="theme-clr">Uncle Dave</a>
                         all Right
                         Reserved</p>
-                    <div class="d-flex align-items-center flex-wrap gap-lg-4 gap-sm-3 gap-2">
-                        <a href="{{ route('contact') }}" class="fs-16 text3-clr link-effect heading-font-afasad">Privacy
-                            Policy</a>
-                        <a href="{{ route('contact') }}" class="fs-16 text3-clr link-effect heading-font-afasad">Terms &
-                            Conditions</a>
-                    </div>
+        <div class="d-flex align-items-center gap-4">
+                    <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank">
+                        <i class="fa-brands fa-facebook-f fs-18 text-white"></i>
+                    </a>
+                    <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0" target="_blank">
+                        <i class="fa-brands fa-instagram fs-18 text-white"></i>
+                    </a>
+                    <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank">
+                        <i class="fa-brands fa-whatsapp fs-18 text-white"></i>
+                    </a>
+
+                </div>
                 </div>
             </div>
         </div>

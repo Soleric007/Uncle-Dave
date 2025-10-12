@@ -12,7 +12,7 @@
     <!-- ======== Page title ============ -->
     <title>Uncle Dave</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="/template/assets/img/logo/favicon.png">
+    <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -61,7 +61,7 @@
                 <span data-text-preloader="E" class="letters-loading">
                     E
                 </span>
-                
+
                 <span data-text-preloader="D" class="letters-loading">
                     D
                 </span>
@@ -71,11 +71,14 @@
                 <span data-text-preloader="V" class="letters-loading">
                     V
                 </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
+                <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
+                <span data-text-preloader="D" class="letters-loading">
+                    D
                 </span>
             </div>
-            <p class="text-center">Loading</p>
+            <p class="text-center">CUISINE</p>
         </div>
         <div class="loader">
             <div class="row">
@@ -104,7 +107,7 @@
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
                             <a href="{{ route('index') }}">
-                                <img src="/template/assets/img/logo/logo-white.png" alt="logo-img">
+                                <img style="width: 200px" src="/template/assets/img/logo/logo-black.png" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -123,7 +126,7 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Strits Es/154 Maces Road 1/8 United State</a>
+                                    <a target="_blank" href="#">No 17 ojife street Nnebisi road Asaba Delta State</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -131,10 +134,9 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@example.com"><span
-                                            class="mailto:info@example.com">info@example.com</span></a>
-                                    <a href="mailto:info@example.com"><span
-                                            class="mailto:info@example.com">ex@example.com</span></a>
+                                    <a href="mailto:uncledavidscuisine@gmail.com"><span
+                                            class="mailto:uncledavidscuisine@gmail.com">uncledavidscuisine@gmail.com</span></a>
+
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -142,7 +144,7 @@
                                     <i class="fal fa-clock"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Sat-friday, 02am -09pm</a>
+                                    <a target="_blank" href="#">Monday - Saturday</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -150,8 +152,8 @@
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="tel:+11002345909" class="d-block">365 5552-0127</a>
-                                    <a href="tel:+11002345909">5421 5545 5422</a>
+                                    <a href="tel:+2347063764926" class="d-block">07063764926</a>
+
                                 </div>
                             </li>
                         </ul>
@@ -163,10 +165,10 @@
                             </a>
                         </div>
                         <div class="social-icon d-flex align-items-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"  target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
                         </div>
                     </div>
                 </div>
@@ -183,7 +185,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('index') }}" class="header-logo">
-                                <img src="/template/assets/img/logo/logo-white.png" alt="logo-img">
+                                <img src="/template/assets/img/logo/logowhite.png" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -507,7 +509,7 @@
     </section>
 
     <!-- Footer section start -->
-    <footer class="footer-section position-relative fix black-bg z-1">
+        <footer class="footer-section position-relative fix black-bg z-1">
         <img src="/template/assets/img/inner/footer-shape-filter.png" alt="img"
             class="position-absolute start-0 top-0 mt-5 pt-5 float-bob-y z-n1 d-lg-block d-none opacity-25">
         <img src="/template/assets/img/home-4/footer4-right.png" alt="img"
@@ -517,7 +519,7 @@
                 <div class="d-flex align-items-center justify-content-between gap-3 pb-100">
                     <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
                     <a href="{{ route('index') }}">
-                        <img src="/template/assets/img/logo/logo-white.png" alt="img">
+                        <img style="width: 300px" src="/template/assets/img/logo/logowhite.png" alt="img">
                     </a>
                     <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
                 </div>
@@ -539,11 +541,7 @@
                                     <a href="{{ route('contact') }}"
                                         class="text-white opacity-75 fw-light link-effect">Contact</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('order.tracking') }}"
-                                        class="text-white opacity-75 fw-light link-effect">Store
-                                        Locator</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -565,10 +563,7 @@
                                     <a href="{{ route('contact') }}"
                                         class="text-white opacity-75 fw-light link-effect">Contact</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Store
-                                        Locator</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -579,11 +574,10 @@
                             </h5>
                             <div class="footer-content">
                                 <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
-                                    1487 Rocky Horse Carre 1487Rocky
-                                    Arlington, TX 16819 United
+                                    No 17 ojife street Nnebisi road Asaba Delta State
                                 </p>
-                                <h5 class="text-white mb-lg-3 mb-2">1800 6565 222</h5>
-                                <p class="fs-16 white-clr opacity-75">info@gmail.com</p>
+                                <h5 class="text-white mb-lg-3 mb-2"><a href="tel:+2347063764926" class="d-block" style="color: #fff">07063764926</a></h5>
+                                <p class="fs-16 white-clr opacity-75"><a href="mailto:uncledavidscuisine@gmail.com" style="color: #fff">uncledavidscuisine@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -595,16 +589,13 @@
                             <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
                                 Absolutely loved the cozy vibe and Rich aroma! The coffee was perfectly brewed
                             </p>
-                            <form action="#0" class="d-flex form-outline">
-                                <input type="text" placeholder="Email Address">
-                                <button type="button" class="btn p-0 border-0"><img
-                                        src="/template/assets/img/icons/arrow-right-long.png" alt="icon"></button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="footer-bottom">
             <div class="container">
                 <div
@@ -612,12 +603,18 @@
                     <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('index') }}" class="theme-clr">Uncle Dave</a>
                         all Right
                         Reserved</p>
-                    <div class="d-flex align-items-center flex-wrap gap-lg-4 gap-sm-3 gap-2">
-                        <a href="{{ route('contact') }}" class="fs-16 text3-clr link-effect heading-font-afasad">Privacy
-                            Policy</a>
-                        <a href="{{ route('contact') }}" class="fs-16 text3-clr link-effect heading-font-afasad">Terms &
-                            Conditions</a>
-                    </div>
+        <div class="d-flex align-items-center gap-4">
+                    <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank">
+                        <i class="fa-brands fa-facebook-f fs-18 text-white"></i>
+                    </a>
+                    <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0" target="_blank">
+                        <i class="fa-brands fa-instagram fs-18 text-white"></i>
+                    </a>
+                    <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank">
+                        <i class="fa-brands fa-whatsapp fs-18 text-white"></i>
+                    </a>
+
+                </div>
                 </div>
             </div>
         </div>
