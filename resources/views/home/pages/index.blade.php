@@ -284,58 +284,58 @@
                     class="hero-menu-wrap flex-wrap max-w-750 mx-auto d-flex justify-content-md-between justify-content-center gap-3 pt-3">
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.5s">
-                        <a href="restaurant-list.html"
+                        <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l1.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Soups</a></h6>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Soups</a></h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.6s">
-                        <a href="restaurant-list.html"
+                        <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l2.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Pasta</a></h6>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Pasta</a></h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.7s">
-                        <a href="restaurant-list.html"
+                        <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l6.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Rice</a>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Rice</a>
                         </h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.8s">
-                        <a href="restaurant-list.html"
+                        <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l4.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Platters</a></h6>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Platters</a></h6>
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown"
                         data-wow-delay="0.9s">
-                    <a href="restaurant-list.html"
+                    <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l3.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Porridges</a></h6>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Porridges</a></h6>
 
                     </div>
                     <div class="menu-component icon-effect d-flex flex-column gap-2 wow fadeInDown" data-wow-delay="1s">
-                         <a href="restaurant-list.html"
+                         <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
                             <img width="60" height="60" src="/template/assets/img/home-1/menu-l5.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
-                        <h6 class="text-white pt-1"><a href="restaurant-list.html" class="text-white">Extras</a></h6>
+                        <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Extras</a></h6>
 
                     </div>
                 </div>
@@ -414,7 +414,7 @@
                         <span class="w-32px section-badge1"></span>
                     </div>
                 </div>
-                <a href="restaurant-list.html" class="theme-btn btn-outline-blak heading-font">
+                <a href="{{ route('shop') }}" class="theme-btn btn-outline-blak heading-font">
                     See all Restaurant <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -888,7 +888,7 @@
                             <img src="/template/assets/img/icons/order-icon1.png" alt="img" class="icon">
                         </div>
                         <h4 class="mb-xl-2 mb-2">
-  <a href="restaurant-list.html" class="link-effect">Choose your meal</a>
+  <a href="{{ route('shop') }}" class="link-effect">Choose your meal</a>
 </h4>
 <p class="fs-16">
   Discover freshly made dishes crafted with premium ingredients — from rich soups
@@ -907,7 +907,7 @@
                             <img src="/template/assets/img/icons/order-icon2.png" alt="img" class="icon">
                         </div>
                         <h4 class="mb-xl-2 mb-2">
-  <a href="restaurant-list.html" class="link-effect">Make your Order</a>
+  <a href="{{ route('shop') }}" class="link-effect">Make your Order</a>
 </h4>
 <p class="fs-16">
   Browse our menu, add your favorite meals to the cart, and proceed to checkout.
@@ -925,7 +925,7 @@
                             <img src="/template/assets/img/icons/order-icon3.png" alt="img" class="icon">
                         </div>
                         <<h4 class="mb-xl-2 mb-2">
-  <a href="restaurant-list.html" class="link-effect">Food is on the way</a>
+  <a href="{{ route('shop') }}" class="link-effect">Food is on the way</a>
 </h4>
 <p class="fs-16">
   Sit back and relax while we prepare your meal fresh and deliver it right to your doorstep.
