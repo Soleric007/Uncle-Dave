@@ -212,7 +212,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -240,7 +240,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -257,7 +259,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -307,222 +311,143 @@
             class="bread-shape-end position-absolute d-sm-block d-none">
     </section>
 
-    <!--- SHop Section -->
-    <section class="shop-section position-relative z-1 fix section-padding pb-0">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="shop-big-details me-lg-5 wow fadeInDown" data-wow-delay="0.3s">
-                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                            class="swiper mySwiper2 mb-3">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide1.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide2.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide4.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide-big">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide1.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide2.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide4.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="thumbSlide">
-                                        <img src="/template/assets/img/inner/shop-slide3.jpg" alt="img">
-                                    </div>
+<!-- Shop Section -->
+<section class="shop-section position-relative z-1 fix section-padding pb-0">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="shop-big-details me-lg-5 wow fadeInDown" data-wow-delay="0.3s">
+                    <div class="swiper mySwiper2 mb-3">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="thumbSlide-big">
+                                    <img src="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/inner/shop-slide1.jpg' }}" alt="{{ $foodItem->name }}">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="shop-details-right">
-                        <h4 class="text-black mb-1 wow fadeInUp" data-wow-delay="0.1s">Spicy Mushroom Pasta</h4>
-                        <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-3 wow fadeInUp"
-                            data-wow-delay="0.2s">
-                            <div class="d-flex gap-1">
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                <i class="fa-solid fa-star fs-16 text3-clr"></i>
-                            </div>
-                            <span class="fs-14 wow fadeInUp" data-wow-delay="0.3s">(4.8 Reviews)</span>
-                            <span class="fs-14 wow fadeInUp" data-wow-delay="0.4s">I Write a Review</span>
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-lg-5">
+                <div class="shop-details-right">
+                    <h4 class="text-black mb-1 wow fadeInUp" data-wow-delay="0.1s">{{ $foodItem->name }}</h4>
+
+                    <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-3 wow fadeInUp"
+                        data-wow-delay="0.2s">
+                        <div class="d-flex gap-1">
+                            <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                            <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                            <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                            <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                            <i class="fa-solid fa-star fs-16 text3-clr"></i>
                         </div>
-                        <h5 class="theme3-clr mb-2 wow fadeInUp" data-wow-delay="0.1s">13.50</h5>
-                        <div class="d-flex align-items-center gap-1 mb-xl-3 mb-2 fs-18 wow fadeInUp"
-                            data-wow-delay="0.5s">
-                            Availability: <span class="theme3-clr">In Stock</span>
+                        <span class="fs-14">(4.8 Reviews)</span>
+                    </div>
+
+                    <h5 class="theme3-clr mb-2 wow fadeInUp" data-wow-delay="0.1s">
+                        Price: ₦{{ number_format($foodItem->price, 2) }}
+                    </h5>
+
+                    <div class="d-flex align-items-center gap-1 mb-xl-3 mb-2 fs-18 wow fadeInUp" data-wow-delay="0.5s">
+                        Availability:
+                        @if($foodItem->is_available)
+                            <span class="theme3-clr">In Stock</span>
+                        @else
+                            <span class="text-danger">Out of Stock</span>
+                        @endif
+                    </div>
+
+                    <p class="text-clr mb-30 fs-16 wow fadeInUp" data-wow-delay="0.6s">
+                        {{ $foodItem->description ?? 'No description available for this item.' }}
+                    </p>
+
+                    <!-- Quantity Wrapper -->
+                    <div class="mb-30 wow fadeInUp" data-wow-delay="0.7s">
+                        <h6 class="text-black mb-2">Quantity</h6>
+                        <div class="quantity-wrapper d-inline-flex align-items-center">
+                            <button type="button" class="quantityDecrement">-</button>
+                            <input type="text" id="quantity" value="1" readonly>
+                            <button type="button" class="quantityIncrement">+</button>
                         </div>
-                        <p class="text-clr mb-30 fs-16 wow fadeInUp" data-wow-delay="0.6s">
-                            Aromatic mushrooms cooked in a creamy, spicy sauce with
-                            garlic and herbs. Perfectly tossed with pasta for a
-                            bold, flavorful bite!
-                        </p>
-                        <!-- Quantity Wrapper -->
-                        <div class="mb-30 wow fadeInUp" data-wow-delay="0.7s">
-                            <h6 class="text-black mb-2">Quantity</h6>
-                            <div class="quantity-wrapper d-inline-flex align-items-center">
-                                <button type="button" class="quantityDecrement">-</button>
-                                <input type="text" value="1" readonly>
-                                <button type="button" class="quantityIncrement">+</button>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-40 wow fadeInUp"
-                            data-wow-delay="0.8s">
-                            <button type="button" class="theme-btn h-44px">
-                                <img src="/template/assets/img/icons/cart.png" alt="img"> Add To Cart
-                            </button>
-                            <a href="{{ route('about') }}"
-                                class="theme-btn rounded-1 h-44px fw-semibold theme-opacity-10 text-capitalize fs-14 ">
-                                <img src="/template/assets/img/icons/hart.png" alt="img">
-                                <span class="theme-clr">Add To Wishlist</span>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <div class="d-flex align-items-center gap-xl-3 gap-2 flex-wrap mb-40 wow fadeInUp"
+                        data-wow-delay="0.8s">
+                        <button type="button" id="addToCartBtn" class="theme-btn h-44px" data-id="{{ $foodItem->id }}">
+                            <img src="/template/assets/img/icons/cart.png" alt="cart"> Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="/template/assets/img/inner-global-pasta.png" alt="img"
+        class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
+</section>
+
+<!-- Shop Description Section -->
+<section class="shop-description-section fix section-padding pt-0">
+    <div class="container pt-100">
+        <div class="shop-description_inner">
+            <ul class="nav d-flex flex-wrap align-items-center nav-tabs border-0 mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link p-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                        type="button" role="tab" aria-controls="home" aria-selected="true">
+                        Product Description
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <p class="fs-16 heading-font mb-sm-3 mb-2">
+                        {{ $foodItem->long_description ?? $foodItem->description ?? 'Detailed description not available.' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Items -->
+@if($relatedItems->count())
+<section class="related-products section-padding pt-0">
+    <div class="container">
+        <h4 class="mb-4 text-black">You may also like</h4>
+        <div class="row g-4">
+            @foreach($relatedItems as $related)
+                <div class="col-md-4">
+                    <div class="restaurant-card rounded-4 overflow-hidden border">
+                        <div class="thumb">
+                            <a href="{{ route('shop.details', $related->id) }}">
+                                <img src="{{ $related->image ? asset('storage/'.$related->image) : '/template/assets/img/inner/shop-grid1.jpg' }}" alt="{{ $related->name }}" class="w-100">
                             </a>
                         </div>
-                        <div class="d-flex align-items-center gap-3 flex-wrap wow fadeInUp" data-wow-delay="0.9s">
-                            <h6 class="text-black mb-2">Social Share:</h6>
-                            <div class="soical-gray d-flex align-items-center gap-2">
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-facebook-f fs-18"></i>
+                        <div class="cont py-3 px-3">
+                            <h6 class="mb-2 text-black">
+                                <a href="{{ route('shop.details', $related->id) }}" class="text-black link-effect">
+                                    {{ $related->name }}
                                 </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-twitter fs-18"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-instagram fs-18"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="social">
-                                    <i class="fa-brands fa-pinterest-p fs-18"></i>
-                                </a>
+                            </h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="theme3-clr fw-semibold">₦{{ number_format($related->price, 2) }}</span>
+                                <a href="{{ route('shop.details', $related->id) }}" class="theme-btn btn-sm">View</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-        <img src="/template/assets/img/inner-global-pasta.png" alt="img"
-            class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
-    </section>
+    </div>
+</section>
+@endif
 
-    <!--- Shop Description Section -->
-    <section class="shop-description-section fix section-padding pt-0">
-        <div class="container pt-100">
-            <div class="shop-description_inner">
-                <ul class="nav d-flex flex-wrap align-items-center nav-tabs border-0 mb-4" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                            type="button" role="tab" aria-controls="home" aria-selected="true">
-                            Product Description
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">
-                            Specification
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link p-0" id="profile-tab01" data-bs-toggle="tab" data-bs-target="#profile01"
-                            type="button" role="tab" aria-controls="profile01" aria-selected="false">
-                            (4) Reviews
-                        </button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                        <h4 class="mb-1 text-black">Key Features</h4>
-                        <ul class="d-flex flex-column before-list">
-                            <li class="position-relative fs-16 text-black d-flex align-items-center"> Loaded with fresh,
-                                sautéed mushrooms</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Infused with chili
-                                flakes for a spicy kick</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Flavored with
-                                garlic and aromatic herbs</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Rich and creamy
-                                sauce perfectly coats the pasta</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Vegetarian-friendly
-                                and full of bold taste</li>
-                            <li class="position-relative fs-16 text-black d-flex align-items-center">Ideal for lunch or
-                                dinner with a spicy twist</li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                    </div>
-                    <div class="tab-pane fade" id="profile01" role="tabpanel" aria-labelledby="profile-tab01">
-                        <p class="fs-16 heading-font mb-sm-3 mb-2">
-                            Indulge in the bold flavors of our Spicy Mushroom Pasta — a perfect fusion of heat and
-                            creaminess. Fresh mushrooms are
-                            sautéed with garlic,
-                            chili flakes, and herbs, then blended into a rich, spicy sauce that coats every strand of
-                            pasta. Ideal for those who
-                            crave a kick in every bite,
-                            this dish delivers warmth, comfort, and irresistible taste in one bowl.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer section start -->
         <footer class="footer-section position-relative fix black-bg z-1">
@@ -673,6 +598,59 @@
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
 
+
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
 
 </body>
 

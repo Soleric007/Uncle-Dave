@@ -212,7 +212,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -240,7 +240,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -257,7 +259,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -308,7 +312,7 @@
     </section>
 
     <!--- SHop Section -->
-    <section class="shop-section position-relative z-1 fix section-padding">
+    {{-- <section class="shop-section position-relative z-1 fix section-padding">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-8">
@@ -327,51 +331,31 @@
                                         <input type="text" placeholder="Last Name">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group m-0">
-                                        <input type="text" placeholder="Company Name">
-                                    </div>
-                                </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group m-0">
                                         <select name="select">
                                             <option value="">Town / City</option>
-                                            <option value="">Us</option>
-                                            <option value="">Uk</option>
-                                            <option value="">Tr</option>
+
+                                            <option value="Okpanam">Okpanam</option>
+                                            <option value="Infant Jesus Area">Infant Jesus Area</option>
+                                            <option value="Anwai Road Area">Anwai Road Area</option>
+                                            <option value="DBS Road Area">DBS Road Area</option>
+                                            <option value="Cable Point">Cable Point</option>
+                                            <option value="Umueze">Umueze</option>
+                                            <option value="Umuonaje">Umuonaje</option>
+                                            <option value="Isieke">Isieke</option>
+                                            <option value="Overhead Bridge Layout">Overhead Bridge Layout</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group m-0">
-                                        <select name="select">
-                                            <option value="">Country / Region*</option>
-                                            <option value="">Us</option>
-                                            <option value="">Uk</option>
-                                            <option value="">Tr</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group m-0">
-                                        <select name="select">
-                                            <option value="">State</option>
-                                            <option value="">Us</option>
-                                            <option value="">Uk</option>
-                                            <option value="">Tr</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group m-0">
                                         <input type="text" placeholder="Apartment, Suite, unit, etc (Optional)">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group m-0">
-                                        <input type="text" placeholder="Zip Code">
-                                    </div>
-                                </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group m-0">
                                         <input type="text" placeholder="E-mail Address">
@@ -384,23 +368,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mt-40">
-                            <div>
-                                <span class="text-black mb-3 d-block fs-16 wow fadeInUp" data-wow-delay="0.3s">Select a
-                                    label for effective delivery:</span>
-                                <div class="d-flex align-items-center gap-xl-3 gap-2">
-                                    <button type="button" class="btn office-tag d-flex align-items-center gap-1">
-                                        <i class="fa-solid fa-briefcase"></i> Home
-                                    </button>
-                                    <button type="button" class="btn office-tag d-flex align-items-center gap-1">
-                                        <i class="fa-solid fa-briefcase"></i> OFFICE
-                                    </button>
-                                </div>
-                            </div>
-                            <button type="button" class="theme-btn px-4 rounded-2">
-                                Save
-                            </button>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -472,7 +440,7 @@
                                 </div>
                             </div>
                             <button type="button" class="theme-btn text-center justify-content-center w-100">
-                                Confirm Order
+                                Pay via Transfer
                             </button>
                         </div>
                     </div>
@@ -481,7 +449,119 @@
         </div>
         <img src="/template/assets/img/inner-global-pasta.png" alt="img"
             class="position-absolute bottom-0 end-0 float-bob-y mt-4 z-n1 d-sm-block d-none">
+    </section> --}}
+
+    <section class="shop-section position-relative z-1 fix section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="checkout-billing-details h-100">
+                        <h4 class="text-black mb-lg-4 mb-3">Billing Details</h4>
+
+                        <form action="{{ route('checkout.store') }}" method="POST" class="billing-form">
+                            @csrf
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <input type="text" name="customer_name" placeholder="Full Name" required>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="text" name="customer_email" placeholder="E-mail Address" required>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="text" name="customer_phone" placeholder="Phone" required>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <select name="delivery_address" required>
+                                        <option value="">Select Delivery Area</option>
+                                        <option value="Okpanam">Okpanam</option>
+                                        <option value="Infant Jesus Area">Infant Jesus Area</option>
+                                        <option value="Anwai Road Area">Anwai Road Area</option>
+                                        <option value="DBS Road Area">DBS Road Area</option>
+                                        <option value="Cable Point">Cable Point</option>
+                                        <option value="Umueze">Umueze</option>
+                                        <option value="Umuonaje">Umuonaje</option>
+                                        <option value="Isieke">Isieke</option>
+                                        <option value="Overhead Bridge Layout">Overhead Bridge Layout</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <select name="payment_method" required>
+                                        <option value="">Select Payment Method</option>
+                                        <option value="bank_transfer">Pay via Bank Transfer</option>
+                                        <option value="cash_on_delivery">Cash on Delivery</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="theme-btn text-center justify-content-center w-100">
+                                        Place Order
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ORDER SUMMARY -->
+                <div class="col-lg-4">
+                    <div class="shadow-cus d-flex flex-column justify-content-between coupon-group position-relative h-100 p-xl-4 p-3 rounded-3 bg-white">
+                        <div>
+                            <h5 class="border-bottom pb-2 mb-3">Order Summary</h5>
+
+                            @if(!empty($cart))
+                                <div class="d-flex flex-column gap-3 align-items-center pb-4">
+                                    @foreach($cart as $id => $item)
+                                        <div class="order-summary d-flex justify-content-between w-100 gap-2">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img width="50" height="50"
+                                                    src="{{ asset('storage/' . $item['image']) }}"
+                                                    onerror="this.src='/template/assets/img/inner/shop-cart.jpg';"
+                                                    class="border rounded-2" alt="{{ $item['name'] }}">
+                                                <div>
+                                                    <h5 class="text-black fs-13 lh-1 fw-500">{{ $item['name'] }}</h5>
+                                                    <span class="fw-semibold theme-clr fs-13">₦{{ number_format($item['price'], 2) }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="fs-13">x{{ $item['quantity'] }}</div>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <div class="order-summary-footer">
+                                    <div class="d-flex flex-column">
+                                        <div class="d-flex align-items-center justify-content-between border-top pt-2 pb-1">
+                                            <span class="fs-13 text-black fw-medium">Subtotal</span>
+                                            <span class="fs-13 text-black fw-medium">₦{{ number_format($cartTotal['subtotal'], 2) }}</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pb-2">
+                                            <span class="fs-13 text-black fw-medium">Delivery Fee</span>
+                                            <span class="fs-13 text-black fw-medium">₦{{ number_format($cartTotal['deliveryFee'], 2) }}</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between pb-2">
+                                            <span class="fs-13 text-black fw-medium">Tax</span>
+                                            <span class="fs-13 text-black fw-medium">₦{{ number_format($cartTotal['tax'], 2) }}</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between border-top pt-2 pb-3">
+                                            <span class="fs-13 text-black fw-bold">Total</span>
+                                            <span class="fs-13 theme-clr fw-bold">₦{{ number_format($cartTotal['total'], 2) }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <p class="text-center text-muted py-4">Your cart is empty.</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+
 
 
     <!-- Footer section start -->
@@ -633,6 +713,59 @@
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
 
+
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
 
 </body>
 

@@ -233,7 +233,7 @@
                         <a href="{{ route('cart') }}"
                             class="d-lg-none d-flex tolly-icon-hover  tolly-icon position-relative w-40px h-40px border-white rounded-circle d-center">
                             <img width="20" src="/template/assets/img/icons/tolly.png" alt="tolly-icon">
-                            <span class="count-quan d-center">02</span>
+                            <span class="count-quan d-center">{{ count(session()->get('cart', [])) }}</span>
                         </a>
                         <div class="logo">
                             <a href="{{ route('index') }}" class="header-logo">
@@ -245,7 +245,7 @@
                         <button type="button"
                             class="tolly-icon tolly-icon-hover position-relative w-40px h-40px border-white rounded-circle d-center">
                             <img width="20" src="/template/assets/img/icons/tolly.png" alt="tolly-icon">
-                            <span class="count-quan d-center">02</span>
+                            <span class="count-quan d-center">{{ count(session()->get('cart', [])) }}</span>
                         </button>
 
                     </div>
@@ -452,7 +452,7 @@
                             </h6>
                             <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                             <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                             </div>
                         </div>
                     </div>
@@ -493,7 +493,7 @@
                                     Restaurant</a></h6>
                             <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                             <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                             </div>
                         </div>
                     </div>
@@ -535,7 +535,7 @@
                             </h6>
                             <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                             <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                             </div>
                         </div>
                     </div>
@@ -577,7 +577,7 @@
                             </h6>
                             <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                             <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                             </div>
                         </div>
                     </div>
@@ -587,7 +587,7 @@
     </section> --}}
 
     <!-- restaurant Section start -->
-    <section class="restaurant-section position-relative pb-80 fix">
+    {{-- <section class="restaurant-section position-relative pb-80 fix">
         <div class="container">
             <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-0 pb-2">
                 <div class="section-title-style1">
@@ -643,7 +643,7 @@
                                 </h6>
                                 <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                                 <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                    <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                    <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                                 </div>
                             </div>
                         </div>
@@ -686,7 +686,7 @@
                                 </h6>
                                 <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                                 <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                    <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                    <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                                 </div>
                             </div>
                         </div>
@@ -729,7 +729,7 @@
                                 </h6>
                                 <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                                 <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                    <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                    <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                                 </div>
                             </div>
                         </div>
@@ -772,7 +772,7 @@
                                 </h6>
                                 <p class="d-block text-clr fs-15 mb-2 lh-1">Rice, Chicken</p>
                                 <div class="d-flex align-items-center gap-2 fs-14 text-clr">
-                                    <i class="fa-solid fa-location-dot"></i> 6391 Elgin St. Celina
+                                    <i class="fa-solid fa-location-dot"></i> Asaba, Delta State
                                 </div>
                             </div>
                         </div>
@@ -780,7 +780,95 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+    <section class="restaurant-section position-relative pb-80 fix">
+    <div class="container">
+        <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-0 pb-2">
+            <div class="section-title-style1">
+                <div class="d-flex flex-column gap-2">
+                    <h3 class="wow fadeInRight white-clr text-black fs-30 lh-1 fw-semibold" data-wow-delay=".3s">
+                        Super Delicious Deals
+                    </h3>
+                    <span class="w-32px section-badge1"></span>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-1">
+                <button type="button" class="theme-btn p-0 w-40px h-40px d-center btn-outline-blak array-prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button type="button" class="theme-btn p-0 w-40px h-40px d-center btn-outline-blak array-next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="swiper superDeals-slider">
+            <div class="swiper-wrapper">
+
+                @forelse($foodItems as $foodItem)
+                    <div class="swiper-slide">
+                        <div class="restaurant-card position-relative border card-scale h-100 rounded-12 wow fadeInUp" data-wow-delay="0.3s">
+                            <!-- Image -->
+                            <div class="thumb rounded-top-3 d-block position-relative">
+                                <a href="{{ route('shop.details', $foodItem->id) }}">
+                                    <img src="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/home-1/super-deals1.jpg' }}"
+                                         alt="{{ $foodItem->name }}" class="w-100">
+                                </a>
+
+                                @if($foodItem->is_available)
+                                    <div class="position-absolute start-0 bottom-0 mb-xxl-3 mb-2 ms-xxl-4 ms-xl-3 ms-2 top-badge bg6 fs-10 rounded-1 py-1 lh-base px-2 text-white heading-font fw-500 d-inline-flex align-items-center gap-1 z-1">
+                                        <img src="/template/assets/img/icons/top-badge.svg" alt="img"> Available
+                                    </div>
+                                @else
+                                    <div class="position-absolute start-0 bottom-0 mb-xxl-3 mb-2 ms-xxl-4 ms-xl-3 ms-2 top-badge bg-danger fs-10 rounded-1 py-1 lh-base px-2 text-white heading-font fw-500 d-inline-flex align-items-center gap-1 z-1">
+                                        <i class="fa-solid fa-xmark"></i> Out of Stock
+                                    </div>
+                                @endif
+                            </div>
+
+                            <!-- Content -->
+                            <div class="cont py-3 px-xxl-4 px-3">
+                                <div class="d-flex gap-2 align-items-center mb-1">
+                                    <div class="d-flex align-items-center gap-1 fs-14 text-clr">
+                                        <div class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span><span class="text-black">4.8</span> ({{ rand(10, 100) }})</span>
+                                    </div>
+                                    <span class="mx-1" style="width: 5px; height: 5px; border-radius: 50%; background-color: #B7B7B7;"></span>
+                                    <div class="d-flex align-items-center gap-1 fs-14 text-clr">
+                                        <i class="fa-regular fa-clock"></i> 20-30 mins
+                                    </div>
+                                </div>
+
+                                <h6 class="mb-2">
+                                    <a href="{{ route('shop.details', $foodItem->id) }}" class="text-black link-effect">
+                                        {{ $foodItem->name }}
+                                    </a>
+                                </h6>
+                                <p class="d-block text-clr fs-15 mb-2 lh-1">{{ $foodItem->category ?? 'Delicious Meal' }}</p>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <span class="theme3-clr fw-bold">₦{{ number_format($foodItem->price, 2) }}</span>
+                                    <button type="button"
+                                            class="add-to-cart-btn theme-btn btn-sm btn-outline-theme"
+                                            data-food-item-id="{{ $foodItem->id }}">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="text-center py-5">
+                        <h5>No deals available right now 😔</h5>
+                    </div>
+                @endforelse
+
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <div class="how-order-section z-1 section-bg2 position-relative pb-80 pt-80 fix">
         <div class="container">
@@ -888,161 +976,79 @@
     </section>
 
     <!-- Popular Section start -->
-    <section class="popular-section position-relative pt-80 pb-80 fix">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-xl-8 col-lg-8">
-                    <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-2 pb-2">
-                        <div class="section-title-style1">
-                            <div class="d-flex flex-column gap-2">
-                                <h3 class="wow fadeInUp white-clr text-black fs-30 lh-1 fw-semibold"
-                                    data-wow-delay=".3s">
-                                    Most Popular Items
-                                </h3>
-                                <span class="w-32px section-badge1"></span>
-                            </div>
-                        </div>
-                        <a href="menu-categories.html" class="theme-btn btn-outline-blak heading-font">
-                            See all Menu <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="row g-3">
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html"
-                                            class="link-effect">Breakfast Grilled
-                                            Platter</a></h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$15.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items1.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html"
-                                            class="link-effect">Appetizer</a></h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$19.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items2.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html" class="link-effect">Chicken
-                                            Somucha</a></h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$11.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items3.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html" class="link-effect">Peri
-                                            Peri Pasta</a></h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$11.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items4.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html" class="link-effect">Hot
-                                            Chocolate Coffee</a>
-                                    </h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$11.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items5.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 card-effect position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                            <div
-                                class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
-                                <div class="cont">
-                                    <h6 class="mb-lg-1 mb-1"><a href="single-food-menu.html" class="link-effect">Mixed
-                                            Fruits Salad</a>
-                                    </h6>
-                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">Consists of grilled grilled
-                                        mushroom, fried egg...</p>
-                                    <h6 class="theme-clr fs-16 fw-bold">$11.00</h6>
-                                </div>
-                                <div class="thumb rounded-2 position-relative w-90px h-90px">
-                                    <img width="90" height="90" src="/template/assets/img/home-1/popular-items6.jpg" alt="img"
-                                        class="rounded-2">
-                                    <a href="single-food-menu.html"
-                                        class="w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
+<section class="popular-section position-relative pt-80 pb-80 fix">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Left: Popular Items List -->
+            <div class="col-xl-8 col-lg-8">
+                <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-2 pb-2">
+                    <div class="section-title-style1">
+                        <div class="d-flex flex-column gap-2">
+                            <h3 class="wow fadeInUp white-clr text-black fs-30 lh-1 fw-semibold" data-wow-delay=".3s">
+                                Most Popular Items
+                            </h3>
+                            <span class="w-32px section-badge1"></span>
                         </div>
                     </div>
+                    <a href="{{ route('shop') }}" class="theme-btn btn-outline-blak heading-font">
+    See all Menu <i class="fa-solid fa-arrow-right"></i>
+</a>
+
                 </div>
-                <div class="col-xl-4 col-lg-4">
-                    <div class="popular-thumb-most position-relative rounded-20 overflow-hidden h-100">
-                        <img src="/template/assets/img/home-1/popular-price.jpg" alt="img" class="w-100">
-                        <div class="price-badge position-absolute top-0 start-0 ms-2 mt-5 pt-5">
-                            <img src="/template/assets/img/home-1/price-badge-black.png" alt="img">
+
+                <div class="row g-3">
+                    @forelse($popularItems as $item)
+                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration + 1 }}s">
+                            <div class="most-popular-card card-effect smooth d-flex align-items-xxl-center justify-content-between gap-2 border rounded-12 p-xl-4 p-3">
+                                <div class="cont">
+                                    <h6 class="mb-lg-1 mb-1">
+                                        <a href="{{ route('shop.details', $item->id) }}" class="link-effect">
+                                            {{ $item->name }}
+                                        </a>
+                                    </h6>
+
+                                    <p class="fs-15 mb-lg-2 mb-1 max-w-200 lh-base">
+                                        {{ Str::limit($item->description, 50, '...') ?? 'Delicious and satisfying meal.' }}
+                                    </p>
+
+                                    <h6 class="theme-clr fs-16 fw-bold">₦{{ number_format($item->price, 2) }}</h6>
+                                </div>
+
+                                <div class="thumb rounded-2 position-relative w-90px h-90px">
+                                    <img width="90" height="90"
+                                        src="{{ $item->image ? asset('storage/'.$item->image) : '/template/assets/img/home-1/popular-items1.jpg' }}"
+                                        alt="{{ $item->name }}"
+                                        class="rounded-2">
+
+                                    <button type="button"
+                                        class="add-to-cart-btn w-28px h-28px z-1 position-absolute bottom-0 end-0 m-2 bg-white rounded d-center theme-clr fs-14"
+                                        data-food-item-id="{{ $item->id }}">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                    @empty
+                        <div class="text-center py-5">
+                            <h5>No popular items available right now 😔</h5>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Right: Promo Image -->
+            <div class="col-xl-4 col-lg-4">
+                <div class="popular-thumb-most position-relative rounded-20 overflow-hidden h-100">
+                    <img src="/template/assets/img/home-1/popular-price.jpg" alt="img" class="w-100">
+                    <div class="price-badge position-absolute top-0 start-0 ms-2 mt-5 pt-5">
+                        <img src="/template/assets/img/home-1/price-badge-black.png" alt="img">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- App Section start -->
     {{-- <section class="app-section position-relative py-lg-0 py-5 fix bg-cover"
@@ -1482,6 +1488,59 @@
     <script src="/template/assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
+
 </body>
 
 </html>

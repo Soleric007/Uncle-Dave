@@ -25,16 +25,16 @@ class OrderController extends Controller
         $order->update([
             'payment_status' => 'confirmed',
             'order_status' => 'payment_confirmed',
-            'payment_confirmed_at' => now()
+            'payment_confirmed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Payment confirmed successfully');
+        return redirect()->back()->with('success', 'Payment confirmed successfully.');
     }
 
     public function updateStatus(Request $request, Order $order)
     {
         $request->validate([
-            'status' => 'required|in:payment_confirmed,cooking,ready,out_for_delivery,delivered'
+            'status' => 'required|in:payment_confirmed,cooking,ready,out_for_delivery,delivered',
         ]);
 
         $statusTimestamps = [
@@ -42,19 +42,17 @@ class OrderController extends Controller
             'cooking' => 'cooking_started_at',
             'ready' => 'ready_at',
             'out_for_delivery' => 'out_for_delivery_at',
-            'delivered' => 'delivered_at'
+            'delivered' => 'delivered_at',
         ];
 
-        $updateData = [
-            'order_status' => $request->status
-        ];
+        $updateData = ['order_status' => $request->status];
 
-        if(isset($statusTimestamps[$request->status])) {
+        if (isset($statusTimestamps[$request->status])) {
             $updateData[$statusTimestamps[$request->status]] = now();
         }
 
         $order->update($updateData);
 
-        return redirect()->back()->with('success', 'Order status updated successfully');
+        return redirect()->back()->with('success', 'Order status updated successfully.');
     }
 }

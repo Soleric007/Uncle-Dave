@@ -211,7 +211,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -239,7 +239,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -256,7 +258,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -368,7 +372,7 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef1.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="{{ route('shop.details') }}"
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
                                 class="link-effect heading-font-cormorant fw-bolder">Professional Chef</a></h3>
                         <p class="fs-16">Mauris rhoncus aenean vellit scelerue
                             mauris pellentesque pulvinar.</p>
@@ -380,7 +384,7 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef2.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="{{ route('shop.details') }}"
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
                                 class="link-effect heading-font-cormorant fw-bolder">Delicious Meals</a></h3>
                         <p class="fs-16">Mauris rhoncus aenean vellit scelerue
                             mauris pellentesque pulvinar.</p>
@@ -392,7 +396,7 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef3.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="{{ route('shop.details') }}"
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
                                 class="link-effect heading-font-cormorant fw-bolder">Millions of Customer</a></h3>
                         <p class="fs-16">Mauris rhoncus aenean vellit scelerue
                             mauris pellentesque pulvinar.</p>
@@ -993,6 +997,59 @@
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
 
+
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
 
 </body>
 

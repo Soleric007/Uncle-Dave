@@ -212,7 +212,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -240,7 +240,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -257,7 +259,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -304,252 +308,141 @@
     </section>
 
     <!-- Traking order start -->
-    <section class="reservation-section fix section-padding position-relative">
-        <div class="container">
-            <div class="shadow-cus p-lg-5 p-sm-4 p-3">
-                <div class="d-flex justify-content-between flex-wrap gap-2 mb-xxl-5 mb-xl-4 mb-3">
-                    <div>
-                        <h4 class="text-black mb-1 lh-1">Order #mOZAPIZZO896</h4>
-                        <span class="text-clr fs-16">Place on:04.24 pm June 12, 2025</span>
-                    </div>
-                    <div>
-                        <h4 class="text-black mb-1 lh-1 fs-20">Estimate Delivery</h4>
-                        <span class="text-clr fs-16">05.13 pm, June 12 ,2025.</span>
-                    </div>
+<section class="reservation-section fix section-padding position-relative">
+    <div class="container">
+        @if(isset($order))
+        <div class="shadow-cus p-lg-5 p-sm-4 p-3">
+            <div class="d-flex justify-content-between flex-wrap gap-2 mb-xxl-5 mb-xl-4 mb-3">
+                <div>
+                    <h4 class="text-black mb-1 lh-1">Order #{{ $order->order_number }}</h4>
+                    <span class="text-clr fs-16">Placed on: {{ $order->created_at->format('h:i a, F d, Y') }}</span>
                 </div>
-                <div class="progress-area mb-xxl-5 mb-xl-4 mb-3">
-                    <div class="d-flex align-items-end justify-content-between gap-2 mb-2">
-                        <h4 class="text-black fw-500 text-capitalize">delivery Progress</h4>
-                        <h4 class="text-black fw-500 text-capitalize">34%</h4>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-2 bg-gray-10 rounded py-2 px-3 mb-40">
-                    <img src="/template/assets/img/icons/pre-icon.png" alt="img">
-                    <div>
-                        <h6 class="fw-500 text-black lh-1">Preparing</h6>
-                        <span class="fs-14 text-clr">Your order is being prepared.</span>
-                    </div>
-                </div>
-                <h4 class="text-black mb-lg-4 mb-sm-3 mb-2">Order Timeline</h4>
-                <ul class="preparetion-traking">
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2 active">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Order Placed</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">your order has been received by our system</p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2 active">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Order Confirmed</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">We’ve confirmed the order with the restaurant.</p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2 active">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Food Preparation</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">The restaurant is preparing your food.</p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Ready for Pickup</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">Your order is ready for pickup by the delivery person.
-                            </p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Picked Up</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">Our delivery partner is on the way from the restaurant.
-                            </p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">On the Way</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">Your order is arriving to your location.</p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                    <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2">
-                        <i class="fa-solid fa-circle fs-20 text-clr"></i>
-                        <div>
-                            <h5 class="fw-500 fs-20 text-black mb-2 lh-1">Delivered</h5>
-                            <p class="fs-14 text-clr mb-1 lh-1">You’ve received the order. Enjoy your meal!</p>
-                            <p class="text-black fs-14 m-0">June12, 04.24 pm</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="traking-order mb-60">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="delivery-box-indetails h-100 shadow-cus rounded wow fadeInUp" data-wow-delay="0.4s">
-                            <h5 class="fs-20 text-black fw-semibold mb-xl-3 mb-2">Delivery Details</h5>
-                            <div class="d-flex align-items-center gap-2 mb-xl-4 mb-3">
-                                <img width="40" height="40" src="/template/assets/img/inner/delivery-thumb01.png" alt="img"
-                                    class="rounded-circle">
-                                <div>
-                                    <h5 class="text-black lh-1 fs-16">Michal Rodrigues</h5>
-                                    <div class="d-flex align-items-center gap-1 fs-14">
-                                        ⭐ 4.6 (50 deliveries)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-gray-10 fs-16 text-black rounded py-2 px-3 mb-3">
-                                Some Current Task
-                            </div>
-                            <div class="d-flex align-items-center gap-2 mb-3">
-                                <div class="bg-gray-10 py-2 px-3 rounded w-100">
-                                    <span class="fs-14 text-clr d-block lh-1 mb-1">Estimated Arrival</span>
-                                    <span class="text-black fs-16 fw-semibold d-block">Directions</span>
-                                </div>
-                                <div class="bg-gray-10 py-2 px-3 rounded w-100">
-                                    <span class="fs-14 text-clr d-block lh-1 mb-1">Current Distance</span>
-                                    <span class="text-black fs-16 fw-semibold d-block">Estimates</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <a href="{{ route('contact') }}"
-                                    class="h-40px w-100 shadow-cus text-center py-1 px-2 text-black fs-16 fw-500">
-                                    Call
-                                </a>
-                                <a href="{{ route('contact') }}"
-                                    class="theme-btn w-100 justify-content-center fs-16 fw-500 h-40px">
-                                    Message
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="delivery-box-indetails h-100 shadow-cus rounded wow fadeInUp" data-wow-delay="0.6s">
-                            <h5 class="fs-20 text-black fw-semibold mb-xl-3 mb-2">Restaurant</h5>
-                            <div class="d-flex align-items-center gap-2 mb-xl-4 mb-3">
-                                <img width="40" height="40" src="/template/assets/img/inner/delivery-thumb02.png" alt="img"
-                                    class="rounded-circle">
-                                <div>
-                                    <h5 class="text-black lh-1 fs-16">Hilsa of Bengal Restaurant</h5>
-                                    <div class="d-flex align-items-center gap-1 fs-14">
-                                        ⭐ 4.8 (Top Rated)
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="bg-gray-10 gap-2 d-flex flex-column fs-16 text-black rounded p-xxl-4 p-3">
-                                <li class="d-flex align-items-center gap-1 fs-16 text-black">
-                                    <i class="fa-solid fa-circle text-clr"></i> 2464 Royal Ln. Mesa, New Jersey 45463
-                                </li>
-                                <li class="d-flex align-items-center gap-1 fs-16 text-black">
-                                    <i class="fa-solid fa-circle text-clr"></i> (217) 555-0113
-                                </li>
-                                <li class="d-flex align-items-center gap-1 fs-16 text-black">
-                                    <i class="fa-solid fa-circle text-clr"></i> Saturday To Friday 09.00 am to 11.00
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div>
+                    <h4 class="text-black mb-1 lh-1 fs-20">Estimate Delivery</h4>
+                    <span class="text-clr fs-16">
+                        {{ optional($order->delivery_time)->format('h:i a, F d, Y') ?? 'Pending' }}
+                    </span>
                 </div>
             </div>
-            <div class="shadow-cus p-lg-5 p-sm-4 p-3">
-                <ul class="d-flex flex-column gap-xl-3 gap-2">
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Order Summary
-                        <div class="theme-btn rounded-1 h-44px fw-semibold theme-opacity-10 text-capitalize fs-14">
-                            <span class="theme-clr">Processing</span>
-                        </div>
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Order ID:
-                        <span>ORD-87494762</span>
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Payment:
-                        <span class="text-clr">Paid online</span>
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Estimated delivery:
-                        <span class="text-clr">2025-07-11 | 19:57 pm</span>
-                    </li>
-                </ul>
-                <div class="border-bottom my-xl-5 my-4"></div>
-                <ul class="d-flex flex-column gap-xl-3 gap-2">
-                    <li class="d-flex align-items-center justify-content-between fs-20 fw-semibold text-black">
-                        Items:
-                    </li>
-                    <li
-                        class="d-flex flex-wrap gap-1 align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        <div class="d-flex gap-2">
-                            <img width="24" height="24" src="/template/assets/img/inner/traking-item1.png" alt="img"
-                                class="rounded-circle">
-                            <div>
-                                <span class="fs-16 fw-semibold text-black mb-1">Delivery Fees:</span>
-                                <span class="fs-14 text-black fw-normal d-block">(1 x $12.50)</span>
-                            </div>
-                        </div>
-                        <span>$12.50</span>
-                    </li>
-                    <li
-                        class="d-flex flex-wrap gap-1 align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        <div class="d-flex gap-2">
-                            <img width="24" height="24" src="/template/assets/img/inner/traking-item2.png" alt="img"
-                                class="rounded-circle">
-                            <div>
-                                <span class="fs-16 fw-semibold text-black mb-1">Classic Cheeseburger</span>
-                                <span class="fs-14 text-black fw-normal d-block">(2 x $7.99)</span>
-                            </div>
-                        </div>
-                        <span>$12.50</span>
-                    </li>
-                    <li
-                        class="d-flex flex-wrap gap-1 align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        <div class="d-flex gap-2">
-                            <img width="24" height="24" src="/template/assets/img/inner/traking-item3.png" alt="img"
-                                class="rounded-circle">
-                            <div>
-                                <span class="fs-16 fw-semibold text-black mb-1">Chocolate Brownie Sundae</span>
-                                <span class="fs-14 text-black fw-normal d-block">(1 x $3.49)</span>
-                            </div>
-                        </div>
-                        <span>$12.50</span>
-                    </li>
-                </ul>
-                <div class="border-bottom my-xl-5 my-4"></div>
-                <ul class="d-flex flex-column gap-xl-3 gap-2">
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Subtotal:
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Delivery Fees:
-                        <span>$31.97</span>
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Tax:
-                        <span>$3.00</span>
-                    </li>
-                    <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Total:
-                        <span>$34.97</span>
-                    </li>
-                </ul>
+
+            <!-- Progress -->
+            @php
+                $statusSteps = ['placed','confirmed','preparing','ready','on_the_way','delivered'];
+                $progress = (array_search($order->status, $statusSteps) + 1) / count($statusSteps) * 100;
+            @endphp
+
+            <div class="progress-area mb-xxl-5 mb-xl-4 mb-3">
+                <div class="d-flex align-items-end justify-content-between gap-2 mb-2">
+                    <h4 class="text-black fw-500 text-capitalize">Delivery Progress</h4>
+                    <h4 class="text-black fw-500 text-capitalize">{{ round($progress) }}%</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: {{ $progress }}%;" role="progressbar"></div>
+                </div>
             </div>
+
+            <!-- Current Status -->
+            <div class="d-flex align-items-center gap-2 bg-gray-10 rounded py-2 px-3 mb-40">
+                <img src="/template/assets/img/icons/pre-icon.png" alt="img">
+                <div>
+                    <h6 class="fw-500 text-black lh-1 text-capitalize">{{ ucfirst(str_replace('_',' ',$order->status)) }}</h6>
+                    <span class="fs-14 text-clr">
+                        @switch($order->status)
+                            @case('placed') Your order has been received. @break
+                            @case('confirmed') Your order has been confirmed. @break
+                            @case('preparing') The kitchen is preparing your meal. @break
+                            @case('ready') Order ready for pickup. @break
+                            @case('on_the_way') Your order is on the way. @break
+                            @case('delivered') Order delivered successfully. @break
+                            @default Awaiting confirmation.
+                        @endswitch
+                    </span>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <h4 class="text-black mb-lg-4 mb-sm-3 mb-2">Order Timeline</h4>
+            <ul class="preparetion-traking">
+                @foreach($statusSteps as $step)
+                <li class="d-flex position-relative gap-xxl-4 gap-xl-3 gap-2 {{ array_search($step, $statusSteps) <= array_search($order->status, $statusSteps) ? 'active' : '' }}">
+                    <i class="fa-solid fa-circle fs-20 text-clr"></i>
+                    <div>
+                        <h5 class="fw-500 fs-20 text-black mb-2 lh-1 text-capitalize">{{ str_replace('_',' ',$step) }}</h5>
+                        <p class="fs-14 text-clr mb-1 lh-1">
+                            @if($step === 'placed') Your order has been received. @endif
+                            @if($step === 'confirmed') Order confirmed. @endif
+                            @if($step === 'preparing') Preparing your food. @endif
+                            @if($step === 'ready') Ready for pickup. @endif
+                            @if($step === 'on_the_way') Out for delivery. @endif
+                            @if($step === 'delivered') Delivered successfully. @endif
+                        </p>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
         </div>
-        <img src="/template/assets/img/inner-global-pasta.png" alt="img"
-            class="position-absolute top-40 end-0 float-bob-y z-n1 d-sm-block d-none">
-    </section>
+
+        <!-- Order Summary -->
+        <div class="shadow-cus mt-5 p-lg-5 p-sm-4 p-3">
+            <ul class="d-flex flex-column gap-xl-3 gap-2">
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Order ID: <span>{{ $order->order_number }}</span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Payment: <span class="text-clr">{{ ucfirst($order->payment_method) }}</span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Estimated delivery:
+                    <span class="text-clr">{{ optional($order->delivery_time)->format('Y-m-d | h:i a') ?? 'Pending' }}</span>
+                </li>
+            </ul>
+            <div class="border-bottom my-xl-5 my-4"></div>
+
+            <!-- Items -->
+            <ul class="d-flex flex-column gap-xl-3 gap-2">
+                <li class="d-flex align-items-center justify-content-between fs-20 fw-semibold text-black">
+                    Items:
+                </li>
+                @foreach($order->items as $item)
+                <li class="d-flex flex-wrap gap-1 align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    <div class="d-flex gap-2">
+                        <img width="40" height="40" src="{{ asset('storage/'.$item->foodItem->image) }}" class="rounded-circle">
+                        <div>
+                            <span class="fs-16 fw-semibold text-black mb-1">{{ $item->foodItem->name }}</span>
+                            <span class="fs-14 text-black fw-normal d-block">({{ $item->quantity }} × ₦{{ number_format($item->price, 2) }})</span>
+                        </div>
+                    </div>
+                    <span>₦{{ number_format($item->quantity * $item->price, 2) }}</span>
+                </li>
+                @endforeach
+            </ul>
+
+            <div class="border-bottom my-xl-5 my-4"></div>
+
+            <!-- Totals -->
+            <ul class="d-flex flex-column gap-xl-3 gap-2">
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Subtotal:
+                    <span>₦{{ number_format($order->subtotal, 2) }}</span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Delivery Fee:
+                    <span>₦{{ number_format($order->delivery_fee, 2) }}</span>
+                </li>
+                <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
+                    Total:
+                    <span>₦{{ number_format($order->total_amount, 2) }}</span>
+                </li>
+            </ul>
+        </div>
+
+        @else
+        <div class="text-center p-5">
+            <h4>No order found. Please go get your self a delicious meal!</h4>
+        </div>
+        @endif
+    </div>
+</section>
 
     <!-- Footer section start -->
         <footer class="footer-section position-relative fix black-bg z-1">
@@ -624,7 +517,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
+                    {{-- <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
                         <div class="single-footer-widget py-0">
                             <h5 class="widget-head text-white text-uppercase fs-20 white-clr fw-semibold">
                                 CONNECT
@@ -634,7 +527,7 @@
                             </p>
 
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -699,104 +592,61 @@
     <script src="/template/assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
+
+
+
+
     <script>
-        // 📅 Select the DOM elements for calendar dates container, title, and navigation buttons
-        const dates = document.querySelector(".dates");
-        const header = document.querySelector(".title");
-        const nav = document.querySelectorAll("#prev, #next");
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
-        // 🗓️ Array of month names to display in header
-        const months = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December",
-        ];
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
 
-        // 📌 Initialize current date information
-        let date = new Date();           // Today's full date
-        let month = date.getMonth();     // Current month (0-11)
-        let year = date.getFullYear();   // Current year (e.g. 2025)
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
 
-        /**
-         * 🛠️ Function to generate and render the calendar for the current month and year
-         */
-        function renderCalendar() {
-            // 🔢 Get the weekday index of the 1st day of the month (0 = Sunday)
-            const start = new Date(year, month, 1).getDay();
+    btn.prop('disabled', true).text('Adding...');
 
-            // 🔚 Get the last date of the current month (e.g., 31, 30, 28)
-            const endDate = new Date(year, month + 1, 0).getDate();
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
 
-            // 🔚 Get the weekday index of the last date of the month
-            const end = new Date(year, month, endDate).getDay();
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
 
-            // 📆 Get the last date of the previous month
-            const endDatePrev = new Date(year, month, 0).getDate();
+                // Show success message
+                alert(response.message);
 
-            // 🧩 Placeholder for the HTML string of date elements
-            let datesHtml = "";
-
-            // ◀️ Fill in last few days of the previous month (gray out)
-            for (let i = start; i > 0; i--) {
-                datesHtml += `<li class="old"><span>${endDatePrev - i + 1}</span></li>`;
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
             }
-
-            // 🔁 Loop through current month's dates
-            for (let i = 1; i <= endDate; i++) {
-                // ✅ Highlight today's date
-                let className =
-                    i === date.getDate() &&
-                        month === new Date().getMonth() &&
-                        year === new Date().getFullYear()
-                        ? ' class="today"'
-                        : "";
-                datesHtml += `<li${className}><span>${i}</span></li>`;
-            }
-
-            // ▶️ Fill in the beginning of the next month (gray out)
-            for (let i = end; i < 6; i++) {
-                datesHtml += `<li class="old"><span>${i - end + 1}</span></li>`;
-            }
-
-            // 🖋️ Inject the generated calendar HTML and header text
-            dates.innerHTML = datesHtml;
-            header.textContent = `${months[month]} ${year}`;
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
         }
-
-        /**
-         * ⏮️⏭️ Add click event listeners to the Previous and Next buttons
-         */
-        nav.forEach(nav => {
-            nav.addEventListener("click", e => {
-                const btnId = e.target.id; // Get the ID of the clicked button
-
-                // ⬅️ If "prev" button clicked and current month is January
-                if (btnId === 'prev' && month === 0) {
-                    year--;       // Go to previous year
-                    month = 11;   // Set month to December
-                }
-                // ➡️ If "next" button clicked and current month is December
-                else if (btnId === 'next' && month === 11) {
-                    year++;       // Go to next year
-                    month = 0;    // Set month to January
-                }
-                // 🔁 In all other cases, simply increase or decrease the month
-                else {
-                    month = (btnId === 'next') ? month + 1 : month - 1;
-                }
-
-                // 🧠 Update the `date` object and re-render calendar
-                date = new Date(year, month, new Date().getDate());
-                year = date.getFullYear();
-                month = date.getMonth();
-
-                renderCalendar();
-            });
-        });
-
-        // 🚀 Initial calendar rendering on page load
-        renderCalendar();
-    </script>
-
+    });
+});
+</script>
 
 </body>
 

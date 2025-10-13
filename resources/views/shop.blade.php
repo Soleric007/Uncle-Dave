@@ -10,7 +10,7 @@
     <meta name="author" content="Uncle Davids Cousine">
 <meta name="description" content="Order delicious Nigerian meals online — soups, rice, pasta, and platters freshly prepared and delivered to your doorstep.">
 <meta name="keywords" content="food delivery, Nigerian meals, order food online, egusi soup, jollof rice, Uncle Dave restaurant, Delta food delivery, Asaba food delivery">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
     <title>Uncle Dave - Shop</title>
@@ -211,7 +211,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -239,7 +239,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -256,7 +258,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -306,128 +310,72 @@
             class="bread-shape-end position-absolute d-sm-block d-none">
     </section>
 
-    <!--- SHop Section -->
-    <section class="shop-section position-relative z-1 fix section-padding">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3">
-                    <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
-                        <h4 class="mb-3">Categories</h4>
-                        <div class="d-flex flex-column gap-3">
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
+<!-- Shop Section -->
+<section class="shop-section position-relative z-1 fix section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <!-- Categories -->
+                {{-- <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
+                    <h4 class="mb-3">Categories</h4>
+                    <div class="d-flex flex-column gap-3">
+                        @php
+                            $categories = ['Soups', 'Pasta', 'Rice', 'Platters', 'Porridges', 'Extras'];
+                        @endphp
+                        @foreach($categories as $category)
+                            <a href="{{ route('shop', ['category' => $category]) }}"
+                               class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
                                 <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Breakfast
+                                    <img src="/template/assets/img/icons/shop-check.png" alt="icon">
+                                    {{ $category }}
                                 </span>
                                 <span class="fs-13 text-clr">(25)</span>
                             </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Chinese
-                                </span>
-                                <span class="fs-13 text-clr">(35)</span>
-                            </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Burger
-                                </span>
-                                <span class="fs-13 text-clr">(17)</span>
-                            </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Fast Food
-                                </span>
-                                <span class="fs-13 text-clr">(12)</span>
-                            </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Lunch
-                                </span>
-                                <span class="fs-13 text-clr">(50)</span>
-                            </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Dinner
-                                </span>
-                                <span class="fs-13 text-clr">(23)</span>
-                            </a>
-                            <a href="{{ route('shop.details') }}"
-                                class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3">
-                                <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                    <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                    Special Menu
-                                </span>
-                                <span class="fs-13 text-clr">(16)</span>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
-                        <h4 class="mb-3">Categories</h4>
-                        <div
-                            class="d-flex flex-wrap gap-3 justify-content-center border-bottom pb-xl-4 pb-2 mb-xl-4 mb-2">
-                            <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                Breakfast
-                            </span>
-                            <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                Delivery
-                            </span>
-                            <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                Special Menu
-                            </span>
-                            <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                Online Food
-                            </span>
-                            <span class="d-flex align-items-center gap-1 fs-15 text-clr">
-                                <img src="/template/assets/img/icons/shop-check.png" alt="img">
-                                Delicia's Food
-                            </span>
-                        </div>
-                        <h4 class="mb-3">Filter By Price</h4>
-                        <div class="price-range-wrapper">
-                            <div class="slider-container">
-                                <input type="range" id="min-slider" class="slider" min="130" max="500" value="130">
-                                <input type="range" id="max-slider" class="slider" min="130" max="500" value="250">
-                            </div>
-                            <div class="price-text pt-4 d-flex gap-3">
-                                <label for="amount">Price:</label>
-                                <input type="text" id="amount" readonly style="border:0;">
-                            </div>
-                        </div>
-                        <!-- <div class="d-flex price-range-area gap-xl-3 gap-2">
-                            <div class="group w-100">
-                                <input type="text" placeholder="$4" class="mb-2">
-                                <p class="m-0 fs-14 text-clr">Min. Price</p>
-                            </div>
-                            <div class="group w-100">
-                                <input type="text" placeholder="$99" class="mb-2">
-                                <p class="m-0 fs-14 text-clr">Max. Price</p>
-                            </div>
-                        </div> -->
-                    </div>
-                    <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
-                        <h4 class="mb-3">Popular item Menu</h4>
-                        <div class="d-flex flex-column gap-sm-3 gap-2">
+                </div> --}}
+                <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
+    <h4 class="mb-3">Categories</h4>
+    <div class="d-flex flex-column gap-3">
+        @php
+            $categories = ['Soups', 'Pasta', 'Rice', 'Platters', 'Porridges', 'Extras'];
+        @endphp
+        @foreach($categories as $cat)
+            <a href="{{ route('shop', ['category' => $cat]) }}"
+               class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3
+               {{ ($category ?? '') === $cat ? 'theme3-clr fw-bold' : 'text-clr' }}">
+                <span class="d-flex align-items-center gap-1 fs-15">
+                    <img src="/template/assets/img/icons/shop-check.png" alt="icon">
+                    {{ $cat }}
+                </span>
+                <span class="fs-13">(25)</span>
+            </a>
+        @endforeach
+        <a href="{{ route('shop') }}"
+           class="d-flex w-100 link-effect align-items-center justify-content-between border-bottom pb-3
+           {{ empty($category) ? 'theme3-clr fw-bold' : 'text-clr' }}">
+            <span class="d-flex align-items-center gap-1 fs-15">
+                <img src="/template/assets/img/icons/shop-check.png" alt="icon">
+                All Items
+            </span>
+        </a>
+    </div>
+</div>
+
+
+                <!-- Popular Items -->
+                <div class="shop-category cmn-shadow-shop mb-xxl-4 mb-3">
+                    <h4 class="mb-3">Popular Menu Items</h4>
+                    <div class="d-flex flex-column gap-sm-3 gap-2">
+                        @foreach($popularItems ?? [] as $item)
                             <div class="d-flex align-items-center gap-xl-3 gap-2">
-                                <a href="{{ route('shop.details') }}" class="thumb card-effect w-80px h-80px rounded-2">
-                                    <img src="/template/assets/img/inner/shop-grilled1.jpg" alt="img" class="w-100 rounded-2">
+                                <a href="{{ route('shop.details', $item->id) }}" class="thumb card-effect w-80px h-80px rounded-2">
+                                    <img src="{{ $item->image ? asset('storage/' . $item->image) : '/template/assets/img/inner/shop-grilled1.jpg' }}"
+                                         alt="{{ $item->name }}" class="w-100 rounded-2">
                                 </a>
                                 <div class="content">
-                                    <a href="{{ route('shop.details') }}" class="fs-16 fw-semibold text-black">Grilled Platter</a>
+                                    <a href="{{ route('shop.details', $item->id) }}" class="fs-16 fw-semibold text-black">{{ $item->name }}</a>
                                     <div class="d-flex gap-1 mb-1">
                                         <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                         <i class="fa-solid fa-star fs-16 ratting-clr"></i>
@@ -435,1250 +383,104 @@
                                         <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                         <i class="fa-solid fa-star fs-16 text3-clr"></i>
                                     </div>
-                                    <div class="fs-16 theme3-clr fw-bold">$19.00</div>
+                                    <div class="fs-16 theme3-clr fw-bold">${{ number_format($item->price, 2) }}</div>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center gap-xl-3 gap-2">
-                                <a href="{{ route('shop.details') }}" class="thumb card-effect w-80px h-80px rounded-2">
-                                    <img src="/template/assets/img/inner/shop-grilled2.jpg" alt="img" class="w-100 rounded-2">
-                                </a>
-                                <div class="content">
-                                    <a href="{{ route('shop.details') }}" class="fs-16 fw-semibold text-black">Eggstasy Omelet</a>
-                                    <div class="d-flex gap-1 mb-1">
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 text3-clr"></i>
-                                    </div>
-                                    <div class="fs-16 theme3-clr fw-bold">$10.00</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-xl-3 gap-2">
-                                <a href="{{ route('shop.details') }}" class="thumb card-effect w-80px h-80px rounded-2">
-                                    <img src="/template/assets/img/inner/shop-grilled3.jpg" alt="img" class="w-100 rounded-2">
-                                </a>
-                                <div class="content">
-                                    <a href="{{ route('shop.details') }}" class="fs-16 fw-semibold text-black">Scramble Shine
-                                        Food</a>
-                                    <div class="d-flex gap-1 mb-1">
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                        <i class="fa-solid fa-star fs-16 text3-clr"></i>
-                                    </div>
-                                    <div class="fs-16 theme3-clr fw-bold">$980.00</div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                </div>
-                <div class="col-lg-9">
-                    <div
-                        class="shop-filter-area border rounded-2 py-3 px-3 d-flex align-items-center justify-content-between flex-wrap gap-3 mb-xxl-4 mb-3">
-                        <span class="fs-15 text-clr">Showing 1–16 of 38 results</span>
-                        <div class="d-flex align-items-center shop-filter-inner">
-                            <select name="sorting">
-                                <option value="0">
-                                    Default Sorting
-                                </option>
-                                <option value="0">
-                                    001
-                                </option>
-                                <option value="0">
-                                    002
-                                </option>
-                            </select>
-                            <ul class="nav d-flex flex-nowrap align-items-center gap-3 nav-tabs border-0" id="myTab"
-                                role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link p-0 border-0 active" id="home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                        aria-selected="true">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 1H1V8H8V1Z" stroke="#353844" stroke-width="1.4"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M19 1H12V8H19V1Z" stroke="#353844" stroke-width="1.4"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M19 12H12V19H19V12Z" stroke="#353844" stroke-width="1.4"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M8 12H1V19H8V12Z" stroke="#353844" stroke-width="1.4"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link p-0 border-0" id="profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
-                                        aria-selected="false">
-                                        <svg width="24" height="18" viewBox="0 0 24 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.33333 2H22.5M7.33333 9H22.5M7.33333 16H22.5M1.5 2H1.51167M1.5 9H1.51167M1.5 16H1.51167"
-                                                stroke="#353844" stroke-width="2.33333" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row g-xxl-4 g-xl-3 g-2">
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.3s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid1.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Smoky
-                                                    Stack
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                beef patty with melted cheese and smoky BBQ sauce in every bite.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.4s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid2.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Creamy
-                                                    Alfredo
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid3.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Tasty
-                                                    Chicken
-                                                    Salad</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.6s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid4.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Desert
-                                                    Delicia's</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Crispy on the outside, tender on the inside with fresh veggies and mayo.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid5.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Spicy
-                                                    Fire
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Rich and velvety Alfredo sauce tossed with perfectly cooked fettuccine.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid6.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Crispy
-                                                    Chicken
-                                                    Wings</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Savor the perfect combo of a juicy burger paired with creamy.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.9s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid10.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Spicy
-                                                    Arrabbiata Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Savor the perfect combo of a juicy burger paired with creamy.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.4s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid11.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Chicken
-                                                    Mushroom Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$11.50</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid12.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Burger
-                                                    With
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.3s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid1.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Smoky
-                                                    Stack
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                beef patty with melted cheese and smoky BBQ sauce in every bite.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.4s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid2.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Creamy
-                                                    Alfredo
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid3.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Tasty
-                                                    Chicken
-                                                    Salad</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row g-xxl-4 g-xl-3 g-2">
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid6.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Crispy
-                                                    Chicken
-                                                    Wings</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Savor the perfect combo of a juicy burger paired with creamy.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid10.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Spicy
-                                                    Arrabbiata Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Savor the perfect combo of a juicy burger paired with creamy.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 ">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid11.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Chicken
-                                                    Mushroom Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$11.50</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 ">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid12.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Burger
-                                                    With
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 ">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid1.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Smoky
-                                                    Stack
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                beef patty with melted cheese and smoky BBQ sauce in every bite.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 ">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid2.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Creamy
-                                                    Alfredo
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid3.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Tasty
-                                                    Chicken
-                                                    Salad</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid1.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Smoky
-                                                    Stack
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                beef patty with melted cheese and smoky BBQ sauce in every bite.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid2.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Creamy
-                                                    Alfredo
-                                                    Pasta</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Overflowing with molten cheese, crispy lettuce, and grilled chicken.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid3.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Tasty
-                                                    Chicken
-                                                    Salad</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Perfect for spice lovers — loaded with hot jalapeños and spicy sauce.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid4.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            <img src="/template/assets/img/icons/offer_2.png" alt="img"> Flat 15% Off
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Desert
-                                                    Delicia's</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Crispy on the outside, tender on the inside with fresh veggies and mayo.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div
-                                        class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12">
-                                        <div class="thumb rounded-top-3 d-block position-relative">
-                                            <img src="/template/assets/img/inner/shop-grid5.jpg" alt="img" class="w-100">
-                                        </div>
-                                        <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
-                                            style="border-bottom-right-radius: 20px;">
-                                            Sale
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="restaurant-details.html" class="text-black link-effect"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Spicy
-                                                    Fire
-                                                    Burger</a>
-                                            </h6>
-                                            <div class="d-flex gap-2 align-items-center mb-2">
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <div
-                                                        class="theme2-bg rounded-1 d-center fs-10 text-white w-16px h-16px">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </div> <span><span class="text-black">4.8</span>
-                                                        (32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center gap-1 fs-14 text-clr">
-                                                    <i class="fa-regular fa-clock"></i> 20-30 mins
-                                                </div>
-                                            </div>
-                                            <p class="fs-12 mb-3 lh-18">
-                                                Rich and velvety Alfredo sauce tossed with perfectly cooked fettuccine.
-                                            </p>
-                                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
-                                                <div class="d-flex align-items-center gap-1">
-                                                    <del class="fs-16 text4-clr">$23.00</del><span
-                                                        class="theme3-clr fw-semibold fs-16">$16.50</span>
-                                                </div>
-                                                <a href="{{ route('cart') }}"
-                                                    class="theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Add to Cart
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="pagination d-flex align-items-center gap-1 justify-content-center flex-wrap mt-40">
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-14 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg">
-                                Previous Page
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-17 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg active">
-                                1
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-17 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg">
-                                2
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-17 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg">
-                                3
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-17 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg">
-                                4
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('shop.details') }}"
-                                class="fs-14 fw-semibold text-black py-2 px-3 text-center rounded-2 pagination-bg">
-                                Next Page
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Filter Bar -->
+                <div class="shop-filter-area border rounded-2 py-3 px-3 d-flex align-items-center justify-content-between flex-wrap gap-3 mb-xxl-4 mb-3">
+                    <span class="fs-15 text-clr">
+                        Showing {{ $foodItems->firstItem() ?? 0 }}–{{ $foodItems->lastItem() ?? 0 }} of {{ $foodItems->total() ?? 0 }} results
+                    </span>
+                    <div class="d-flex align-items-center shop-filter-inner">
+                        <select name="sorting" class="form-select-sm">
+                            <option value="">Default Sorting</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                        </select>
+                        <ul class="nav d-flex flex-nowrap align-items-center gap-3 nav-tabs border-0" id="shopTab" role="tablist">
+                            <li class="nav-item">
+                                <button class="nav-link p-0 border-0 active" id="grid-tab" data-bs-toggle="tab" data-bs-target="#grid"
+                                        type="button" role="tab" aria-selected="true">
+                                    <i class="fa-solid fa-grid-2"></i>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link p-0 border-0" id="list-tab" data-bs-toggle="tab" data-bs-target="#list"
+                                        type="button" role="tab" aria-selected="false">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="tab-content" id="shopTabContent">
+                    <div class="tab-pane fade show active" id="grid" role="tabpanel">
+                        <div class="row g-xxl-4 g-xl-3 g-2">
+                            @forelse($foodItems ?? [] as $foodItem)
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="restaurant-card rounded-4 border h-100 card-scale wow fadeInUp">
+                                        <div class="thumb rounded-top-3 position-relative">
+                                            <img src="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/inner/shop-grid1.jpg' }}"
+                                                 alt="{{ $foodItem->name }}" class="w-100 rounded-top-3">
+                                            @if($foodItem->is_available)
+                                                <div class="position-absolute top-0 theme3-bg fs-12 py-1 px-2 text-white fw-500 rounded-end">
+                                                    Available
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="cont py-3 px-xxl-4 px-3">
+                                            <h6 class="mb-2">
+                                                <a href="{{ route('shop.details', $foodItem->id) }}" class="text-black link-effect">
+                                                    {{ $foodItem->name }}
+                                                </a>
+                                            </h6>
+                                            <p class="fs-12 mb-3 lh-18">{{ Str::limit($foodItem->description, 80) }}</p>
+                                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                <span class="theme3-clr fw-semibold fs-16">${{ number_format($foodItem->price, 2) }}</span>
+                                                <button type="button" class="add-to-cart-btn theme-btn btn-outline-theme rounded-pill py-2 px-3"
+                                                        data-food-item-id="{{ $foodItem->id }}">
+                                                    Add to Cart
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <div class="col-12 text-center py-5">
+                                    <h4>No food items available yet</h4>
+                                    <p>Check back soon!</p>
+                                </div>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                @if(isset($foodItems) && $foodItems->hasPages())
+                    <div class="d-flex justify-content-center mt-40">
+                        {{ $foodItems->links() }}
+                    </div>
+                @endif
+            </div>
         </div>
-        <img src="/template/assets/img/inner-global-left.png" alt="img"
-            class="position-absolute bottom-0 start-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
-        <img src="/template/assets/img/inner-global-chess.png" alt="img"
-            class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
-    </section>
+    </div>
+
+    <!-- Floating Decorations -->
+    <img src="/template/assets/img/inner-global-left.png" alt="img"
+         class="position-absolute bottom-0 start-0 float-bob-y z-n1 d-sm-block d-none">
+    <img src="/template/assets/img/inner-global-chess.png" alt="img"
+         class="position-absolute top-0 end-0 float-bob-y z-n1 d-sm-block d-none">
+</section>
+
 
 
     <!-- Modal -->
@@ -1927,6 +729,59 @@
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
 
+
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
 
 </body>
 

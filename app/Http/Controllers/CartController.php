@@ -82,14 +82,13 @@ class CartController extends Controller
             $subtotal += $item['price'] * $item['quantity'];
         }
 
-        $deliveryFee = 2.00;
-        $tax = $subtotal * 0.08; // 8% tax
-        $total = $subtotal + $deliveryFee + $tax;
+        $deliveryFee = 1000.00;
+
+        $total = $subtotal + $deliveryFee;
 
         return [
             'subtotal' => $subtotal,
             'deliveryFee' => $deliveryFee,
-            'tax' => $tax,
             'total' => $total
         ];
     }

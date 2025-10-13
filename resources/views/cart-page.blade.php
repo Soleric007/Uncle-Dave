@@ -211,7 +211,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('shop') }}">
+                                        <a href="javascript:void(0)">
                                             Shop
                                             <i class="fas fa-angle-down"></i>
                                         </a>
@@ -239,7 +239,9 @@
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
                         <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                             <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <a href="{{ route('contact') }}"
                             class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
@@ -256,7 +258,9 @@
 
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">02</span>
+                            <span class="count-quan d-center count-quan-black text-white">
+    {{ count(session()->get('cart', [])) }}
+</span>
                         </button>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -307,247 +311,160 @@
     </section>
 
     <!--- SHop Section -->
-    <section class="shop-section position-relative z-1 fix section-padding">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-9">
-                    <div class="table-cart-inner p-xxl-4 p-xl-4 p-3">
-                        <div class="table-responsive">
+<section class="shop-section position-relative z-1 fix section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-9">
+                <div class="table-cart-inner p-xxl-4 p-xl-4 p-3">
+                    <div class="table-responsive">
+                        @if(!empty($cart))
                             <table class="table m-0 align-middle table-borderless">
                                 <thead>
                                     <tr>
-                                        <th class="pb-lg-4 pb-3">
-                                            <div class="fs-18 fw-semibold text-black m-0">Item</div>
-                                        </th>
-                                        <th class="pb-lg-4 pb-3">
-                                            <div class="fs-18 fw-semibold text-black m-0">Price</div>
-                                        </th>
-                                        <th class="pb-lg-4 pb-3">
-                                            <div class="fs-18 fw-semibold text-black m-0">Quantity</div>
-                                        </th>
-                                        <th class="pb-lg-4 pb-3">
-                                            <div class="fs-18 fw-semibold text-black m-0">Subtotal</div>
-                                        </th>
-                                        <th class="pb-lg-4 pb-3">
-                                            <div class="fs-18 fw-semibold text-black m-0">Remove</div>
-                                        </th>
+                                        <th class="pb-lg-4 pb-3"><div class="fs-18 fw-semibold text-black m-0">Item</div></th>
+                                        <th class="pb-lg-4 pb-3"><div class="fs-18 fw-semibold text-black m-0">Price</div></th>
+                                        <th class="pb-lg-4 pb-3"><div class="fs-18 fw-semibold text-black m-0">Quantity</div></th>
+                                        <th class="pb-lg-4 pb-3"><div class="fs-18 fw-semibold text-black m-0">Subtotal</div></th>
+                                        <th class="pb-lg-4 pb-3"><div class="fs-18 fw-semibold text-black m-0">Remove</div></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border overflow-hidden rounded">
-                                        <td class="p-3">
-                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
-                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
-                                                    class="border rounded-2">
-                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
-                                            </a>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="theme-clr fw-500">$12.00</h5>
-                                        </td>
-                                        <td class="p-3">
-                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
-                                                <div class="quantity-wrapper d-inline-flex align-items-center">
-                                                    <button type="button" class="quantityDecrement">-</button>
-                                                    <input type="text" value="1" readonly>
-                                                    <button type="button" class="quantityIncrement">+</button>
+                                    @foreach($cart as $id => $item)
+                                        <tr class="border overflow-hidden rounded">
+                                            <td class="p-3">
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <img src="{{ asset('storage/'.$item['image']) }}"
+                                                         onerror="this.src='/template/assets/img/inner/shop-cart.jpg';"
+                                                         width="70" height="70" class="border rounded-2" alt="{{ $item['name'] }}">
+                                                    <h5 class="text-black max-w-180 fw-500">{{ $item['name'] }}</h5>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="p-3 theme-clr fw-500">$24.00 </h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="text-center btn p-0 border-0"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr class="border overflow-hidden rounded">
-                                        <td class="p-3">
-                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
-                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
-                                                    class="border rounded-2">
-                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
-                                            </a>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="theme-clr fw-500">$44.00</h5>
-                                        </td>
-                                        <td class="p-3">
-                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
+                                            </td>
+
+                                            <td class="p-3">
+                                                <h5 class="theme-clr fw-500">₦{{ number_format($item['price'], 2) }}</h5>
+                                            </td>
+
+                                            <td class="p-3">
                                                 <div class="quantity-wrapper d-inline-flex align-items-center">
-                                                    <button type="button" class="quantityDecrement">-</button>
-                                                    <input type="text" value="1" readonly>
-                                                    <button type="button" class="quantityIncrement">+</button>
+                                                    <button type="button" class="quantityDecrement" data-id="{{ $id }}">-</button>
+                                                    <input type="text" value="{{ $item['quantity'] }}" readonly>
+                                                    <button type="button" class="quantityIncrement" data-id="{{ $id }}">+</button>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="p-3 theme-clr fw-500">$24.00 </h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="text-center btn p-0 border-0"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr class="border overflow-hidden rounded">
-                                        <td class="p-3">
-                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
-                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
-                                                    class="border rounded-2">
-                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
-                                            </a>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="theme-clr fw-500">$09.00</h5>
-                                        </td>
-                                        <td class="p-3">
-                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
-                                                <div class="quantity-wrapper d-inline-flex align-items-center">
-                                                    <button type="button" class="quantityDecrement">-</button>
-                                                    <input type="text" value="1" readonly>
-                                                    <button type="button" class="quantityIncrement">+</button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="p-3 theme-clr fw-500">$09.00</h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="text-center btn p-0 border-0"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr class="border overflow-hidden rounded">
-                                        <td class="p-3">
-                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
-                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
-                                                    class="border rounded-2">
-                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
-                                            </a>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="theme-clr fw-500">$22.00</h5>
-                                        </td>
-                                        <td class="p-3">
-                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
-                                                <div class="quantity-wrapper d-inline-flex align-items-center">
-                                                    <button type="button" class="quantityDecrement">-</button>
-                                                    <input type="text" value="1" readonly>
-                                                    <button type="button" class="quantityIncrement">+</button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="p-3 theme-clr fw-500">$44.00</h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="text-center btn p-0 border-0"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr class="border overflow-hidden rounded">
-                                        <td class="p-3">
-                                            <a href="{{ route('checkout') }}" class="d-flex align-items-center gap-3">
-                                                <img src="/template/assets/img/inner/shop-cart.jpg" alt=""
-                                                    class="border rounded-2">
-                                                <h5 class="text-black max-w-180 fw-500">Spicy Mushroom Pasta</h5>
-                                            </a>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="theme-clr fw-500">$44.00</h5>
-                                        </td>
-                                        <td class="p-3">
-                                            <div class="wow fadeInUp" data-wow-delay="0.7s">
-                                                <div class="quantity-wrapper d-inline-flex align-items-center">
-                                                    <button type="button" class="quantityDecrement">-</button>
-                                                    <input type="text" value="1" readonly>
-                                                    <button type="button" class="quantityIncrement">+</button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="p-3">
-                                            <h5 class="p-3 theme-clr fw-500">$44.00</h5>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="text-center btn p-0 border-0"><i
-                                                    class="fa-solid fa-xmark"></i></button>
-                                        </td>
-                                    </tr>
+                                            </td>
+
+                                            <td class="p-3">
+                                                <h5 class="theme-clr fw-500">₦{{ number_format($item['price'] * $item['quantity'], 2) }}</h5>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <form action="{{ route('cart.remove', $id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn p-0 border-0 text-danger">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="d-flex align-items-center gap-4 mt-4">
-                            <h6 class="text-black">Back</h6>
-                            <button type="button" class="theme-btn rounded-2">
-                                Cancel Order
-                            </button>
-                        </div>
+                        @else
+                            <div class="text-center py-5">
+                                <h5>Your cart is empty.</h5>
+                                <a href="{{ route('shop') }}" class="theme-btn mt-3">Continue Shopping</a>
+                            </div>
+                        @endif
                     </div>
+
+                    @if(!empty($cart))
+                        <div class="d-flex align-items-center justify-content-between gap-4 mt-4">
+                            <a href="{{ route('shop') }}" class="text-black fw-semibold">
+                                <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+                            </a>
+                            <a href="{{ route('checkout') }}" class="theme-btn rounded-2">
+                                Proceed to Checkout
+                            </a>
+                        </div>
+                    @endif
                 </div>
-                <div class="col-lg-3">
+            </div>
+
+            <!-- ORDER SUMMARY -->
+            <div class="col-lg-3">
+                @if(!empty($cart))
                     <div class="d-flex flex-column gap-3">
-                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
-                            data-wow-delay="4.s">
+                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white">
                             <h5 class="border-bottom pb-2 mb-3">Coupon Code</h5>
                             <input type="text" placeholder="Enter your Coupon Code" class="mb-3">
                             <button type="button" class="theme-btn justify-content-center w-100 btn-outline-theme">
-                                Apply Your Coupon
+                                Apply Coupon
                             </button>
                         </div>
-                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
-                            data-wow-delay="6.s">
+
+                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white">
                             <h5 class="border-bottom pb-2 mb-3">Order Summary</h5>
                             <div class="d-flex flex-column gap-2">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <span class="fs-16 text-color">Discount</span>
-                                    <span class="fs-16 text-black fw-medium">$20.00</span>
+                                    <span class="fs-16 text-color">Subtotal</span>
+                                    <span class="fs-16 text-black fw-medium">₦{{ number_format($cartTotal['subtotal'], 2) }}</span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <span class="fs-16 text-color">Delivery</span>
-                                    <span class="fs-16 text-black fw-medium">$2.00</span>
+                                    <span class="fs-16 text-black fw-medium">₦{{ number_format($cartTotal['deliveryFee'], 2) }}</span>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <span class="fs-16 text-color">Tax</span>
-                                    <span class="fs-16 text-black fw-medium">$2.98</span>
+                                    <span class="fs-16 text-black fw-medium">₦{{ number_format($cartTotal['tax'], 2) }}</span>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <span class="fs-16 text-color">Total</span>
-                                    <span class="fs-16 text-black fw-medium">$349.00</span>
+                                <div class="d-flex align-items-center justify-content-between border-top pt-2">
+                                    <span class="fs-16 text-color fw-semibold">Total</span>
+                                    <span class="fs-16 text-black fw-semibold">₦{{ number_format($cartTotal['total'], 2) }}</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="shadow-cus coupon-group p-xl-4 p-3 rounded-3 bg-white wow fadeInDown"
-                            data-wow-delay="8.s">
-                            <h5 class="border-bottom pb-2 mb-3">Payment Method</h5>
-                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
-                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
-                                </button>
-                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
-                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
-                                </button>
-                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
-                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
-                                </button>
-                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
-                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
-                                </button>
-                                <button type="button" class="btn p-0 border rounded-2 w-44px h-40px">
-                                    <img width="30" height="30" src="/template/assets/img/icons/payment.png" alt="img">
-                                </button>
-                            </div>
-                            <button type="button" class="theme-btn text-center justify-content-center w-100">
-                                Apply Your Coupon
-                            </button>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
-        <img src="/template/assets/img/inner-global-pasta.png" alt="img"
-            class="position-absolute bottom-0 pb-100 end-0 float-bob-y mt-4 z-n1 d-sm-block d-none">
-    </section>
+    </div>
+
+    <img src="/template/assets/img/inner-global-pasta.png" alt="img"
+         class="position-absolute bottom-0 pb-100 end-0 float-bob-y mt-4 z-n1 d-sm-block d-none">
+</section>
+
+<!-- Quantity Update AJAX -->
+<script>
+document.querySelectorAll('.quantityIncrement, .quantityDecrement').forEach(btn => {
+    btn.addEventListener('click', async e => {
+        const id = e.target.getAttribute('data-id');
+        const input = e.target.parentElement.querySelector('input');
+        let quantity = parseInt(input.value);
+
+        if (e.target.classList.contains('quantityIncrement')) {
+            quantity++;
+        } else if (quantity > 1) {
+            quantity--;
+        }
+
+        input.value = quantity;
+
+        // Update cart via AJAX
+        await fetch("{{ route('cart.update') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id, quantity })
+        });
+
+        // Reload the page to update totals
+        location.reload();
+    });
+});
+</script>
+
 
 
     <!-- Footer section start -->
@@ -699,6 +616,59 @@
     <!--<< Main.js >>-->
     <script src="/template/assets/js/main.js"></script>
 
+
+
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+// Add to cart functionality
+$(document).on('click', '.add-to-cart-btn', function(e) {
+    e.preventDefault();
+
+    let foodItemId = $(this).data('food-item-id');
+    let btn = $(this);
+    let originalText = btn.text().trim();
+
+    btn.prop('disabled', true).text('Adding...');
+
+    $.ajax({
+        url: '{{ route("cart.add") }}',
+        method: 'POST',
+        data: {
+            food_item_id: foodItemId,
+            quantity: 1
+        },
+        success: function(response) {
+            if(response.success) {
+                // Update cart count in header
+                $('.count-quan').text(response.cartCount);
+
+                // Change button appearance
+                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                // Show success message
+                alert(response.message);
+
+                // Reset button after 2 seconds
+                setTimeout(function() {
+                    btn.text(originalText)
+                       .addClass('btn-outline-theme')
+                       .removeClass('theme-btn')
+                       .prop('disabled', false);
+                }, 2000);
+            }
+        },
+        error: function(xhr) {
+            alert('Error adding item to cart');
+            btn.prop('disabled', false).text(originalText);
+        }
+    });
+});
+</script>
 
 </body>
 
