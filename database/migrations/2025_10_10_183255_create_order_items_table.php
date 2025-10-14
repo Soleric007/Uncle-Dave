@@ -26,5 +26,4 @@ return new class extends Migration
     }
 };
 
-// database/migrations/xxxx_create_users_table.php (if not exists)
 

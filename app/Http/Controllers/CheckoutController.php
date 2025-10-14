@@ -48,7 +48,7 @@ class CheckoutController extends Controller
             'delivery_address' => $request->delivery_address,
             'subtotal' => $cartTotal['subtotal'],
             'delivery_fee' => $cartTotal['deliveryFee'],
-            'tax' => $cartTotal['tax'],
+
             'total' => $cartTotal['total'],
             'payment_method' => $request->payment_method
         ]);
@@ -80,13 +80,13 @@ class CheckoutController extends Controller
         }
 
         $deliveryFee = 2.00;
-        $tax = $subtotal * 0.08;
-        $total = $subtotal + $deliveryFee + $tax;
+
+        $total = $subtotal + $deliveryFee;
 
         return [
             'subtotal' => $subtotal,
             'deliveryFee' => $deliveryFee,
-            'tax' => $tax,
+
             'total' => $total
         ];
     }

@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $order->load('orderItems');
-        return view('admin.orders.show', compact('order'));
+        return view('admin.pages.orderdetails', compact('order'));
     }
 
     public function confirmPayment(Order $order)

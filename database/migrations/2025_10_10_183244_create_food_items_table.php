@@ -1,5 +1,5 @@
 <?php
-// database/migrations/xxxx_create_food_items_table.php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +14,7 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 10, 2);
             $table->string('image')->nullable();
-            $table->string('category')->nullable();
+            $table->string('category')->nullable(); // Simple string instead of foreign key
             $table->boolean('is_available')->default(true);
             $table->timestamps();
         });

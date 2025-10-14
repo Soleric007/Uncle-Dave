@@ -413,10 +413,7 @@
                                     <span class="fs-16 text-color">Delivery</span>
                                     <span class="fs-16 text-black fw-medium">₦{{ number_format($cartTotal['deliveryFee'], 2) }}</span>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <span class="fs-16 text-color">Tax</span>
-                                    <span class="fs-16 text-black fw-medium">₦{{ number_format($cartTotal['tax'], 2) }}</span>
-                                </div>
+                                
                                 <div class="d-flex align-items-center justify-content-between border-top pt-2">
                                     <span class="fs-16 text-color fw-semibold">Total</span>
                                     <span class="fs-16 text-black fw-semibold">₦{{ number_format($cartTotal['total'], 2) }}</span>

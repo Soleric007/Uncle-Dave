@@ -19,6 +19,7 @@ class DashboardController extends Controller
 
         $recentOrders = Order::latest()->take(10)->get();
 
-        return view('admin.dashboard', compact('stats', 'recentOrders'));
+        // Changed to match your file structure: admin.pages.dashboard
+        return view('admin.pages.dashboard', compact('stats', 'recentOrders'));
     }
 }

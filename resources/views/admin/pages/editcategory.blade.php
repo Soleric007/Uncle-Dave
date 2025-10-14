@@ -9,9 +9,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Add New Category</h4>
+                        <h4 class="mb-sm-0">Edit Category</h4>
                         <div class="page-title-right">
-                            <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">
+                            <a href="{{ route('admin.pages.categories') }}" class="btn btn-secondary">
                                 <i class="ri-arrow-left-line"></i> Back to List
                             </a>
                         </div>
@@ -23,11 +23,12 @@
                 <div class="col-lg-6 mx-auto">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Category Details</h5>
+                            <h5 class="card-title mb-0">Update Category Details</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.store.category') }}" method="POST">
+                            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="mb-4">
                                     <label for="name" class="form-label">Category Name <span class="text-danger">*</span></label>
@@ -35,34 +36,27 @@
                                            class="form-control @error('name') is-invalid @enderror"
                                            id="name"
                                            name="name"
-                                           value="{{ old('name') }}"
+                                           value="{{ old('name', $category->name) }}"
                                            placeholder="e.g., Nigerian Dishes, Snacks, Drinks"
                                            required>
                                     @error('name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
-                                    <small class="text-muted">Enter a unique category name for organizing your food items.</small>
+                                    <small class="text-muted">Update the category name.</small>
+                                </div>
+
+                                <div class="alert alert-info">
+                                    <i class="ri-information-line"></i>
+                                    This category has <strong>{{ $category->foodItems->count() }}</strong> food item(s) associated with it.
                                 </div>
 
                                 <div class="d-flex justify-content-end gap-2">
-                                    <a href="{{ route('admin.categories.index') }}" class="btn btn-light">Cancel</a>
-                                    <button type="submit" class="btn btn-success">
-                                        <i class="ri-save-line"></i> Save Category
+                                    <a href="{{ route('admin.pages.categories') }}" class="btn btn-light">Cancel</a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="ri-save-line"></i> Update Category
                                     </button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-
-                    <!-- Quick Tips -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title">💡 Quick Tips</h6>
-                            <ul class="mb-0">
-                                <li>Use clear, descriptive names for categories</li>
-                                <li>Categories help customers find food items easily</li>
-                                <li>You can edit or delete categories later</li>
-                            </ul>
                         </div>
                     </div>
                 </div>

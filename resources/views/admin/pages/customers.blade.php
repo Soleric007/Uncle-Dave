@@ -1,4 +1,6 @@
-<x-ad-layout>
+@extends('admin.layouts.ad')
+
+@section('content')
     <div class="main-content">
 
         <div class="page-content">
@@ -90,7 +92,7 @@
                                                                 href="javascript:void(0);"
                                                                 class="fw-medium link-primary">#{{ $user->id }}</a>
                                                         </td>
-                                                        <td class="customer_name">{{ $user->name }}</td>
+                                                        <td class="customer_name">Uncle David</td>
                                                         <td class="email">{{ $user->email }}</td>
                                                         <td class="phone">{{ $user->phone ? $user->phone : 'null' }}
                                                         </td>
@@ -275,4 +277,4 @@
         </div>
     </footer>
     </div>
-</x-ad-layout>
+@endsection

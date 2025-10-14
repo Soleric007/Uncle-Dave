@@ -16,7 +16,7 @@ class Order extends Model
         'delivery_address',
         'subtotal',
         'delivery_fee',
-        'tax',
+
         'total',
         'payment_status',
         'order_status',
@@ -32,7 +32,7 @@ class Order extends Model
     protected $casts = [
         'subtotal' => 'decimal:2',
         'delivery_fee' => 'decimal:2',
-        'tax' => 'decimal:2',
+        
         'total' => 'decimal:2',
         'payment_confirmed_at' => 'datetime',
         'cooking_started_at' => 'datetime',
