@@ -139,7 +139,7 @@
                                         @forelse ($recentOrders as $order)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route('admin.pages.orderdetails', $order->id) }}" class="fw-medium link-primary">
+                                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="fw-medium link-primary">
                                                         {{ $order->order_number }}
                                                     </a>
                                                 </td>
@@ -157,7 +157,7 @@
                                                     </span>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.pages.orderdetails', $order->id) }}" class="btn btn-sm btn-soft-primary">
+                                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-sm btn-soft-primary">
                                                         View
                                                     </a>
                                                 </td>

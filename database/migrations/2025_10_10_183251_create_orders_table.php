@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('customer_phone');
             $table->text('delivery_address');
             $table->decimal('subtotal', 10, 2);
-            $table->decimal('delivery_fee', 10, 2)->default(2.00);
-            
+            $table->decimal('delivery_fee', 10, 2)->default(1000.00);
+
             $table->decimal('total', 10, 2);
             $table->enum('payment_status', ['pending', 'confirmed', 'failed'])->default('pending');
             $table->enum('order_status', [

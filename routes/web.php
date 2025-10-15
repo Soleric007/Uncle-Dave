@@ -40,8 +40,14 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 // Payment
-Route::get('/payment/{orderNumber}', [PaymentController::class, 'show'])->name('payment');
-Route::post('/payment/{orderNumber}', [PaymentController::class, 'process'])->name('payment.process');
+// Route::get('/payment/{orderNumber}', [PaymentController::class, 'show'])->name('payment');
+// Route::post('/payment/{orderNumber}', [PaymentController::class, 'process'])->name('payment.process');
+
+// Transfer payment page
+Route::get('/payment/transfer/{orderNumber}', function($orderNumber) {
+    $order = \App\Models\Order::where('order_number', $orderNumber)->firstOrFail();
+    return view('transfer', compact('order'));
+})->name('payment.transfer');
 
 // Order Tracking
 Route::get('/order-tracking', [OrderTrackingController::class, 'index'])->name('order.tracking');

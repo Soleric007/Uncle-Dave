@@ -10,10 +10,10 @@
     <meta name="author" content="Uncle Davids Cousine">
 <meta name="description" content="Order delicious Nigerian meals online — soups, rice, pasta, and platters freshly prepared and delivered to your doorstep.">
 <meta name="keywords" content="food delivery, Nigerian meals, order food online, egusi soup, jollof rice, Uncle Dave restaurant, Delta food delivery, Asaba food delivery">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - FAQS</title>
+    <title>Uncle Dave - Shop</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -101,7 +101,6 @@
         </div>
     </div>
 
-    <!-- Offcanvas Area Start -->
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
         <div class="offcanvas__info">
@@ -238,7 +237,7 @@
                         </div>
                     </div>
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
-                           <a href="{{ route('cart') }}">
+                       <a href="{{ route('cart') }}">
                             <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
                                                         <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
                                                         <span class="count-quan d-center count-quan-black text-white">
@@ -282,7 +281,7 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <h2 class="white-clr fw-semibold text-center heading-font mb-2">
-                    fAQ & Answer
+                    Shop Page
                 </h2>
                 <ul class="breadcrumb align-items-center justify-content-center flex-wrap gap-3">
                     <li>
@@ -302,7 +301,7 @@
                         <i class="fa-solid fa-angle-right"></i>
                     </li>
                     <li>
-                        fAQ & Answer
+                        Shop Page
                     </li>
                 </ul>
             </div>
@@ -312,211 +311,119 @@
             class="bread-shape-end position-absolute d-sm-block d-none">
     </section>
 
-    <!--- Faq Section -->
-    <section class="faq-section position-relative z-1 fix section-padding">
+    <section class="py-5 mt-5">
         <div class="container">
-            <div class="row g-4">
+            <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="accordion accordion-custom-wrapper d-flex flex-column gap-3 me-xl-5"
-                        id="accordionExample">
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".3s">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How do I place an order online?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
+                    <!-- Success Message -->
+                    <div class="text-center mb-5 wow fadeInUp">
+                        <div class="mb-4">
+                            <i class="fa-solid fa-circle-check text-success" style="font-size: 80px;"></i>
+                        </div>
+                        <h2 class="text-black mb-3 fw-bold">Order Placed Successfully! 🎉</h2>
+                        <p class="text-muted fs-18">Your order number is: <strong class="theme3-clr">{{ $order->order_number }}</strong></p>
+                    </div>
+
+                    <!-- Payment Instructions Card -->
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="card-header theme3-bg text-white py-4">
+                            <h4 class="mb-0 text-white fw-semibold">
+                                <i class="fa-solid fa-building-columns me-2"></i> Complete Your Payment
+                            </h4>
+                        </div>
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+                                <i class="fa-solid fa-info-circle me-3 fs-4"></i>
+                                <div>
+                                    Please transfer the total amount to the account below and notify us via WhatsApp.
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".5s">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                    aria-controls="collapseTwo">
-                                    What are your delivery hours?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
+
+                            <!-- Amount to Pay -->
+                            <div class="bg-light rounded-3 p-4 mb-4 text-center">
+                                <p class="text-muted mb-2 fs-14">Total Amount to Pay</p>
+                                <h2 class="theme3-clr fw-bold mb-0">₦{{ number_format($order->total, 2) }}</h2>
+                            </div>
+
+                            <!-- Bank Details -->
+                            <div class="border rounded-3 p-4 mb-4">
+                                <h5 class="text-black mb-4 fw-semibold">
+                                    <i class="fa-solid fa-university me-2"></i> Bank Account Details
+                                </h5>
+
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                                            <span class="text-muted">Bank Name:</span>
+                                            <strong class="text-black fs-18">Access Bank</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                                            <span class="text-muted">Account Number:</span>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <strong class="text-black fs-18" id="accountNumber">1848449170</strong>
+                                                <button class="btn btn-sm btn-outline-primary rounded-pill" onclick="copyAccountNumber()">
+                                                    <i class="fa-solid fa-copy"></i> Copy
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Account Name:</span>
+                                            <strong class="text-black fs-18">Uncle Dave Foods</strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".6s">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    Is there a minimum order for delivery?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
+
+                            <!-- Order Summary -->
+                            <div class="border rounded-3 p-4 mb-4">
+                                <h5 class="text-black mb-3 fw-semibold">
+                                    <i class="fa-solid fa-receipt me-2"></i> Order Summary
+                                </h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal:</span>
+                                    <span>₦{{ number_format($order->subtotal, 2) }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Delivery Fee:</span>
+                                    <span>₦{{ number_format($order->delivery_fee, 2) }}</span>
+                                </div>
+
+                                <hr>
+                                <div class="d-flex justify-content-between fw-bold fs-18">
+                                    <span>Total:</span>
+                                    <span class="theme3-clr">₦{{ number_format($order->total, 2) }}</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                                    aria-controls="collapseFour">
-                                    Can I customize my order?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
-                                    aria-controls="collapseFive">
-                                    What payment methods do you accept?
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
-                                    aria-controls="collapseSix">
-                                    How do I track my order?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingSeven">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
-                                    aria-controls="collapseSeven">
-                                    Can I schedule an order in advance?
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingEight">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false"
-                                    aria-controls="collapseEight">
-                                    What should I do if there’s a problem with my order?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
+
+                            <!-- WhatsApp Confirmation Button -->
+                            <div class="text-center">
+                                <a href="https://wa.me/2348081253560?text=Hi!%20I%27ve%20completed%20payment%20for%20Order%20%23{{ $order->order_number }}%20-%20Amount:%20₦{{ number_format($order->total, 2) }}"
+                                   target="_blank"
+                                   class="theme-btn w-100 justify-content-center rounded-pill py-3 px-4 fw-medium">
+                                    <i class="fa-brands fa-whatsapp me-2 fs-18"></i> I've Sent the Payment - Notify on WhatsApp
+                                </a>
+                                <p class="text-muted mt-3 mb-0 fs-14">
+                                    <i class="fa-solid fa-clock me-1"></i> We'll confirm your payment within 5-10 minutes
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="faq-quote-wrap wow fadeInDown" data-wow-delay=".4s">
-                        <h4 class="mb-3 wow fadeInUp" data-wow-delay="0.2s">Get Free Quote</h4>
-                        <div class="d-flex flex-column gap-4">
-                            <input type="text" placeholder="your name">
-                            <input type="text" placeholder="Business email">
-                            <textarea name="message" rows="3" placeholder="Message"></textarea>
-                            <div>
-                                <button type="button" class="theme-btn fs-14 text-white fw-semibold text-uppercase">Get
-                                    a Quote</button>
-                            </div>
-                        </div>
+
+                    <!-- Track Order Link -->
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.4s">
+                        <a href="{{ route('order.tracking.show', $order->order_number) }}" class="btn btn-outline-primary rounded-pill py-2 px-4">
+                            <i class="fa-solid fa-map-location-dot me-2"></i> Track Your Order
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <img src="/template/assets/img/inner-global-chess.png" alt="img"
-            class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
     </section>
 
-    <!-- Footer section start -->
         <footer class="footer-section position-relative fix black-bg z-1">
         <img src="/template/assets/img/inner/footer-shape-filter.png" alt="img"
             class="position-absolute start-0 top-0 mt-5 pt-5 float-bob-y z-n1 d-lg-block d-none opacity-25">
@@ -666,59 +573,27 @@
     <script src="/template/assets/js/main.js"></script>
 
 
-
     <script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    function copyAccountNumber() {
+        const accountNumber = document.getElementById('accountNumber').textContent;
+        navigator.clipboard.writeText(accountNumber).then(function() {
+            // Show success message
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            btn.classList.remove('btn-outline-primary');
+            btn.classList.add('btn-success');
+
+            setTimeout(function() {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-primary');
+            }, 2000);
+        }, function() {
+            alert('Failed to copy. Please copy manually: 1848449170');
+        });
     }
-});
-
-// Add to cart functionality
-$(document).on('click', '.add-to-cart-btn', function(e) {
-    e.preventDefault();
-
-    let foodItemId = $(this).data('food-item-id');
-    let btn = $(this);
-    let originalText = btn.text().trim();
-
-    btn.prop('disabled', true).text('Adding...');
-
-    $.ajax({
-        url: '{{ route("cart.add") }}',
-        method: 'POST',
-        data: {
-            food_item_id: foodItemId,
-            quantity: 1
-        },
-        success: function(response) {
-            if(response.success) {
-                // Update cart count in header
-                $('.count-quan').text(response.cartCount);
-
-                // Change button appearance
-                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
-
-                // Show success message
-                alert(response.message);
-
-                // Reset button after 2 seconds
-                setTimeout(function() {
-                    btn.text(originalText)
-                       .addClass('btn-outline-theme')
-                       .removeClass('theme-btn')
-                       .prop('disabled', false);
-                }, 2000);
-            }
-        },
-        error: function(xhr) {
-            alert('Error adding item to cart');
-            btn.prop('disabled', false).text(originalText);
-        }
-    });
-});
-</script>
-
+    </script>
 </body>
 
 </html>

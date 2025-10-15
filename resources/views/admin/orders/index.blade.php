@@ -53,7 +53,7 @@
                                         @forelse($orders as $order)
                                             <tr>
                                                 <td>
-                                                    <a href="{{ route('admin.pages.orderdetails', $order->id) }}" class="fw-medium link-primary">
+                                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="fw-medium link-primary">
                                                         {{ $order->order_number }}
                                                     </a>
                                                 </td>
@@ -75,7 +75,7 @@
                                                 </td>
                                                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                                                 <td class="text-end">
-                                                    <a href="{{ route('admin.pages.orderdetails', $order->id) }}" class="btn btn-sm btn-soft-primary">
+                                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-sm btn-soft-primary">
                                                         <i class="ri-eye-line"></i> View
                                                     </a>
                                                 </td>

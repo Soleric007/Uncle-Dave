@@ -21,55 +21,69 @@ class CheckoutController extends Controller
         return view('checkout', compact('cart', 'cartTotal'));
     }
 
-    public function store(Request $request)
+      public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'customer_name' => 'required|string|max:255',
-            'customer_email' => 'required|email',
-            'customer_phone' => 'required|string',
+            'customer_email' => 'required|email|max:255',
+            'customer_phone' => 'required|string|max:20',
             'delivery_address' => 'required|string',
-            'payment_method' => 'required|string'
+            'payment_method' => 'required|in:bank_transfer,cash_on_delivery',
         ]);
 
-        $cart = session()->get('cart', []);
+        $cartItems = session('cart', []);
 
-        if(empty($cart)) {
+        if (empty($cartItems)) {
             return redirect()->route('shop')->with('error', 'Your cart is empty');
         }
 
-        $cartTotal = $this->calculateCartTotal($cart);
+        $subtotal = array_sum(array_map(function($item) {
+            return $item['price'] * $item['quantity'];
+        }, $cartItems));
+
+        $deliveryFee = 1000;
+
+        $total = $subtotal + $deliveryFee;
 
         // Create order
         $order = Order::create([
             'order_number' => Order::generateOrderNumber(),
-            'customer_name' => $request->customer_name,
-            'customer_email' => $request->customer_email,
-            'customer_phone' => $request->customer_phone,
-            'delivery_address' => $request->delivery_address,
-            'subtotal' => $cartTotal['subtotal'],
-            'delivery_fee' => $cartTotal['deliveryFee'],
-
-            'total' => $cartTotal['total'],
-            'payment_method' => $request->payment_method
+            'customer_name' => $validated['customer_name'],
+            'customer_email' => $validated['customer_email'],
+            'customer_phone' => $validated['customer_phone'],
+            'delivery_address' => $validated['delivery_address'],
+            'subtotal' => $subtotal,
+            'delivery_fee' => $deliveryFee,
+            'total' => $total,
+            'payment_method' => $validated['payment_method'],
+            'payment_status' => 'pending',
+            'order_status' => 'pending',
         ]);
 
         // Create order items
-        foreach($cart as $id => $item) {
-            OrderItem::create([
-                'order_id' => $order->id,
-                'food_item_id' => $id,
-                'food_name' => $item['name'],
-                'price' => $item['price'],
-                'quantity' => $item['quantity'],
-                'subtotal' => $item['price'] * $item['quantity']
-            ]);
-        }
+        foreach ($cartItems as $foodId => $item) {
+    OrderItem::create([
+        'order_id' => $order->id,
+        'food_item_id' => $foodId, // ← Use array key as the food ID
+        'food_name' => $item['name'],
+        'price' => $item['price'],
+        'quantity' => $item['quantity'],
+        'subtotal' => $item['price'] * $item['quantity'],
+    ]);
+}
+
 
         // Clear cart
         session()->forget('cart');
 
-        // Redirect to payment page
-        return redirect()->route('payment', $order->order_number);
+        // Redirect based on payment method
+        if ($validated['payment_method'] === 'bank_transfer') {
+            return redirect()->route('payment.transfer', $order->order_number);
+        } else {
+            // Cash on delivery - go to order tracking
+            return redirect()->route('order.tracking.show', $order->order_number)
+                ->with('success', 'Order placed successfully! We will deliver to you soon.');
+        }
     }
 
     private function calculateCartTotal($cart)
@@ -79,7 +93,7 @@ class CheckoutController extends Controller
             $subtotal += $item['price'] * $item['quantity'];
         }
 
-        $deliveryFee = 2.00;
+        $deliveryFee = 1000.00;
 
         $total = $subtotal + $deliveryFee;
 
@@ -90,4 +104,5 @@ class CheckoutController extends Controller
             'total' => $total
         ];
     }
+
 }

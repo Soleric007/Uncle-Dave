@@ -14,7 +14,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Riyallure</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Uncle David's Cuisine</a></li>
                                     <li class="breadcrumb-item active">Customers</li>
                                 </ol>
                             </div>
@@ -266,7 +266,7 @@
                 <div class="col-sm-6">
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> © Riyallure.
+                    </script> © Uncle David's Cuisine.
                 </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end d-none d-sm-block">

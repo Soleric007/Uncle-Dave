@@ -237,16 +237,15 @@
                         </div>
                     </div>
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
-                        <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
-                            <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">
-    {{ count(session()->get('cart', [])) }}
-</span>
-                        </button>
-                        <a href="{{ route('contact') }}"
-                            class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
+                       <a href="{{ route('cart') }}">
+                            <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
+                                                        <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
+                                                        <span class="count-quan d-center count-quan-black text-white">
+                                {{ count(session()->get('cart', [])) }}
+                            </span>
+                                                    </button>
+                    </a>
+
                         <div class="header__hamburger d-lg-none d-block my-auto">
                             <div
                                 class="sidebar__toggle black-bg d-flex align-items-center justify-content-center w-40px h-40px rounded-circle sidebar__toggle fs-20 text-white">
@@ -256,12 +255,14 @@
                     </div>
                     <div class="d-lg-flex d-none align-items-center gap-xxl-3 gap-3">
 
+                        <a href="{{ route('cart') }}">
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
                             <span class="count-quan d-center count-quan-black text-white">
     {{ count(session()->get('cart', [])) }}
 </span>
                         </button>
+                        </a>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
                             <i class="fa-solid fa-bars"></i>
@@ -383,7 +384,7 @@
                                         <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                         <i class="fa-solid fa-star fs-16 text3-clr"></i>
                                     </div>
-                                    <div class="fs-16 theme3-clr fw-bold">${{ number_format($item->price, 2) }}</div>
+                                    <div class="fs-16 theme3-clr fw-bold">₦{{ number_format($item->price, 2) }}</div>
                                 </div>
                             </div>
                         @endforeach
@@ -423,46 +424,94 @@
 
                 <!-- Products Grid -->
                 <div class="tab-content" id="shopTabContent">
-                    <div class="tab-pane fade show active" id="grid" role="tabpanel">
-                        <div class="row g-xxl-4 g-xl-3 g-2">
-                            @forelse($foodItems ?? [] as $foodItem)
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="restaurant-card rounded-4 border h-100 card-scale wow fadeInUp">
-                                        <div class="thumb rounded-top-3 position-relative">
-                                            <img src="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/inner/shop-grid1.jpg' }}"
-                                                 alt="{{ $foodItem->name }}" class="w-100 rounded-top-3">
-                                            @if($foodItem->is_available)
-                                                <div class="position-absolute top-0 theme3-bg fs-12 py-1 px-2 text-white fw-500 rounded-end">
-                                                    Available
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <div class="cont py-3 px-xxl-4 px-3">
-                                            <h6 class="mb-2">
-                                                <a href="{{ route('shop.details', $foodItem->id) }}" class="text-black link-effect">
-                                                    {{ $foodItem->name }}
-                                                </a>
-                                            </h6>
-                                            <p class="fs-12 mb-3 lh-18">{{ Str::limit($foodItem->description, 80) }}</p>
-                                            <div class="d-flex align-items-center gap-2 flex-wrap">
-                                                <span class="theme3-clr fw-semibold fs-16">${{ number_format($foodItem->price, 2) }}</span>
-                                                <button type="button" class="add-to-cart-btn theme-btn btn-outline-theme rounded-pill py-2 px-3"
-                                                        data-food-item-id="{{ $foodItem->id }}">
-                                                    Add to Cart
-                                                </button>
-                                            </div>
-                                        </div>
+    <div class="tab-pane fade show active" id="grid" role="tabpanel">
+        <div class="row g-xxl-4 g-xl-3 g-2">
+            @forelse($foodItems ?? [] as $foodItem)
+                <div class="col-sm-6 col-lg-4">
+                    <div class="restaurant-card rounded-4 overflow-hidden restaurant-card_text position-relative border card-scale h-100 rounded-12 wow fadeInUp"
+                        data-wow-delay="0.{{ $loop->index }}s">
+                        <div class="thumb rounded-top-3 d-block position-relative">
+                            <img src="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/inner/shop-grid1.jpg' }}"
+                                 alt="{{ $foodItem->name }}"
+                                 class="w-100"
+                                 style="height: 250px; object-fit: cover;">
+                        </div>
+
+                        @if($foodItem->is_available)
+                            <div class="position-absolute z-1 top-0 theme3-bg fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
+                                style="border-bottom-right-radius: 20px;">
+                                <i class="fa-solid fa-circle-check"></i> Available
+                            </div>
+                        @else
+                            <div class="position-absolute z-1 top-0 bg-danger fs-12 py-1 lh-base ps-2 pe-3 text-white heading-font fw-500 d-inline-flex align-items-center gap-1"
+                                style="border-bottom-right-radius: 20px;">
+                                <i class="fa-solid fa-circle-xmark"></i> Unavailable
+                            </div>
+                        @endif
+
+                        <div class="cont py-3 px-xxl-4 px-3">
+                            <h6 class="mb-2">
+                                <a href="{{ route('shop.details', $foodItem->id) }}"
+                                   class="text-black link-effect">
+                                    {{ $foodItem->name }}
+                                </a>
+                            </h6>
+
+                            @if($foodItem->category)
+                                <div class="d-flex gap-2 align-items-center mb-2">
+                                    <div class="d-flex align-items-center gap-1 fs-14 text-clr">
+                                        <i class="fa-solid fa-tag"></i>
+                                        <span class="text-black">{{ $foodItem->category }}</span>
                                     </div>
                                 </div>
-                            @empty
-                                <div class="col-12 text-center py-5">
-                                    <h4>No food items available yet</h4>
-                                    <p>Check back soon!</p>
+                            @endif
+
+                            <p class="fs-12 mb-3 lh-18">
+                                {{ Str::limit($foodItem->description, 80) }}
+                            </p>
+
+                            <div class="d-flex align-items-center gap-sm-3 gap-2 flex-wrap">
+                                <div class="d-flex align-items-center gap-1">
+                                    <span class="theme3-clr fw-semibold fs-16">₦{{ number_format($foodItem->price, 2) }}</span>
                                 </div>
-                            @endforelse
+
+                                @if($foodItem->is_available)
+                                    <button type="button"
+                                            class="add-to-cart-btn theme-btn btn-outline-theme heading-font rounded-pill py-2 px-3"
+                                            data-food-item-id="{{ $foodItem->id }}"
+                                            data-food-name="{{ $foodItem->name }}"
+                                            data-food-price="{{ $foodItem->price }}"
+                                            data-food-image="{{ $foodItem->image ? asset('storage/' . $foodItem->image) : '/template/assets/img/inner/shop-grid1.jpg' }}">
+                                        <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                                    </button>
+                                @else
+                                    <button type="button"
+                                            class="theme-btn btn-outline-secondary heading-font rounded-pill py-2 px-3"
+                                            disabled>
+                                        <i class="fa-solid fa-ban me-1"></i> Not Available
+                                    </button>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
+            @empty
+                <div class="col-12 text-center py-5">
+                    <div class="wow fadeInUp">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/msoeawqm.json"
+                            trigger="loop"
+                            colors="primary:#121331,secondary:#08a88a"
+                            style="width:100px;height:100px">
+                        </lord-icon>
+                        <h4 class="mt-3">No food items available yet</h4>
+                        <p class="text-muted">Check back soon for delicious options!</p>
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</div>
 
                 <!-- Pagination -->
                 @if(isset($foodItems) && $foodItems->hasPages())

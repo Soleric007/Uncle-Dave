@@ -242,11 +242,14 @@
                         </div>
                     </div>
                     <div class="d-lg-flex d-none align-items-center gap-3">
-                        <button type="button"
+                        <a href="{{ route('cart') }}">
+                           <button type="button"
                             class="tolly-icon tolly-icon-hover position-relative w-40px h-40px border-white rounded-circle d-center">
                             <img width="20" src="/template/assets/img/icons/tolly.png" alt="tolly-icon">
                             <span class="count-quan d-center">{{ count(session()->get('cart', [])) }}</span>
                         </button>
+                        </a>
+
 
                     </div>
                 </div>

@@ -238,16 +238,15 @@
                         </div>
                     </div>
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
-                        <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
-                            <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">
-    {{ count(session()->get('cart', [])) }}
-</span>
-                        </button>
-                        <a href="{{ route('contact') }}"
-                            class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
+                           <a href="{{ route('cart') }}">
+                            <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
+                                                        <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
+                                                        <span class="count-quan d-center count-quan-black text-white">
+                                {{ count(session()->get('cart', [])) }}
+                            </span>
+                                                    </button>
+                    </a>
+
                         <div class="header__hamburger d-lg-none d-block my-auto">
                             <div
                                 class="sidebar__toggle black-bg d-flex align-items-center justify-content-center w-40px h-40px rounded-circle sidebar__toggle fs-20 text-white">
@@ -257,12 +256,14 @@
                     </div>
                     <div class="d-lg-flex d-none align-items-center gap-xxl-3 gap-3">
 
+                        <a href="{{ route('cart') }}">
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
                             <span class="count-quan d-center count-quan-black text-white">
     {{ count(session()->get('cart', [])) }}
 </span>
                         </button>
+                        </a>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
                             <i class="fa-solid fa-bars"></i>
@@ -454,57 +455,132 @@
     <section class="shop-section position-relative z-1 fix section-padding">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-8">
-                    <div class="checkout-billing-details h-100">
-                        <h4 class="text-black mb-lg-4 mb-3">Billing Details</h4>
+               <div class="col-lg-8">
+    <div class="checkout-billing-details h-100">
+        <h4 class="text-black mb-lg-4 mb-3">Billing Details</h4>
 
-                        <form action="{{ route('checkout.store') }}" method="POST" class="billing-form">
-                            @csrf
-                            <div class="row g-4">
-                                <div class="col-sm-6">
-                                    <input type="text" name="customer_name" placeholder="Full Name" required>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <input type="text" name="customer_email" placeholder="E-mail Address" required>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <input type="text" name="customer_phone" placeholder="Phone" required>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <select name="delivery_address" required>
-                                        <option value="">Select Delivery Area</option>
-                                        <option value="Okpanam">Okpanam</option>
-                                        <option value="Infant Jesus Area">Infant Jesus Area</option>
-                                        <option value="Anwai Road Area">Anwai Road Area</option>
-                                        <option value="DBS Road Area">DBS Road Area</option>
-                                        <option value="Cable Point">Cable Point</option>
-                                        <option value="Umueze">Umueze</option>
-                                        <option value="Umuonaje">Umuonaje</option>
-                                        <option value="Isieke">Isieke</option>
-                                        <option value="Overhead Bridge Layout">Overhead Bridge Layout</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <select name="payment_method" required>
-                                        <option value="">Select Payment Method</option>
-                                        <option value="bank_transfer">Pay via Bank Transfer</option>
-                                        <option value="cash_on_delivery">Cash on Delivery</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-12 mt-4">
-                                    <button type="submit" class="theme-btn text-center justify-content-center w-100">
-                                        Place Order
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+        <form action="{{ route('checkout.store') }}" method="POST" class="billing-form">
+            @csrf
+            <div class="row g-4">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="mb-2 text-black fs-14 fw-medium">Full Name <span class="text-danger">*</span></label>
+                        <input type="text"
+                               name="customer_name"
+                               class="form-control rounded-pill py-3 px-4 @error('customer_name') is-invalid @enderror"
+                               placeholder="Enter your full name"
+                               value="{{ old('customer_name') }}"
+                               required>
+                        @error('customer_name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="mb-2 text-black fs-14 fw-medium">Email Address <span class="text-danger">*</span></label>
+                        <input type="email"
+                               name="customer_email"
+                               class="form-control rounded-pill py-3 px-4 @error('customer_email') is-invalid @enderror"
+                               placeholder="your@email.com"
+                               value="{{ old('customer_email') }}"
+                               required>
+                        @error('customer_email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="mb-2 text-black fs-14 fw-medium">Phone Number <span class="text-danger">*</span></label>
+                        <input type="tel"
+                               name="customer_phone"
+                               class="form-control rounded-pill py-3 px-4 @error('customer_phone') is-invalid @enderror"
+                               placeholder=""
+                               value="{{ old('customer_phone') }}"
+                               required>
+                        @error('customer_phone')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="mb-2 text-black fs-14 fw-medium">Delivery Area <span class="text-danger">*</span></label>
+                        <select name="delivery_address"
+                                class="form-select rounded-pill py-3 px-4 @error('delivery_address') is-invalid @enderror"
+                                required>
+                            <option value="" disabled selected>Select your area</option>
+                            <option value="Okpanam" {{ old('delivery_address') == 'Okpanam' ? 'selected' : '' }}>Okpanam</option>
+                            <option value="Infant Jesus Area" {{ old('delivery_address') == 'Infant Jesus Area' ? 'selected' : '' }}>Infant Jesus Area</option>
+                            <option value="Anwai Road Area" {{ old('delivery_address') == 'Anwai Road Area' ? 'selected' : '' }}>Anwai Road Area</option>
+                            <option value="DBS Road Area" {{ old('delivery_address') == 'DBS Road Area' ? 'selected' : '' }}>DBS Road Area</option>
+                            <option value="Cable Point" {{ old('delivery_address') == 'Cable Point' ? 'selected' : '' }}>Cable Point</option>
+                            <option value="Umueze" {{ old('delivery_address') == 'Umueze' ? 'selected' : '' }}>Umueze</option>
+                            <option value="Umuonaje" {{ old('delivery_address') == 'Umuonaje' ? 'selected' : '' }}>Umuonaje</option>
+                            <option value="Isieke" {{ old('delivery_address') == 'Isieke' ? 'selected' : '' }}>Isieke</option>
+                            <option value="Overhead Bridge Layout" {{ old('delivery_address') == 'Overhead Bridge Layout' ? 'selected' : '' }}>Overhead Bridge Layout</option>
+                        </select>
+                        @error('delivery_address')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="mb-2 text-black fs-14 fw-medium">Payment Method <span class="text-danger">*</span></label>
+                        <select name="payment_method"
+                                class="form-select rounded-pill py-3 px-4 @error('payment_method') is-invalid @enderror"
+                                required>
+                            <option value="" disabled selected>Choose payment method</option>
+                            <option value="bank_transfer" {{ old('payment_method') == 'bank_transfer' ? 'selected' : '' }}>
+                                <i class="fa-solid fa-building-columns"></i> Pay via Bank Transfer
+                            </option>
+                            <option value="cash_on_delivery" {{ old('payment_method') == 'cash_on_delivery' ? 'selected' : '' }}>
+                                <i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery
+                            </option>
+                        </select>
+                        @error('payment_method')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button type="submit"
+                            class="theme-btn text-center justify-content-center w-100 rounded-pill py-3 px-4 fw-medium">
+                        <i class="fa-solid fa-check-circle me-2"></i> Place Order
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.form-control,
+.form-select {
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--theme3);
+    box-shadow: 0 0 0 0.2rem rgba(var(--theme3-rgb), 0.15);
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}
+</style>
 
                 <!-- ORDER SUMMARY -->
                 <div class="col-lg-4">
@@ -541,7 +617,7 @@
                                             <span class="fs-13 text-black fw-medium">Delivery Fee</span>
                                             <span class="fs-13 text-black fw-medium">₦{{ number_format($cartTotal['deliveryFee'], 2) }}</span>
                                         </div>
-                                        
+
                                         <div class="d-flex align-items-center justify-content-between border-top pt-2 pb-3">
                                             <span class="fs-13 text-black fw-bold">Total</span>
                                             <span class="fs-13 theme-clr fw-bold">₦{{ number_format($cartTotal['total'], 2) }}</span>

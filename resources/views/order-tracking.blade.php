@@ -238,16 +238,15 @@
                         </div>
                     </div>
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
-                        <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
-                            <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">
-    {{ count(session()->get('cart', [])) }}
-</span>
-                        </button>
-                        <a href="{{ route('contact') }}"
-                            class="rounded-pill d-center gap-2 fw-bold theme-clr login-white fs-14 h-36px w-36px px-1">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
+                           <a href="{{ route('cart') }}">
+                            <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
+                                                        <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
+                                                        <span class="count-quan d-center count-quan-black text-white">
+                                {{ count(session()->get('cart', [])) }}
+                            </span>
+                                                    </button>
+                    </a>
+
                         <div class="header__hamburger d-lg-none d-block my-auto">
                             <div
                                 class="sidebar__toggle black-bg d-flex align-items-center justify-content-center w-40px h-40px rounded-circle sidebar__toggle fs-20 text-white">
@@ -257,12 +256,14 @@
                     </div>
                     <div class="d-lg-flex d-none align-items-center gap-xxl-3 gap-3">
 
+                        <a href="{{ route('cart') }}">
                         <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
                             <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
                             <span class="count-quan d-center count-quan-black text-white">
     {{ count(session()->get('cart', [])) }}
 </span>
                         </button>
+                        </a>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
                             <i class="fa-solid fa-bars"></i>
@@ -403,7 +404,7 @@
                 <li class="d-flex align-items-center justify-content-between fs-20 fw-semibold text-black">
                     Items:
                 </li>
-                @foreach($order->items as $item)
+                @foreach($order->orderItems as $item)
                 <li class="d-flex flex-wrap gap-1 align-items-center justify-content-between fs-16 fw-semibold text-black">
                     <div class="d-flex gap-2">
                         <img width="40" height="40" src="{{ asset('storage/'.$item->foodItem->image) }}" class="rounded-circle">
@@ -431,7 +432,7 @@
                 </li>
                 <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
                     Total:
-                    <span>₦{{ number_format($order->total_amount, 2) }}</span>
+                    <span>₦{{ number_format($order->total, 2) }}</span>
                 </li>
             </ul>
         </div>
