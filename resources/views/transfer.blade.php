@@ -355,14 +355,14 @@
                                     <div class="col-12">
                                         <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
                                             <span class="text-muted">Bank Name:</span>
-                                            <strong class="text-black fs-18">Access Bank</strong>
+                                            <strong class="text-black fs-18">Opay</strong>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
                                             <span class="text-muted">Account Number:</span>
                                             <div class="d-flex align-items-center gap-2">
-                                                <strong class="text-black fs-18" id="accountNumber">1848449170</strong>
+                                                <strong class="text-black fs-18" id="accountNumber">7063764926</strong>
                                                 <button class="btn btn-sm btn-outline-primary rounded-pill" onclick="copyAccountNumber()">
                                                     <i class="fa-solid fa-copy"></i> Copy
                                                 </button>
@@ -372,7 +372,7 @@
                                     <div class="col-12">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span class="text-muted">Account Name:</span>
-                                            <strong class="text-black fs-18">Uncle Dave Foods</strong>
+                                            <strong class="text-black fs-18">David Favour Osita</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -401,7 +401,7 @@
 
                             <!-- WhatsApp Confirmation Button -->
                             <div class="text-center">
-                                <a href="https://wa.me/2348081253560?text=Hi!%20I%27ve%20completed%20payment%20for%20Order%20%23{{ $order->order_number }}%20-%20Amount:%20₦{{ number_format($order->total, 2) }}"
+                                <a href="https://wa.me/2348081253560?text=Hi!%20Uncle%20Dave,%20I%27ve%20completed%20payment%20for%20Order%20%23{{ $order->order_number }}%20-%20Amount:%20₦{{ number_format($order->total, 2) }}"
                                    target="_blank"
                                    class="theme-btn w-100 justify-content-center rounded-pill py-3 px-4 fw-medium">
                                     <i class="fa-brands fa-whatsapp me-2 fs-18"></i> I've Sent the Payment - Notify on WhatsApp
