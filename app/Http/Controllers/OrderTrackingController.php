@@ -15,25 +15,40 @@ class OrderTrackingController extends Controller
     public function track(Request $request)
     {
         $request->validate([
-            'order_number' => 'required|string'
+            'search' => 'required|string|min:3'
+        ], [
+            'search.required' => 'Please enter an order number or phone number',
+            'search.min' => 'Please enter at least 3 characters'
         ]);
 
-        $order = Order::where('order_number', $request->order_number)
-            ->with('orderItems')
+        $searchTerm = $request->input('search');
+
+        // Search by order number or phone number
+        $order = Order::where('order_number', $searchTerm)
+            ->orWhere('customer_phone', $searchTerm)
+            ->with('orderItems.foodItem')
             ->first();
 
-        if(!$order) {
-            return redirect()->back()->with('error', 'Order not found');
+        if (!$order) {
+            return redirect()->route('order.tracking')
+                ->with('error', 'Order not found. Please check your order number or phone number and try again.');
         }
 
         return view('order-tracking', compact('order'));
     }
 
-    public function show($orderNumber)
+    // Keep this for backward compatibility with existing tracking links
+    public function show($token)
     {
-        $order = Order::where('order_number', $orderNumber)
-            ->with('orderItems')
-            ->firstOrFail();
+        $order = Order::where('tracking_token', $token)
+            ->orWhere('order_number', $token)
+            ->with('orderItems.foodItem')
+            ->first();
+
+        if (!$order) {
+            return redirect()->route('order.tracking')
+                ->with('error', 'Order not found. Please use the search form to track your order.');
+        }
 
         return view('order-tracking', compact('order'));
     }

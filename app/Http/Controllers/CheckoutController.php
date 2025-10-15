@@ -64,7 +64,7 @@ class CheckoutController extends Controller
         foreach ($cartItems as $foodId => $item) {
             OrderItem::create([
                 'order_id' => $order->id,
-                'food_item_id' => $foodId, // ← Use array key as the food ID
+                'food_item_id' => $foodId,
                 'food_name' => $item['name'],
                 'price' => $item['price'],
                 'quantity' => $item['quantity'],
@@ -72,19 +72,23 @@ class CheckoutController extends Controller
             ]);
         }
 
-
         // Clear cart
         session()->forget('cart');
-        session()->flash('tracking_url', $order->tracking_url);
+
+        // Store order info in session for displaying on success page
+        session()->flash('order_placed', true);
         session()->flash('order_number', $order->order_number);
+        session()->flash('customer_phone', $order->customer_phone);
 
         // Redirect based on payment method
         if ($validated['payment_method'] === 'bank_transfer') {
             return redirect()->route('payment.transfer', $order->order_number);
         } else {
-            // Cash on delivery - go to order tracking
-            return redirect()->route('order.tracking.show', $order->order_number)
-                ->with('success', 'Order placed successfully! We will deliver to you soon.');
+            // Cash on delivery - redirect to tracking page with success message
+            return redirect()->route('order.tracking')
+                ->with('success', 'Order placed successfully! Use your order number or phone number to track your order.')
+                ->with('order_number', $order->order_number)
+                ->with('customer_phone', $order->customer_phone);
         }
     }
 
@@ -102,7 +106,6 @@ class CheckoutController extends Controller
         return [
             'subtotal' => $subtotal,
             'deliveryFee' => $deliveryFee,
-
             'total' => $total
         ];
     }

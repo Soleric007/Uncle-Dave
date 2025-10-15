@@ -183,7 +183,7 @@
     </header>
 
     <!-- Hero section start -->
-       <section class="breadcrumb-section position-relative fix bg-cover"
+    <section class="breadcrumb-section position-relative fix bg-cover"
         style="background-image: url(/template/assets/img/hero/breadcrumb-banner.jpg);">
         <div class="container">
             <div class="breadcrumb-content">
@@ -193,21 +193,48 @@
                 <p class="fs-16 text-white text-center mb-xxl-4 mb-3">
                     Get real-time updates on your delivery status
                 </p>
-                <div
-                    class="search-adjust1 bg-white rounded-pill d-flex align-items-center justify-content-between gap-2 max-w-750 mx-auto p-2 mb-md-5 mb-4">
-                    <form action="#" class="gap-2 d-flex align-items-center bg-white rounded-pill ps-4">
-                        <input class="fs-14 w-100 py-2 px-2 border-0" type="text"
-                            placeholder="Enter your Order Number or Phone Number">
-                    </form>
-                    <div class="d-flex align-items-center gap-xl-4 gap-3">
 
+                <!-- Search Form -->
+                <form action="{{ route('order.tracking.search') }}" method="POST" class="search-adjust1 bg-white rounded-pill d-flex align-items-center justify-content-between gap-2 max-w-750 mx-auto p-2 mb-md-5 mb-4">
+                    @csrf
+                    <div class="gap-2 d-flex align-items-center bg-white rounded-pill ps-4 flex-grow-1">
+                        <input class="fs-14 w-100 py-2 px-2 border-0"
+                               type="text"
+                               name="search"
+                               value="{{ old('search') }}"
+                               placeholder="Enter your Order Number or Phone Number"
+                               required>
+                    </div>
+                    <div class="d-flex align-items-center gap-xl-4 gap-3">
                         <button type="submit"
                             class="theme-btn py-2 px-3 fw-500 text-capitalize d-center gap-2 rounded-pill">
-                            <i class="fa-solid fa-magnifying-glass fs-14"></i> <span
-                                class="d-sm-block text-capitalize d-none fs-16 fw-semibold text-white">Search</span>
+                            <i class="fa-solid fa-magnifying-glass fs-14"></i>
+                            <span class="d-sm-block text-capitalize d-none fs-16 fw-semibold text-white">Search</span>
                         </button>
                     </div>
+                </form>
+
+                <!-- Success/Error Messages -->
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show max-w-750 mx-auto" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                @endif
+
+                @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show max-w-750 mx-auto" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show max-w-750 mx-auto" role="alert">
+                    {{ $errors->first() }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
             </div>
         </div>
         <img src="/template/assets/img/home-1/home-shape-start.png" alt="img" class="bread-shape-start position-absolute">
@@ -332,7 +359,7 @@
                         Customer: <span class="text-clr">{{ $order->customer_name }}</span>
                     </li>
                     <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
-                        Payment: <span class="text-clr">{{ ucfirst($order->payment_method) }}</span>
+                        Payment: <span class="text-clr">{{ ucfirst(str_replace('_', ' ', $order->payment_method)) }}</span>
                     </li>
                     <li class="d-flex align-items-center justify-content-between fs-16 fw-semibold text-black">
                         Delivery Address: <span class="text-clr">{{ $order->delivery_address }}</span>
@@ -385,7 +412,7 @@
                     <i class="fa-solid fa-search fs-1 text-muted"></i>
                 </div>
                 <h4>Track Your Order</h4>
-                <p class="text-muted">Enter your order number above to track your delicious meal!</p>
+                <p class="text-muted">Enter your order number or phone number above to track your delicious meal!</p>
             </div>
             @endif
         </div>
@@ -470,5 +497,73 @@
     <script src="/template/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="/template/assets/js/wow.min.js"></script>
     <script src="/template/assets/js/main.js"></script>
+
+    @if(isset($order))
+    <script>
+        // Auto-refresh every 30 seconds when viewing an order
+        let refreshInterval;
+        let countdownSeconds = 30;
+        let countdownTimer;
+
+        function startAutoRefresh() {
+            // Create countdown display
+            const countdownDiv = document.createElement('div');
+            countdownDiv.id = 'refresh-countdown';
+            countdownDiv.style.cssText = 'position: fixed; bottom: 20px; right: 20px; background: rgba(0, 0, 0, 0.8); color: white; padding: 12px 20px; border-radius: 25px; z-index: 9999; font-size: 14px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+            countdownDiv.innerHTML = '<i class="fa-solid fa-rotate me-2"></i>Refreshing in <span id="countdown-number">30</span>s';
+            document.body.appendChild(countdownDiv);
+
+            // Countdown timer
+            countdownTimer = setInterval(function() {
+                countdownSeconds--;
+                document.getElementById('countdown-number').textContent = countdownSeconds;
+
+                if (countdownSeconds <= 0) {
+                    countdownSeconds = 30;
+                }
+            }, 1000);
+
+            // Main refresh interval
+            refreshInterval = setInterval(function() {
+                // Get the current search term from the form or use order number
+                const searchInput = document.querySelector('input[name="search"]');
+                const searchTerm = searchInput ? searchInput.value : '{{ $order->order_number }}';
+
+                if (!searchTerm) {
+                    searchInput.value = '{{ $order->order_number }}';
+                }
+
+                // Submit the form to refresh the page
+                const form = document.querySelector('form[action="{{ route('order.tracking.search') }}"]');
+                if (form) {
+                    // Show loading indicator
+                    const countdown = document.getElementById('countdown-number');
+                    if (countdown) {
+                        countdown.parentElement.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Updating...';
+                    }
+
+                    form.submit();
+                }
+            }, 30000); // 30 seconds
+        }
+
+        // Start auto-refresh when page loads
+        window.addEventListener('load', function() {
+            // Set the search input to current order number
+            const searchInput = document.querySelector('input[name="search"]');
+            if (searchInput && !searchInput.value) {
+                searchInput.value = '{{ $order->order_number }}';
+            }
+
+            startAutoRefresh();
+        });
+
+        // Clear intervals when leaving page
+        window.addEventListener('beforeunload', function() {
+            if (refreshInterval) clearInterval(refreshInterval);
+            if (countdownTimer) clearInterval(countdownTimer);
+        });
+    </script>
+    @endif
 </body>
 </html>
