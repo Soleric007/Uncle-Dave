@@ -39,20 +39,16 @@ Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('car
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
-// Payment
-// Route::get('/payment/{orderNumber}', [PaymentController::class, 'show'])->name('payment');
-// Route::post('/payment/{orderNumber}', [PaymentController::class, 'process'])->name('payment.process');
-
 // Transfer payment page
 Route::get('/payment/transfer/{orderNumber}', function($orderNumber) {
     $order = \App\Models\Order::where('order_number', $orderNumber)->firstOrFail();
     return view('transfer', compact('order'));
 })->name('payment.transfer');
 
-// Order Tracking
+// Order Tracking - UPDATED ROUTES
 Route::get('/order-tracking', [OrderTrackingController::class, 'index'])->name('order.tracking');
-Route::post('/order-tracking', [OrderTrackingController::class, 'track'])->name('order.tracking.search');
-Route::get('/order-tracking/{orderNumber}', [OrderTrackingController::class, 'show'])->name('order.tracking.show');
+Route::post('/order-tracking/search', [OrderTrackingController::class, 'track'])->name('order.tracking.search');
+Route::get('/track/{token}', [OrderTrackingController::class, 'show'])->name('order.tracking.show');
 
 // ==============================
 // Authentication Routes

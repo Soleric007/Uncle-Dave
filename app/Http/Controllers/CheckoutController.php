@@ -12,7 +12,7 @@ class CheckoutController extends Controller
     {
         $cart = session()->get('cart', []);
 
-        if(empty($cart)) {
+        if (empty($cart)) {
             return redirect()->route('shop')->with('error', 'Your cart is empty');
         }
 
@@ -21,7 +21,7 @@ class CheckoutController extends Controller
         return view('checkout', compact('cart', 'cartTotal'));
     }
 
-      public function store(Request $request)
+    public function store(Request $request)
     {
         $validated = $request->validate([
             'customer_name' => 'required|string|max:255',
@@ -37,7 +37,7 @@ class CheckoutController extends Controller
             return redirect()->route('shop')->with('error', 'Your cart is empty');
         }
 
-        $subtotal = array_sum(array_map(function($item) {
+        $subtotal = array_sum(array_map(function ($item) {
             return $item['price'] * $item['quantity'];
         }, $cartItems));
 
@@ -62,19 +62,21 @@ class CheckoutController extends Controller
 
         // Create order items
         foreach ($cartItems as $foodId => $item) {
-    OrderItem::create([
-        'order_id' => $order->id,
-        'food_item_id' => $foodId, // ← Use array key as the food ID
-        'food_name' => $item['name'],
-        'price' => $item['price'],
-        'quantity' => $item['quantity'],
-        'subtotal' => $item['price'] * $item['quantity'],
-    ]);
-}
+            OrderItem::create([
+                'order_id' => $order->id,
+                'food_item_id' => $foodId, // ← Use array key as the food ID
+                'food_name' => $item['name'],
+                'price' => $item['price'],
+                'quantity' => $item['quantity'],
+                'subtotal' => $item['price'] * $item['quantity'],
+            ]);
+        }
 
 
         // Clear cart
         session()->forget('cart');
+        session()->flash('tracking_url', $order->tracking_url);
+        session()->flash('order_number', $order->order_number);
 
         // Redirect based on payment method
         if ($validated['payment_method'] === 'bank_transfer') {
@@ -89,7 +91,7 @@ class CheckoutController extends Controller
     private function calculateCartTotal($cart)
     {
         $subtotal = 0;
-        foreach($cart as $item) {
+        foreach ($cart as $item) {
             $subtotal += $item['price'] * $item['quantity'];
         }
 
@@ -104,5 +106,4 @@ class CheckoutController extends Controller
             'total' => $total
         ];
     }
-
 }
