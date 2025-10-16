@@ -135,13 +135,3 @@
     <div class="sidebar-background"></div>
 </div>
 
-<style>
-.nav-link.active {
-    background-color: rgba(var(--vz-primary-rgb), 0.1);
-    color: var(--vz-primary) !important;
-}
-
-.nav-link.active i {
-    color: var(--vz-primary);
-}
-</style>

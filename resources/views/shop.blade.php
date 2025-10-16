@@ -34,6 +34,113 @@
     <link rel="stylesheet" href="/template/assets/css/expose.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="/template/assets/css/main.css">
+
+    <style>
+    /* Custom Toast Notification Styles */
+    .toast-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        min-width: 300px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        padding: 16px 20px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        animation: slideInRight 0.3s ease-out;
+        border-left: 4px solid #28a745;
+    }
+
+    .toast-notification.error {
+        border-left-color: #dc3545;
+    }
+
+    .toast-notification .toast-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .toast-notification.success .toast-icon {
+        background: #d4edda;
+        color: #28a745;
+    }
+
+    .toast-notification.error .toast-icon {
+        background: #f8d7da;
+        color: #dc3545;
+    }
+
+    .toast-notification .toast-content {
+        flex: 1;
+    }
+
+    .toast-notification .toast-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 4px;
+        font-size: 15px;
+    }
+
+    .toast-notification .toast-message {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .toast-notification .toast-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .toast-notification .toast-close:hover {
+        color: #333;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+
+    .toast-notification.hiding {
+        animation: slideOutRight 0.3s ease-out forwards;
+    }
+</style>
 </head>
 
 <body class="body-bg">
@@ -399,7 +506,7 @@
                     <span class="fs-15 text-clr">
                         Showing {{ $foodItems->firstItem() ?? 0 }}–{{ $foodItems->lastItem() ?? 0 }} of {{ $foodItems->total() ?? 0 }} results
                     </span>
-                    <div class="d-flex align-items-center shop-filter-inner">
+                    {{-- <div class="d-flex align-items-center shop-filter-inner">
                         <select name="sorting" class="form-select-sm">
                             <option value="">Default Sorting</option>
                             <option value="price_asc">Price: Low to High</option>
@@ -419,7 +526,7 @@
                                 </button>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!-- Products Grid -->
@@ -780,56 +887,100 @@
 
 
 
-    <script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+<script>
+    // Toast Notification Function
+    function showToast(type, title, message) {
+        const toast = document.createElement('div');
+        toast.className = `toast-notification ${type}`;
+
+        const iconClass = type === 'success' ? 'fa-circle-check' : 'fa-circle-xmark';
+
+        toast.innerHTML = `
+            <div class="toast-icon">
+                <i class="fa-solid ${iconClass}"></i>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">${title}</div>
+                <p class="toast-message">${message}</p>
+            </div>
+            <button class="toast-close" onclick="closeToast(this)">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        `;
+
+        document.body.appendChild(toast);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            closeToast(toast.querySelector('.toast-close'));
+        }, 5000);
     }
-});
 
-// Add to cart functionality
-$(document).on('click', '.add-to-cart-btn', function(e) {
-    e.preventDefault();
+    function closeToast(btn) {
+        const toast = btn.closest('.toast-notification');
+        toast.classList.add('hiding');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }
 
-    let foodItemId = $(this).data('food-item-id');
-    let btn = $(this);
-    let originalText = btn.text().trim();
-
-    btn.prop('disabled', true).text('Adding...');
-
-    $.ajax({
-        url: '{{ route("cart.add") }}',
-        method: 'POST',
-        data: {
-            food_item_id: foodItemId,
-            quantity: 1
-        },
-        success: function(response) {
-            if(response.success) {
-                // Update cart count in header
-                $('.count-quan').text(response.cartCount);
-
-                // Change button appearance
-                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
-
-                // Show success message
-                alert(response.message);
-
-                // Reset button after 2 seconds
-                setTimeout(function() {
-                    btn.text(originalText)
-                       .addClass('btn-outline-theme')
-                       .removeClass('theme-btn')
-                       .prop('disabled', false);
-                }, 2000);
-            }
-        },
-        error: function(xhr) {
-            alert('Error adding item to cart');
-            btn.prop('disabled', false).text(originalText);
+    // Setup AJAX with CSRF token
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-});
+
+    // Add to cart functionality
+    $(document).ready(function() {
+        // Unbind any existing handlers to prevent double-firing
+        $(document).off('click', '.add-to-cart-btn').on('click', '.add-to-cart-btn', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let foodItemId = $(this).data('food-item-id');
+            let btn = $(this);
+            let originalHTML = btn.html();
+
+            // Disable button and show loading
+            btn.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin"></i> Adding...');
+
+            $.ajax({
+                url: '{{ route("cart.add") }}',
+                method: 'POST',
+                data: {
+                    food_item_id: foodItemId,
+                    quantity: 1
+                },
+                success: function(response) {
+                    if(response.success) {
+                        // Update cart count in header
+                        $('.count-quan').text(response.cartCount);
+
+                        // Show success toast
+                        showToast('success', 'Added to Cart!', response.message);
+
+                        // Change button appearance temporarily
+                        btn.html('<i class="fa-solid fa-check"></i> Added!');
+
+                        // Reset button after 2 seconds
+                        setTimeout(function() {
+                            btn.html(originalHTML).prop('disabled', false);
+                        }, 2000);
+                    }
+                },
+                error: function(xhr) {
+                    let errorMsg = 'Error adding item to cart';
+                    if(xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMsg = xhr.responseJSON.message;
+                    }
+
+                    showToast('error', 'Error', errorMsg);
+                    btn.html(originalHTML).prop('disabled', false);
+                }
+            });
+        });
+    });
 </script>
 
 </body>

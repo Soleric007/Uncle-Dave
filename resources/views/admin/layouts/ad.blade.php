@@ -18,9 +18,7 @@
     <link href="/admin/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
 
-</style>
 </head>
 
 <body>
@@ -33,29 +31,8 @@
 
     </div>
 
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
 
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="p-2 shadow-lg btn-info rounded-pill btn btn-icon btn-lg" data-bs-toggle="offcanvas"
-            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
-
-    <!-- Theme Settings (keeping it short for brevity - include full content from your original) -->
-    <div class="border-0 offcanvas offcanvas-end" tabindex="-1" id="theme-settings-offcanvas">
-        <!-- Your full theme settings code here -->
-    </div>
 
     <script src="/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/admin/assets/libs/simplebar/simplebar.min.js"></script>
