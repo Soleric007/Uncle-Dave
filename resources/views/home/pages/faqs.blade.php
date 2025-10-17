@@ -13,7 +13,7 @@
 
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - FAQS</title>
+    <title>Uncle David's Cuisine - FAQS</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -233,6 +233,16 @@
 
                                     </li>
 
+                                    <li class="has-dropdown">
+                                        <a href="{{ route('contact') }}">
+                                           Contact Us
+
+                                        </a>
+
+                                    </li>
+
+
+
                                 </ul>
                             </nav>
                         </div>
@@ -313,208 +323,177 @@
     </section>
 
     <!--- Faq Section -->
-    <section class="faq-section position-relative z-1 fix section-padding">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-8">
-                    <div class="accordion accordion-custom-wrapper d-flex flex-column gap-3 me-xl-5"
-                        id="accordionExample">
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".3s">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    How do I place an order online?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".5s">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                    aria-controls="collapseTwo">
-                                    What are your delivery hours?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".6s">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    Is there a minimum order for delivery?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                                    aria-controls="collapseFour">
-                                    Can I customize my order?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
-                                    aria-controls="collapseFive">
-                                    What payment methods do you accept?
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
-                                    aria-controls="collapseSix">
-                                    How do I track my order?
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingSeven">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
-                                    aria-controls="collapseSeven">
-                                    Can I schedule an order in advance?
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
-                            <h2 class="accordion-header" id="headingEight">
-                                <button class="accordion-button bg-transparent collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false"
-                                    aria-controls="collapseEight">
-                                    What should I do if there’s a problem with my order?
-                                </button>
-                            </h2>
-                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p class="fs-16">
-                                        Simply browse our menu, select your favorite items, and proceed to checkout.
-                                        You can choose between
-                                        delivery or pickup
-                                        before confirming your order. Once your order is confirmed, you’ll receive a
-                                        confirmation message with
-                                        your order
-                                        details.
-                                    </p>
-                                </div>
+<section class="faq-section position-relative z-1 fix section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="accordion accordion-custom-wrapper d-flex flex-column gap-3 me-xl-5" id="accordionExample">
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".3s">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How do I place an order online?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    Simply visit our website, browse the menu, and add your favorite meals to the cart.
+                                    When you’re ready, go to checkout, fill in your details, Once your order is confirmed, you’ll receive a message
+                                    with your order number and details.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="faq-quote-wrap wow fadeInDown" data-wow-delay=".4s">
-                        <h4 class="mb-3 wow fadeInUp" data-wow-delay="0.2s">Get Free Quote</h4>
-                        <div class="d-flex flex-column gap-4">
-                            <input type="text" placeholder="your name">
-                            <input type="text" placeholder="Business email">
-                            <textarea name="message" rows="3" placeholder="Message"></textarea>
-                            <div>
-                                <button type="button" class="theme-btn fs-14 text-white fw-semibold text-uppercase">Get
-                                    a Quote</button>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".5s">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                What are your delivery hours?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    We deliver every day from <strong>8 AM to 8 PM</strong>.
+                                    Orders placed after closing hours will be processed the next day.
+                                </p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".6s">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Is there a minimum order for delivery?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    No, there’s <strong>no minimum order</strong> required for delivery.
+                                    Whether it’s a single plate or a full family order, we’ve got you covered.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Can I customize my order?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    Yes, you can! Let us know how you’d like your meal — extra pepper, no fish,
+                                    light oil, or more meat — and we’ll prepare it exactly how you want it.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                aria-controls="collapseFive">
+                                What payment methods do you accept?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    We currently accept <strong>bank transfer</strong> payments.
+                                    Once your order is placed, you’ll receive our account details and
+                                    payment instructions before your food is prepared.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                                aria-controls="collapseSix">
+                                How do I track my order?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    After ordering, you’ll get an <strong>order number</strong>.
+                                    Simply go to the <a href="{{ route('order.tracking') }}">Order Tracking</a> page and
+                                    enter your order number or phone number to check your order status.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
+                                aria-controls="collapseSeven">
+                                Can I schedule an order in advance?
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    Yes, you can! You can place your order ahead of time and
+                                    pick your preferred delivery date and time. Perfect for parties or events.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent wow fadeInUp" data-wow-delay=".7s">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button bg-transparent collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false"
+                                aria-controls="collapseEight">
+                                What should I do if there’s a problem with my order?
+                            </button>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="fs-16">
+                                    If there’s any issue with your order, please send us a message directly through
+                                    <a href="https://wa.me/2348081253560" target="_blank" class="theme-clr">WhatsApp</a>.
+                                    Our team will respond quickly and make it right.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
-        <img src="/template/assets/img/inner-global-chess.png" alt="img"
-            class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
-    </section>
+    </div>
+
+    <img src="/template/assets/img/inner-global-chess.png" alt="img"
+        class="position-absolute top-0 end-0 float-bob-y pt-100 mt-4 z-n1 d-sm-block d-none">
+</section>
+
 
     <!-- Footer section start -->
         <footer class="footer-section position-relative fix black-bg z-1">

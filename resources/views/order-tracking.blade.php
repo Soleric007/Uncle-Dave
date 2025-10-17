@@ -7,7 +7,7 @@
     <meta name="author" content="Uncle Davids Cousine">
     <meta name="description" content="Order delicious Nigerian meals online – soups, rice, pasta, and platters freshly prepared and delivered to your doorstep.">
     <meta name="keywords" content="food delivery, Nigerian meals, order food online, egusi soup, jollof rice, Uncle Dave restaurant, Delta food delivery, Asaba food delivery">
-    <title>Uncle Dave - Track Your Orders</title>
+    <title>Uncle David's Cuisine - Track Your Orders</title>
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/template/assets/css/all.min.css">

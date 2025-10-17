@@ -13,7 +13,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - Shop</title>
+    <title>Uncle David's Cuisine - Shop</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -334,6 +334,14 @@
                                     <li class="has-dropdown">
                                         <a href="{{ route('faqs') }}">
                                             Faqs
+
+                                        </a>
+
+                                    </li>
+
+                                    <li class="has-dropdown">
+                                        <a href="{{ route('contact') }}">
+                                           Contact Us
 
                                         </a>
 

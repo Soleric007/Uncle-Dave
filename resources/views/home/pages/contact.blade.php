@@ -13,7 +13,7 @@
 
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - Contact Us</title>
+    <title>Uncle David's Cuisine - Contact Us</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -231,6 +231,14 @@
 
                                     </li>
 
+                                    <li class="has-dropdown">
+                                        <a href="{{ route('contact') }}">
+                                           Contact Us
+
+                                        </a>
+
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -321,7 +329,7 @@
                                 Get In Touch
                             </h2>
                             <p class="fs-16 wow fadeInUp" data-wow-delay="0.6s">
-                                Have a question, special request, or want to book a table?
+                                Have a question, special request, or want to book a special customized order?
                             </p>
                         </div>
                         <form action="#0" class="billing-form reservation-form p-0">

@@ -13,7 +13,7 @@
     <meta name="description" content="Uncle Dave">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - Home</title>
+    <title>Uncle David's Cuisine - Home</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -397,7 +397,7 @@
                         data-wow-delay="0.5s">
                         <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
-                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l1.png" alt="icon"
+                            <img width="60" height="60" src="/template/assets/img/home-1/menul1.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
                         <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Soups</a></h6>
@@ -406,7 +406,7 @@
                         data-wow-delay="0.6s">
                         <a href="{{ route('shop') }}"
                             class="card-split w-90px h-90px mx-auto rounded-circle d-center bg-white">
-                            <img width="60" height="60" src="/template/assets/img/home-1/menu-l2.png" alt="icon"
+                            <img width="60" height="60" src="/template/assets/img/home-1/menul2.png" alt="icon"
                                 class="rounded-3 icon">
                         </a>
                         <h6 class="text-white pt-1"><a href="{{ route('shop') }}" class="text-white">Pasta</a></h6>
@@ -458,7 +458,7 @@
     </section>
 
     <!-- Offer Section start -->
-    <section class="offer-section position-relative pt-80 pb-80 fix">
+    {{-- <section class="offer-section position-relative pt-80 pb-80 fix">
         <div class="container">
             <div class="row g-4">
                 <a href="{{ route('contact') }}" class="col-sm-6 col-lg-4">
@@ -511,7 +511,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- <!-- restaurant Section start -->
     <section class="restaurant-section position-relative pb-80 fix">
@@ -892,6 +892,11 @@
             </div>
         </div>
     </section> --}}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <section class="restaurant-section position-relative pb-80 fix">
     <div class="container">
         <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-30 pb-xl-0 pb-2">
@@ -1035,7 +1040,7 @@
                         <div class="icons smooth rounded-circle w-80px h-80px d-center theme-bg mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/order-icon3.png" alt="img" class="icon">
                         </div>
-                        <<h4 class="mb-xl-2 mb-2">
+                        <h4 class="mb-xl-2 mb-2">
   <a href="{{ route('shop') }}" class="link-effect">Food is on the way</a>
 </h4>
 <p class="fs-16">
@@ -1063,21 +1068,22 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="big-burger-thumb position-relative">
-                        <img src="/template/assets/img/home-1/big-burger.png" alt="img" class="w-100 wow fadeInUp">
-                        <!----- price -->
+                        <img src="/template/assets/img/home-1/chicken-peppersoup.png" alt="img" class="w-100 wow fadeInUp">
+                        {{-- <!----- price -->
                         <img src="/template/assets/img/home-1/price-bik-burger.png" alt="img"
-                            class="position-absolute end-0 top-0 me-30 price">
+                            class="position-absolute end-0 top-0 me-30 price"> --}}
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="big-burger-content">
                         <div class="d-flex gap-1 flex-column mb-xl-3 mb-lg-3 mb-2">
                             <h2 class="text-white heading-font-edensor position-relative">
-                                Big Burger
+                                Delicious
                             </h2>
-                            <h2 class="text-white heading-font-edensor">Cheese</h2>
+                            <h2 class="text-white heading-font-edensor">Chicken Peppersoup</h2>
                         </div>
-                        <a href="{{ route('contact') }}" class="theme-btn btn-outline-white heading-font">
+                        <br>
+                        <a href="{{ route('shop') }}" class="theme-btn btn-outline-white heading-font">
                             See Details & Offers <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1150,9 +1156,9 @@
             <!-- Right: Promo Image -->
             <div class="col-xl-4 col-lg-4">
                 <div class="popular-thumb-most position-relative rounded-20 overflow-hidden h-100">
-                    <img src="/template/assets/img/home-1/popular-price.jpg" alt="img" class="w-100">
+                    <img src="/template/assets/img/home-1/popularprice.jpg" alt="img" class="w-100">
                     <div class="price-badge position-absolute top-0 start-0 ms-2 mt-5 pt-5">
-                        <img src="/template/assets/img/home-1/price-badge-black.png" alt="img">
+                        {{-- <img src="/template/assets/img/home-1/price-badge-black.png" alt="img"> --}}
                     </div>
                 </div>
             </div>
@@ -1204,107 +1210,98 @@
                         <div class="swiper testimonial-slider">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div
-                                        class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </a>
-                                        <div class="content">
-                                            <div class="d-flex gap-1 mb-2">
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                            </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
-                                                    class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div
-                                        class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </a>
-                                        <div class="content">
-                                            <div class="d-flex gap-1 mb-2">
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                            </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
-                                                    class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div
-                                        class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </a>
-                                        <div class="content">
-                                            <div class="d-flex gap-1 mb-2">
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
-                                            </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
-                                                    class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
-                                    </div>
-                                </div>
+    <div class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
+        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
+            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
+        </a>
+        <div class="content">
+            <div class="d-flex gap-1 mb-2">
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+            </div>
+            <h3 class="text-black mb-2 fw-semibold">Absolutely Worth Every Kobo!</h3>
+            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                “ I honestly didn’t expect the food to taste this good. The portion was generous,
+                the packaging neat, and the soup was so rich! Even my mum asked for their contact.
+                You people sabi this cooking thing abeg! ”
+            </p>
+            <div class="gap-3 d-flex align-items-center">
+                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img" class="rounded-circle">
+                <div>
+                    <h6 class="mb-0 fw-bold black-clr">Chiamaka Okafor</h6>
+                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
+                </div>
+            </div>
+        </div>
+        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
+    </div>
+</div>
+
+<div class="swiper-slide">
+    <div class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
+        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
+            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
+        </a>
+        <div class="content">
+            <div class="d-flex gap-1 mb-2">
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+            </div>
+            <h3 class="text-black mb-2 fw-semibold">Excellent Service and Taste!</h3>
+            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                “ From ordering to delivery, everything was smooth. The seafood okra was
+                heavenly — fresh prawns, soft fish, and that native flavour that hits just right.
+                I’m now a regular customer, no cap. ”
+            </p>
+            <div class="gap-3 d-flex align-items-center">
+                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img" class="rounded-circle">
+                <div>
+                    <h6 class="mb-0 fw-bold black-clr">Emeka Nwosu</h6>
+                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
+                </div>
+            </div>
+        </div>
+        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
+    </div>
+</div>
+
+<div class="swiper-slide">
+    <div class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
+        <a href="{{ route('contact') }}" class="testimonial-thumb rounded-20 position-relative">
+            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
+        </a>
+        <div class="content">
+            <div class="d-flex gap-1 mb-2">
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+                <i class="fa-solid fa-star fs-16 ratting-clr"></i>
+            </div>
+            <h3 class="text-black mb-2 fw-semibold">Na This Kind Food We Need!</h3>
+            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                “ The turkey was soft, well-spiced and the soup tasted like home. You can tell
+                they use fresh ingredients. I even had to hide my plate so my younger brother
+                won’t finish it. Ten over ten! ”
+            </p>
+            <div class="gap-3 d-flex align-items-center">
+                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img" class="rounded-circle">
+                <div>
+                    <h6 class="mb-0 fw-bold black-clr">Tunde Adewale</h6>
+                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
+                </div>
+            </div>
+        </div>
+        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
+    </div>
+</div>
+
                             </div>
                         </div>
                         <div class="swiper-dot"></div>
@@ -1336,7 +1333,7 @@
                     <div
                         class="d-flex flex-sm-nowrap flex-wrap align-items-xl-center align-items-start gap-xxl-4 gap-xl-3 gap-3 py-xxl-2 px-xxl-3">
                         <div class="thumb min-w-110 d-block max-w-150 overflow-hidden rounded-12">
-                            <img src="/template/assets/img/home-1/partner-thum1.png" alt="img"
+                            <img src="/template/assets/img/home-1/partnerthum1.png" alt="img"
                                 class="w-100 overflow-hidden rounded-12">
                         </div>
                         <div class="content max-w-350">

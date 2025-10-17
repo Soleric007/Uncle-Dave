@@ -8,12 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Uncle Davids Cousine">
-<meta name="description" content="Order delicious Nigerian meals online — soups, rice, pasta, and platters freshly prepared and delivered to your doorstep.">
-<meta name="keywords" content="food delivery, Nigerian meals, order food online, egusi soup, jollof rice, Uncle Dave restaurant, Delta food delivery, Asaba food delivery">
+    <meta name="description"
+        content="Order delicious Nigerian meals online — soups, rice, pasta, and platters freshly prepared and delivered to your doorstep.">
+    <meta name="keywords"
+        content="food delivery, Nigerian meals, order food online, egusi soup, jollof rice, Uncle Dave restaurant, Delta food delivery, Asaba food delivery">
 
     <meta name="description" content="Uncle Dave">
     <!-- ======== Page title ============ -->
-    <title>Uncle Dave - About Us</title>
+    <title>Uncle David's Cuisine - About Us</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="/template/assets/img/logo/fav-icon.png">
     <!--<< Bootstrap min.css >>-->
@@ -128,7 +130,8 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">No 17 ojife street Nnebisi road Asaba Delta State</a>
+                                    <a target="_blank" href="#">No 17 ojife street Nnebisi road Asaba Delta
+                                        State</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -167,9 +170,12 @@
                             </a>
                         </div>
                         <div class="social-icon d-flex align-items-center">
-                            <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"  target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"
+                                target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food"
+                                target="_blank"><i class="fab fa-whatsapp"></i></a>
 
                         </div>
                     </div>
@@ -232,19 +238,28 @@
 
                                     </li>
 
+                                    <li class="has-dropdown">
+                                        <a href="{{ route('contact') }}">
+                                           Contact Us
+
+                                        </a>
+
+                                    </li>
+
                                 </ul>
                             </nav>
                         </div>
                     </div>
                     <div class="header-right d-xl-none d-flex justify-content-end align-items-center gap-sm-3 gap-2">
-                           <a href="{{ route('cart') }}">
-                            <button type="button" class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
-                                                        <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                                                        <span class="count-quan d-center count-quan-black text-white">
-                                {{ count(session()->get('cart', [])) }}
-                            </span>
-                                                    </button>
-                    </a>
+                        <a href="{{ route('cart') }}">
+                            <button type="button"
+                                class="tolly-icon d-lg-none rounded-pill w-36px h-36px position-relative">
+                                <img src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
+                                <span class="count-quan d-center count-quan-black text-white">
+                                    {{ count(session()->get('cart', [])) }}
+                                </span>
+                            </button>
+                        </a>
 
                         <div class="header__hamburger d-lg-none d-block my-auto">
                             <div
@@ -256,12 +271,14 @@
                     <div class="d-lg-flex d-none align-items-center gap-xxl-3 gap-3">
 
                         <a href="{{ route('cart') }}">
-                        <button type="button" class="tolly-icon border w-40px h-40px rounded-circle position-relative">
-                            <img width="21" src="/template/assets/img/icons/tolly-theme.png" alt="tolly-icon">
-                            <span class="count-quan d-center count-quan-black text-white">
-    {{ count(session()->get('cart', [])) }}
-</span>
-                        </button>
+                            <button type="button"
+                                class="tolly-icon border w-40px h-40px rounded-circle position-relative">
+                                <img width="21" src="/template/assets/img/icons/tolly-theme.png"
+                                    alt="tolly-icon">
+                                <span class="count-quan d-center count-quan-black text-white">
+                                    {{ count(session()->get('cart', [])) }}
+                                </span>
+                            </button>
                         </a>
                         <button type="button"
                             class="destop-bars black-bg w-40px h-40px rounded-circle d-xl-none d-flex align-items-center justify-content-center sidebar__toggle fs-20 text-white">
@@ -306,7 +323,8 @@
                 </ul>
             </div>
         </div>
-        <img src="/template/assets/img/home-1/home-shape-start.png" alt="img" class="bread-shape-start position-absolute">
+        <img src="/template/assets/img/home-1/home-shape-start.png" alt="img"
+            class="bread-shape-start position-absolute">
         <img src="/template/assets/img/home-1/home-shape-end.png" alt="img"
             class="bread-shape-end position-absolute d-sm-block d-none">
     </section>
@@ -322,42 +340,49 @@
                                 style="border-radius: 100px 20px 20px 20px;" class="w-100">
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-8">
-                        <div class="d-flex align-items-center gap-3 justify-content-between mb-40">
-                            <div class="section-title-style1 section-title2 max-w-450">
-                                <h6 class="heading-font-cormorant text-uppercase fw-bold text-dark mb-lg-3 mb-2">Quality
-                                    service</h6>
-                                <h2 class="wow fadeInUp heading-font-cormorant mb-sm-3 fw-bolder mb-2 white-clr text-black lh-1 fw-semibold text-capitalize text-capitalize"
-                                    data-wow-delay=".3s">
-                                    About Our Restaurant
-                                </h2>
-                                <p class="fs-16 body-font wow fadeInUp" data-wow-delay=".5s">where tradition meets
-                                    tastWe bring authentic ingredients
-                                    and heartfelt hospitality to your table. Whether you're
-                                    meal or a special occasio make every.</p>
-                            </div>
-                            <img src="/template/assets/img/home-2/about1-dine.png" alt="icon" class="d-lg-block d-none">
-                        </div>
-                        <div class="row align-items-center g-lg-4 g-3">
-                            <div class="col-lg-6">
-                                <h4 class="fw-bolder text-dark mb-1 heading-font-cormorant">Opening Hours</h4>
-                                <p class="fs-16 mb-xl-3 mb-2 body-font wow fadeInUp" data-wow-delay=".5s">meets tastWe
-                                    bring authentic aera flavors
-                                    fresh ingredients heartfelt.</p>
-                                <h6 class="text-dark body-font fs-16 mb-30">Mon-Fri: 9 AM – 22 PM <br> Saturday: 9 AM –
-                                    23 PM </h6>
-                                <a href="{{ route('about') }}" class="theme-btn rounded-1 theme-opacity-10 text-uppercase fs-13 ">
-                                    <span class="theme-clr">Contact With Us</span>
-                                </a>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="thumb img-hover max-w-350 ms-auto"
-                                    style="border-radius: 20px 20px 100px 20px;">
-                                    <img src="/template/assets/img/inner/about-m-thumb-small.jpg" alt="img" class="w-100">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 <div class="col-lg-8 col-md-8">
+    <div class="d-flex align-items-center gap-3 justify-content-between mb-40">
+        <div class="section-title-style1 section-title2 max-w-450">
+            <h6 class="heading-font-cormorant text-uppercase fw-bold text-dark mb-lg-3 mb-2">
+                Quality Service
+            </h6>
+            <h2 class="wow fadeInUp heading-font-cormorant mb-sm-3 fw-bolder mb-2 white-clr text-black lh-1 fw-semibold text-capitalize"
+                data-wow-delay=".3s">
+                About Uncle David’s Cuisine
+            </h2>
+            <p class="fs-16 body-font wow fadeInUp" data-wow-delay=".5s">
+                Welcome to <strong>Uncle David’s Cuisine</strong> — where every meal tells a story of tradition,
+                taste, and true Nigerian hospitality. We serve freshly made dishes inspired by local flavors,
+                prepared with love and the finest ingredients. From our sizzling soups to our perfectly seasoned meats,
+                every bite brings you closer to home.
+            </p>
+        </div>
+        <img src="/template/assets/img/home-2/about1-dine.png" alt="icon" class="d-lg-block d-none">
+    </div>
+
+    <div class="row align-items-center g-lg-4 g-3">
+        <div class="col-lg-6">
+            <h4 class="fw-bolder text-dark mb-1 heading-font-cormorant">Opening Hours</h4>
+            <p class="fs-16 mb-xl-3 mb-2 body-font wow fadeInUp" data-wow-delay=".5s">
+                We’re always ready to serve you hot, delicious, and freshly prepared meals — perfect for lunch, dinner,
+                or that late-night craving.
+            </p>
+            <h6 class="text-dark body-font fs-16 mb-30">
+                Monday – Saturday
+            </h6>
+            <a href="{{ route('about') }}" class="theme-btn rounded-1 theme-opacity-10 text-uppercase fs-13">
+                <span class="theme-clr">Contact Us</span>
+            </a>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="thumb img-hover max-w-350 ms-auto" style="border-radius: 20px 20px 100px 20px;">
+                <img src="/template/assets/img/inner/about-m-thumb-small.jpg" alt="img" class="w-100">
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -373,10 +398,15 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef1.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
-                                class="link-effect heading-font-cormorant fw-bolder">Professional Chef</a></h3>
-                        <p class="fs-16">Mauris rhoncus aenean vellit scelerue
-                            mauris pellentesque pulvinar.</p>
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant">
+                            <a href="javascript:void(0)"
+                                class="link-effect heading-font-cormorant fw-bolder">Professional Chef</a>
+                        </h3>
+                        <p class="fs-16">
+                            Our expert chefs bring years of experience and authentic Nigerian cooking skills to every
+                            dish —
+                            ensuring rich flavours, perfect seasoning, and that true homemade taste in every bite.
+                        </p>
                     </div>
                 </div>
                 <div class="line"></div>
@@ -385,10 +415,15 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef2.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
-                                class="link-effect heading-font-cormorant fw-bolder">Delicious Meals</a></h3>
-                        <p class="fs-16">Mauris rhoncus aenean vellit scelerue
-                            mauris pellentesque pulvinar.</p>
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant">
+                            <a href="javascript:void(0)"
+                                class="link-effect heading-font-cormorant fw-bolder">Delicious Meals</a>
+                        </h3>
+                        <p class="fs-16">
+                            From rich okra soup to tender beef and spicy jollof rice, every meal is freshly prepared
+                            with
+                            premium ingredients to give you that satisfying, finger-licking experience.
+                        </p>
                     </div>
                 </div>
                 <div class="line"></div>
@@ -397,18 +432,23 @@
                         <div class="icons smooth rounded-4 w-72px h-72px d-center mb-sm-4 mb-3">
                             <img src="/template/assets/img/icons/f-chef3.png" alt="img" class="icon">
                         </div>
-                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant"><a href="javascript:void(0)"
-                                class="link-effect heading-font-cormorant fw-bolder">Millions of Customer</a></h3>
-                        <p class="fs-16">Mauris rhoncus aenean vellit scelerue
-                            mauris pellentesque pulvinar.</p>
+                        <h3 class="mb-xl-2 mb-2 heading-font-cormorant">
+                            <a href="javascript:void(0)"
+                                class="link-effect heading-font-cormorant fw-bolder">Thousands of Happy Customers</a>
+                        </h3>
+                        <p class="fs-16">
+                            Loved by families, foodies, and working professionals across Nigeria — our meals have become
+                            the go-to choice for anyone craving quality food that tastes just like home.
+                        </p>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
     <!--- Chef Section -->
-    <section class="chef-section section-padding bg-cover fix"
+    {{-- <section class="chef-section section-padding bg-cover fix"
         style="background-image: url(/template/assets/img/home-2/chefs-bg.jpg);">
         <div class="container">
             <div class="section-title-style1 section-title2 mx-auto mb-40 text-center">
@@ -714,7 +754,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="client-section z-1 position-relative pb-100 pt-80 fix">
         <div class="container">
@@ -734,9 +774,11 @@
                                 <div class="swiper-slide">
                                     <div
                                         class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <div class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </div>
+                                        <a href="{{ route('contact') }}"
+                                            class="testimonial-thumb rounded-20 position-relative">
+                                            <img src="/template/assets/img/client-admin1.jpg" alt="img"
+                                                class="rounded-20">
+                                        </a>
                                         <div class="content">
                                             <div class="d-flex gap-1 mb-2">
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
@@ -745,32 +787,36 @@
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                             </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
+                                            <h3 class="text-black mb-2 fw-semibold">Absolutely Worth Every Kobo!</h3>
+                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                                                “ I honestly didn’t expect the food to taste this good. The portion was
+                                                generous,
+                                                the packaging neat, and the soup was so rich! Even my mum asked for
+                                                their contact.
+                                                You people sabi this cooking thing abeg! ”
+                                            </p>
+                                            <div class="gap-3 d-flex align-items-center">
+                                                <img width="50" height="50"
+                                                    src="/template/assets/img/admin1.jpg" alt="img"
                                                     class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold black-clr">Chiamaka Okafor</h6>
+                                                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/template/assets/img/quote-white.png" alt="img" class="quote-icon">
+                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
                                     </div>
                                 </div>
+
                                 <div class="swiper-slide">
                                     <div
                                         class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <div class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </div>
+                                        <a href="{{ route('contact') }}"
+                                            class="testimonial-thumb rounded-20 position-relative">
+                                            <img src="/template/assets/img/client-admin1.jpg" alt="img"
+                                                class="rounded-20">
+                                        </a>
                                         <div class="content">
                                             <div class="d-flex gap-1 mb-2">
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
@@ -779,32 +825,35 @@
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                             </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
+                                            <h3 class="text-black mb-2 fw-semibold">Excellent Service and Taste!</h3>
+                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                                                “ From ordering to delivery, everything was smooth. The seafood okra was
+                                                heavenly — fresh prawns, soft fish, and that native flavour that hits
+                                                just right.
+                                                I’m now a regular customer, no cap. ”
+                                            </p>
+                                            <div class="gap-3 d-flex align-items-center">
+                                                <img width="50" height="50"
+                                                    src="/template/assets/img/admin1.jpg" alt="img"
                                                     class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold black-clr">Emeka Nwosu</h6>
+                                                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/template/assets/img/quote-white.png" alt="img" class="quote-icon">
+                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
                                     </div>
                                 </div>
+
                                 <div class="swiper-slide">
                                     <div
                                         class="testimonial-items style1 d-flex flex-md-nowrap flex-wrap align-items-center position-relative">
-                                        <div class="testimonial-thumb rounded-20 position-relative">
-                                            <img src="/template/assets/img/client-admin1.jpg" alt="img" class="rounded-20">
-                                        </div>
+                                        <a href="{{ route('contact') }}"
+                                            class="testimonial-thumb rounded-20 position-relative">
+                                            <img src="/template/assets/img/client-admin1.jpg" alt="img"
+                                                class="rounded-20">
+                                        </a>
                                         <div class="content">
                                             <div class="d-flex gap-1 mb-2">
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
@@ -813,26 +862,28 @@
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                                 <i class="fa-solid fa-star fs-16 ratting-clr"></i>
                                             </div>
-                                            <h3 class="text-black mb-2 fw-semibold">Great Product! Highly Recommended!
-                                            </h3>
-                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">“ Great Quality Products WitheryGood
-                                                awrPackaging unknown
-                                                printer took a galle rambled it make pecimive centuries
-                                                Delicious Food Context ”</p>
-                                            <div class=" gap-3 d-flex align-items-center">
-                                                <img width="50" height="50" src="/template/assets/img/admin1.jpg" alt="img"
+                                            <h3 class="text-black mb-2 fw-semibold">Na This Kind Food We Need!</h3>
+                                            <p class="mb-lg-3 mb-2 fs-16 max-w-480">
+                                                “ The turkey was soft, well-spiced and the soup tasted like home. You
+                                                can tell
+                                                they use fresh ingredients. I even had to hide my plate so my younger
+                                                brother
+                                                won’t finish it. Ten over ten! ”
+                                            </p>
+                                            <div class="gap-3 d-flex align-items-center">
+                                                <img width="50" height="50"
+                                                    src="/template/assets/img/admin1.jpg" alt="img"
                                                     class="rounded-circle">
-                                                <div class="">
-                                                    <h6 class="mb-0 fw-bold black-clr">
-                                                        Annette Black
-                                                    </h6>
-                                                    <span class="fs-14 fw-500 pra-clr d-block">Sr.Designer</span>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold black-clr">Tunde Adewale</h6>
+                                                    <span class="fs-14 fw-500 pra-clr d-block">Customer, Asaba</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="/template/assets/img/quote-white.png" alt="img" class="quote-icon">
+                                        <img src="/template/assets/img/quote.png" alt="img" class="quote-icon">
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="swiper-dot dot-theme3"></div>
@@ -858,11 +909,13 @@
         <div class="container">
             <div class="footer-widget-wrapper pb-80">
                 <div class="d-flex align-items-center justify-content-between gap-3 pb-100">
-                    <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
+                    <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img"
+                        class="w-100 d-xl-block d-none">
                     <a href="{{ route('index') }}">
                         <img style="width: 300px" src="/template/assets/img/logo/logowhite.png" alt="img">
                     </a>
-                    <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img" class="w-100 d-xl-block d-none">
+                    <img src="/template/assets/img/home-4/f-lin-dot.png" alt="img"
+                        class="w-100 d-xl-block d-none">
                 </div>
                 <div class="row g-4">
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
@@ -872,7 +925,8 @@
                             </h5>
                             <ul class="important-link d-grid gap-sm-2 gap-1">
                                 <li>
-                                    <a href="{{ route('faqs') }}" class="text-white opacity-75 fw-light link-effect">FAQs</a>
+                                    <a href="{{ route('faqs') }}"
+                                        class="text-white opacity-75 fw-light link-effect">FAQs</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('order.tracking') }}"
@@ -893,7 +947,8 @@
                             </h5>
                             <ul class="important-link d-grid gap-sm-2 gap-1">
                                 <li>
-                                    <a href="{{ route('about') }}" class="text-white opacity-75 fw-light link-effect">Our
+                                    <a href="{{ route('about') }}"
+                                        class="text-white opacity-75 fw-light link-effect">Our
                                         Story</a>
                                 </li>
                                 <li>
@@ -917,8 +972,10 @@
                                 <p class="fs-16 white-clr opacity-75 mb-xl-3 mb-2">
                                     No 17 ojife street Nnebisi road Asaba Delta State
                                 </p>
-                                <h5 class="text-white mb-lg-3 mb-2"><a href="tel:+2347063764926" class="d-block" style="color: #fff">07063764926</a></h5>
-                                <p class="fs-16 white-clr opacity-75"><a href="mailto:uncledavidscuisine@gmail.com" style="color: #fff">uncledavidscuisine@gmail.com</a></p>
+                                <h5 class="text-white mb-lg-3 mb-2"><a href="tel:+2347063764926" class="d-block"
+                                        style="color: #fff">07063764926</a></h5>
+                                <p class="fs-16 white-clr opacity-75"><a href="mailto:uncledavidscuisine@gmail.com"
+                                        style="color: #fff">uncledavidscuisine@gmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -941,21 +998,24 @@
             <div class="container">
                 <div
                     class="d-flex align-items-center justify-content-sm-between justify-content-center flex-wrap gap-2 fs-16 text-center">
-                    <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('index') }}" class="theme-clr">Uncle Dave</a>
+                    <p class="fs-16 text4-clr">Copyright &copy; 2025 <a href="{{ route('index') }}"
+                            class="theme-clr">Uncle Dave</a>
                         all Right
                         Reserved</p>
-        <div class="d-flex align-items-center gap-4">
-                    <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank">
-                        <i class="fa-brands fa-facebook-f fs-18 text-white"></i>
-                    </a>
-                    <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0" target="_blank">
-                        <i class="fa-brands fa-instagram fs-18 text-white"></i>
-                    </a>
-                    <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food" target="_blank">
-                        <i class="fa-brands fa-whatsapp fs-18 text-white"></i>
-                    </a>
+                    <div class="d-flex align-items-center gap-4">
+                        <a href="https://www.facebook.com/share/1FQmhhxnt5/" target="_blank">
+                            <i class="fa-brands fa-facebook-f fs-18 text-white"></i>
+                        </a>
+                        <a href="https://www.instagram.com/uncle_davids_cuisine?igsh=ZXhuYjc5N3ZwdGU0"
+                            target="_blank">
+                            <i class="fa-brands fa-instagram fs-18 text-white"></i>
+                        </a>
+                        <a href="https://wa.me/2348081253560?text=Hello%20I%20want%20to%20order%20food"
+                            target="_blank">
+                            <i class="fa-brands fa-whatsapp fs-18 text-white"></i>
+                        </a>
 
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1001,56 +1061,56 @@
 
 
     <script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-// Add to cart functionality
-$(document).on('click', '.add-to-cart-btn', function(e) {
-    e.preventDefault();
-
-    let foodItemId = $(this).data('food-item-id');
-    let btn = $(this);
-    let originalText = btn.text().trim();
-
-    btn.prop('disabled', true).text('Adding...');
-
-    $.ajax({
-        url: '{{ route("cart.add") }}',
-        method: 'POST',
-        data: {
-            food_item_id: foodItemId,
-            quantity: 1
-        },
-        success: function(response) {
-            if(response.success) {
-                // Update cart count in header
-                $('.count-quan').text(response.cartCount);
-
-                // Change button appearance
-                btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
-
-                // Show success message
-                alert(response.message);
-
-                // Reset button after 2 seconds
-                setTimeout(function() {
-                    btn.text(originalText)
-                       .addClass('btn-outline-theme')
-                       .removeClass('theme-btn')
-                       .prop('disabled', false);
-                }, 2000);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        },
-        error: function(xhr) {
-            alert('Error adding item to cart');
-            btn.prop('disabled', false).text(originalText);
-        }
-    });
-});
-</script>
+        });
+
+        // Add to cart functionality
+        $(document).on('click', '.add-to-cart-btn', function(e) {
+            e.preventDefault();
+
+            let foodItemId = $(this).data('food-item-id');
+            let btn = $(this);
+            let originalText = btn.text().trim();
+
+            btn.prop('disabled', true).text('Adding...');
+
+            $.ajax({
+                url: '{{ route('cart.add') }}',
+                method: 'POST',
+                data: {
+                    food_item_id: foodItemId,
+                    quantity: 1
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Update cart count in header
+                        $('.count-quan').text(response.cartCount);
+
+                        // Change button appearance
+                        btn.text('Added!').removeClass('btn-outline-theme').addClass('theme-btn');
+
+                        // Show success message
+                        alert(response.message);
+
+                        // Reset button after 2 seconds
+                        setTimeout(function() {
+                            btn.text(originalText)
+                                .addClass('btn-outline-theme')
+                                .removeClass('theme-btn')
+                                .prop('disabled', false);
+                        }, 2000);
+                    }
+                },
+                error: function(xhr) {
+                    alert('Error adding item to cart');
+                    btn.prop('disabled', false).text(originalText);
+                }
+            });
+        });
+    </script>
 
 </body>
 
